@@ -78,22 +78,37 @@ DEFAULT_TEMPERATURE = 0.7
 DEFAULT_MAX_TOKENS = 500
 
 # Yardımcı Fonksiyonlar
-# ================
+# ====================
 
 # İstemci Kurulum Fonksiyonu: API anahtarı ve model bilgisi ile LLM istemcisini başlatır.
-def setup_client(api_key=None, model=DEFAULT_MODEL):
+def setup_client(api_key: Optional[str] = None, model: str = DEFAULT_MODEL) -> Tuple[Any, str]:
     """
-    Set up the API client for LLM interactions.
-    ...existing code...
+    LLM etkileşimleri için API istemcisini başlatır.
+
+    Args:
+        api_key: API anahtarı (None ise ortam değişkeninden alınır)
+        model: Kullanılacak model adı
+
+    Returns:
+        tuple: (client, model adı)
+    """
+    # ...existing code...
 
  # İstemci oluşturma örneği:
  # client, model = setup_client()
  
  def count_tokens(text: str, model: str = DEFAULT_MODEL) -> int:
      """
-     Count tokens in text string using the appropriate tokenizer.
+     Verilen metindeki jeton sayısını uygun tokenizer ile sayar.
+
+     Args:
+         text: Jetonları sayılacak metin
+         model: Jetonlama için model adı
+
+     Returns:
+         int: Metindeki jeton sayısı
      """
-     İstemdeki metni uygun tokenizer ile jetonlara çevirir ve sayısını döndürür.
+     # ...existing code...
  
  def generate_response(
      prompt: str,
@@ -104,9 +119,74 @@ def setup_client(api_key=None, model=DEFAULT_MODEL):
      system_message: str = "You are a helpful assistant."
  ) -> Tuple[str, Dict[str, Any]]:
      """
-     Generate a response from the LLM and return with metadata.
+     LLM'den yanıt üretir ve metriklerle birlikte döner.
++
++    Args:
++        prompt: Gönderilecek istem metni
++        client: API istemcisi (None ise setup_client ile oluşturulur)
++        model: Kullanılacak model adı
++        temperature: Sıcaklık (temperature) parametresi
++        max_tokens: Üretilecek maksimum jeton sayısı
++        system_message: Sistem mesajı
++
++    Returns:
++        tuple: (yanıt metni, metrikler sözlüğü)
++    """
+     # ...existing code...
+ 
+ def format_metrics(metrics: Dict[str, Any]) -> str:
      """
-     LLM'den yanıt oluşturur, istem ve sistem mesajı metriklerini toplar, geri döner.
-     try:
-         start_time = time.time()
-         response = client.chat.completions.create(
+     Metrikler sözlüğünü okunabilir bir metin satırına dönüştürür.
++
++    Args:
++        metrics: Gösterilecek metrikler sözlüğü
++
++    Returns:
++        str: Biçimlendirilmiş metrik satırı
++    """
+     # ...existing code...
+ 
+ def display_response(
+     prompt: str,
+     response: str,
+     metrics: Optional[Dict[str, Any]] = None,
+     show_prompt: bool = True
+ ):
+     """
+     İstem-yanıt çiftini ve metrikleri not defterinde gösterir.
++
++    Args:
++        prompt: İstem metni
++        response: Yanıt metni
++        metrics: Metrikler sözlüğü
++        show_prompt: İstemin gösterilip gösterilmeyeceği
++    """
+     # ...existing code...
+
+class ControlLoop:
+    """
+    Kontrol döngüsü implementasyonları için temel sınıf.
+    Metrik takibi ve geçmiş kaydı için ortak işlevselliği sağlar.
+    """
+
+    def __init__(
+        self,
+        client: Optional[Any] = None,
+        model: str = DEFAULT_MODEL,
+        system_message: str = "You are a helpful assistant.",
+        max_tokens: int = DEFAULT_MAX_TOKENS,
+        temperature: float = DEFAULT_TEMPERATURE,
+        verbose: bool = False
+    ):
+        """
+        Kontrol döngüsünü başlatır.
+        
+        Args:
+            client: API istemcisi (None ise oluşturulur)
+            model: Kullanılacak model adı
+            system_message: Sistem mesajı
+            max_tokens: Üretilecek maksimum jeton sayısı
+            temperature: Sıcaklık parametresi
+            verbose: Hata ayıklama bilgilerini yazdırma
+        """
+        # ...existing code...
