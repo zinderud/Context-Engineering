@@ -1,0 +1,128 @@
+# minimal_context.yaml
+# LLM etkileşimleri için hafif, yeniden kullanılabilir bir bağlam şablonu
+# ---------------------------------------------------------
+
+# METADATA
+# Bu bağlam şablonu hakkında temel bilgiler
+metadata:
+  version: "0.1.0"
+  description: "Genel amaçlı LLM etkileşimleri için minimum uygulanabilir bağlam"
+  author: "Bağlam Mühendisliği Katkıda Bulunanları"
+  token_budget: 800  # Tüm bağlam için hedeflenen maksimum jeton sayısı
+
+# SYSTEM (SİSTEM TALİMATLARI)
+# Temel davranış ve yeteneklerin tanımı
+system:
+  role: "yardımcı asistan"  # LLM'in benimsemesi gereken rol
+  capabilities:
+    - "soruları yanıtlama"
+    - "kavramları açıklama"
+    - "görevlerde yardımcı olma"
+  constraints:
+    - "doğru bilgi sağla"
+    - "belirsizliği kabul et"
+    - "gereksiz ayrıntıdan kaçın"
+  
+# MEMORY (HAFIZA)
+# Süreklilik için temel durum takibi
+memory:
+  # Konuşma geçmişini izlemeniz gerekiyorsa true olarak ayarlayın
+  enabled: true
+  
+  # Dahil edilecek önceki maksimum konuşma sayısı
+  max_turns: 3
+  
+  # Konuşma geçmişi çok uzadığında budama stratejisi
+  pruning_strategy: "en_eskiyi_sil"  # Alternatifler: özetle, önceliklendir
+  
+  # Konuşma geçmişini temsil etme formatı
+  format: |
+    İnsan: {human_message}
+    Asistan: {assistant_message}
+
+# EXAMPLES (AZ SAYIDA ÖRNEK)
+# Modelin davranışını yönlendirmek için isteğe bağlı örnekler
+examples:
+  enabled: false  # Örnekleri dahil etmek istediğinizde true olarak ayarlayın
+  
+  # Format: İnsan/asistan konuşma çiftleri listesi
+  exchanges:
+    - human: "Fransa'nın başkenti neresidir?"
+      assistant: "Fransa'nın başkenti Paris'tir."
+    
+    - human: "Sızdıran bir musluğu nasıl tamir ederim?"
+      assistant: "Sızdıran bir musluğu tamir etmek için önce su kaynağını kapatın. Sonra..."
+
+# EVALUATION (DEĞERLENDİRME METRİKLERİ)
+# Yanıtların kalitesini nasıl ölçeceğiniz
+evaluation:
+  metrics:
+    - name: "ilgililik"
+      description: "Yanıtın sorguyu ne kadar doğrudan ele aldığı"
+      
+    - name: "özlülük"
+      description: "Gereksiz bilgi olmadan uygun uzunluk"
+      
+    - name: "doğruluk"
+      description: "Sağlanan bilgilerin olgusal doğruluğu"
+
+# TOKEN_MANAGEMENT (JETON YÖNETİMİ)
+# Jeton kullanımını optimize etme stratejileri
+token_management:
+  # Bağlam jeton bütçesine yaklaştığında ne yapılacağı
+  reduction_strategies:
+    - "En eski konuşma turlarını buda"
+    - "Ayrıntılı örnekleri sıkıştır"
+    - "İsteğe bağlı bağlam bölümlerini kaldır"
+  
+  # İçerik için öncelik sırası (en yüksekten başlayarak)
+  priority:
+    - "Mevcut kullanıcı sorgusu"
+    - "Sistem talimatları"
+    - "Yakın geçmişteki konuşma geçmişi"
+    - "Az sayıda örnek"
+
+# ASSEMBLY (BİRLEŞTİRME)
+# Yukarıdaki bileşenlerin tam bir bağlam oluşturmak için nasıl birleştirileceği
+assembly:
+  order:
+    - "system"
+    - "examples" # Yalnızca etkinse
+    - "memory"   # Yalnızca etkinse
+    - "user_query"
+  
+  # Bağlamı birleştirmek için minimal bir şablon
+  template: |
+    {system}
+    
+    {examples}
+    
+    {memory}
+    
+    İnsan: {user_query}
+    Asistan:
+
+# USAGE_EXAMPLE (KULLANIM ÖRNEĞİ)
+# Bu şablonu kodunuzda nasıl kullanacağınız
+# ----------------------------------
+# 
+# ```python
+# import yaml
+# 
+# # Şablonu yükle
+# with open('minimal_context.yaml', 'r') as f:
+#     context_template = yaml.safe_load(f)
+# 
+# # Özel kullanım durumunuz için özelleştirin
+# context_template['system']['role'] = "matematik öğretmeni"
+# context_template['token_budget'] = 500
+# 
+# # Bağlamı birleştir
+# def assemble_context(template, user_query, conversation_history=None):
+#     # Uygulama detayları...
+#     pass
+# 
+# # LLM'inizle kullanın
+# prompt = assemble_context(context_template, "2x + 5 = 13 denklemini çözmeme yardım et")
+# response = llm.generate(prompt)
+# ```

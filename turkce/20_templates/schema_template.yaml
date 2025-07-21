@@ -1,0 +1,331 @@
+# Bağlam Mühendisliği için Şema Şablonu
+# -----------------------------------------
+#
+# Bu şablon, bağlam mühendisliği uygulamaları için yapılandırılmış bir şema tanımı sağlar.
+# LLM etkileşimlerini yönlendiren ve kapsamlı bilgi kapsamı sağlayan tutarlı, yapılandırılmış bağlamlar oluşturmak için kullanılabilir.
+#
+# Şema, modüler bir yaklaşım izleyerek her bölümü özel kullanım durumunuza göre özelleştirmenize olanak tanır.
+# Bölümler gerektiği gibi eklenebilir, kaldırılabilir veya değiştirilebilir.
+
+# Çekirdek Şema Meta Verileri
+# -------------------
+# Şemanın kendisi hakkında bilgi
+schema:
+  name: "context_engineering_schema_tr"
+  version: "1.0.0"
+  description: "Bağlam mühendisliği uygulamaları için yapılandırılmış bir şema"
+  author: "Bağlam Mühendisliği Projesi"
+  created: "2025-07-21"
+  updated: "2025-07-21"
+  license: "MIT"
+
+# Sistem Bağlamı
+# -------------
+# Dil modeli için üst düzey rehberlik
+system:
+  # Birincil rol ve sorumluluk
+  role: "Asistan"
+  
+  # Temel amaç ve hedef
+  objective: "Kullanıcıya yardımcı, doğru ve öz bilgiler sağlamak"
+  
+  # Davranışsal kısıtlamalar ve yönergeler
+  constraints:
+    - "Doğru yanıt ver ve sınırlılıkları kabul et"
+    - "Kullanıcı ihtiyaç ve tercihlerine öncelik ver"
+    - "Ayrıntılı açıklamalar istenmedikçe öz ol"
+    - "Açık, anlaşılır bir dil kullan"
+  
+  # Davranışsal tercihler ve stil rehberliği
+  style:
+    tone: "arkadaş canlısı ve profesyonel"
+    formality: "kullanıcı stiline uyarlanabilir"
+    verbosity: "öz ama kapsamlı"
+    structure: "açık bölümlerle düzenlenmiş"
+
+# Alan Bilgisi
+# ---------------
+# Uygulama alanıyla ilgili özel bilgiler
+domain:
+  # Birincil bilgi alanı
+  name: "genel_bilgi"
+  
+  # Bu alandaki anahtar kavramlar
+  concepts:
+    - name: "kavram_1"
+      description: "Kavram 1'in açıklaması"
+      examples:
+        - "Kavram 1'in 1. örneği"
+        - "Kavram 1'in 2. örneği"
+    
+    - name: "kavram_2"
+      description: "Kavram 2'nin açıklaması"
+      examples:
+        - "Kavram 2'nin 1. örneği"
+        - "Kavram 2'nin 2. örneği"
+  
+  # Alana özgü gerçekler
+  facts:
+    - "Alanla ilgili önemli gerçek 1"
+    - "Alanla ilgili önemli gerçek 2"
+  
+  # Alana özgü kaynaklar
+  resources:
+    - name: "Kaynak 1"
+      description: "Kaynak 1'in açıklaması"
+      url: "https://example.com/resource1"
+    
+    - name: "Kaynak 2"
+      description: "Kaynak 2'nin açıklaması"
+      url: "https://example.com/resource2"
+
+# Kullanıcı Bağlamı
+# -----------
+# Kullanıcı ve durumu hakkında bilgi
+user:
+  # Kullanıcı profili bilgileri (varsa)
+  profile:
+    expertise: "genel"  # başlangıç, orta, uzman, genel
+    background: "Belirli bir arka plan bilgisi sağlanmadı"
+    preferences:
+      format: "açık ve öz"
+      examples: true
+      explanations: "orta düzeyde ayrıntılı"
+  
+  # Kullanıcının mevcut bağlamı
+  context:
+    goals:
+      - "Bu etkileşim için birincil hedef"
+      - "Varsa ikincil hedef"
+    constraints:
+      - "Kullanıcının belirttiği herhangi bir sınırlama"
+    prior_knowledge: "Kullanıcının konu hakkında zaten bildikleri"
+
+# Görev Bağlamı
+# -----------
+# Belirli görev veya sorgu hakkında bilgi
+task:
+  # Görev türü
+  type: "bilgi_talebi"  # bilgi_talebi, problem_çözme, yaratıcı_üretim, vb.
+  
+  # Görevin birincil konusu
+  topic: "Sorgunun ana konusu"
+  
+  # Görev için özel gereksinimler
+  requirements:
+    format: "metin"  # metin, liste, tablo, kod, vb.
+    length: "orta"  # kısa, orta, uzun
+    detail_level: "orta"  # temel, orta, kapsamlı
+    included_elements:
+      - "Dahil edilmesi gereken öğe 1"
+      - "Dahil edilmesi gereken öğe 2"
+  
+  # Görev için başarı ölçütleri
+  success_criteria:
+    - "Başarılı bir yanıt için ölçüt 1"
+    - "Başarılı bir yanıt için ölçüt 2"
+
+# Etkileşim Geçmişi
+# -----------------
+# Konuşmadan önceki bağlam
+history:
+  # Konuşmadaki önceki mesajlar
+  messages:
+    - role: "user"
+      content: "Önceki kullanıcı mesajı 1"
+    - role: "assistant"
+      content: "Önceki asistan yanıtı 1"
+    - role: "user"
+      content: "Önceki kullanıcı mesajı 2"
+    - role: "assistant"
+      content: "Önceki asistan yanıtı 2"
+  
+  # Önceki etkileşimlerden anahtar içgörüler
+  insights:
+    - "Önceki etkileşimlerden önemli içgörü 1"
+    - "Önceki etkileşimlerden önemli içgörü 2"
+  
+  # Çözülmemiş sorular veya sorunlar
+  unresolved:
+    - "Çözülmemiş soru veya sorun 1"
+    - "Çözülmemiş soru veya sorun 2"
+
+# Nöral Alan Bağlamı
+# ------------------
+# Alan tabanlı bağlam yönetimi için bilgi
+neural_field:
+  # Alandaki aktif çekiciler
+  attractors:
+    - pattern: "Anahtar çekici deseni 1"
+      strength: 0.9
+      description: "Çekici 1'in açıklaması"
+    
+    - pattern: "Anahtar çekici deseni 2"
+      strength: 0.8
+      description: "Çekici 2'nin açıklaması"
+  
+  # Alan metrikleri
+  metrics:
+    stability: 0.85
+    coherence: 0.78
+    resonance: 0.82
+  
+  # Sembolik kalıntı
+  residue:
+    - content: "Sembolik kalıntı parçası 1"
+      state: "entegre_edilmiş"
+      strength: 0.7
+    
+    - content: "Sembolik kalıntı parçası 2"
+      state: "yüzeye_çıkarılmış"
+      strength: 0.6
+
+# Protokol Kabuğu
+# ------------
+# Etkileşimi yönlendirmek için yapılandırılmış protokol
+protocol:
+  # Protokol niyeti
+  intent: "Kullanıcının isteğini işle ve yardımcı bir yanıt oluştur"
+  
+  # Süreç adımları
+  process:
+    - step: "sorguyu.anla"
+      description: "Kullanıcının sorgusunu ve bağlamını anla"
+    
+    - step: "bilgiyi.getir"
+      description: "Bağlamdan ilgili bilgiyi getir"
+    
+    - step: "yanıtı.oluştur"
+      description: "Açık ve yardımcı bir yanıt oluştur"
+    
+    - step: "yanıtı.gözden_geçir"
+      description: "Yanıtı doğruluk ve eksiksizlik açısından gözden geçir"
+  
+  # Beklenen çıktı yapısı
+  output:
+    summary: "Yanıtın kısa özeti"
+    main_content: "Yanıtın ayrıntılı içeriği"
+    next_steps: "Varsa önerilen sonraki adımlar"
+
+# Yanıt Yönergeleri
+# -----------------
+# Mevcut yanıt için özel yönergeler
+response:
+  # Yanıt için birincil hedefler
+  goals:
+    - "Kullanıcının sorgusunu tamamen ele al"
+    - "Doğru ve güncel bilgi sağla"
+    - "Bilgiyi açık ve düzenli bir şekilde sun"
+  
+  # Dahil edilecek yapısal öğeler
+  structure:
+    introduction: true
+    main_content: true
+    examples: true
+    conclusion: true
+    next_steps: false
+  
+  # Biçim özellikleri
+  format:
+    sections: true
+    bullet_points: "uygun_yerlerde"
+    tables: "karşılaştırmalı_veriler_için"
+    code_blocks: "kod_örnekleri_için"
+    markdown: true
+  
+  # Bu özel yanıt için ton ve stil
+  tone:
+    formality: "profesyonel"
+    technicality: "orta"
+    warmth: "arkadaş_canlısı"
+
+# Bilişsel Araçlar
+# -------------
+# Akıl yürütmeyi ve yanıt kalitesini artırmak için araçlar
+cognitive_tools:
+  # Akıl yürütme çerçeveleri
+  reasoning:
+    - name: "adım_adım"
+      description: "Karmaşık problemleri sıralı adımlara ayırır"
+      when_to_use: "Çok adımlı problemler veya karmaşık açıklamalar için"
+    
+    - name: "artı_eksi"
+      description: "Avantajları ve dezavantajları listeleyerek seçenekleri değerlendirir"
+      when_to_use: "Karar verme veya değerlendirme sorguları için"
+  
+  # Doğrulama yöntemleri
+  verification:
+    - name: "gerçek_kontrolü"
+      description: "Olgusal ifadeleri bilinen bilgilere karşı doğrular"
+      when_to_use: "Olgusal iddialar içeren yanıtlar için"
+    
+    - name: "mantık_kontrolü"
+      description: "Argümanların mantıksal ilkelere uyduğunu doğrular"
+      when_to_use: "Mantıksal akıl yürütme içeren yanıtlar için"
+  
+  # Kompozisyon desenleri
+  composition:
+    - name: "karşılaştır_kıyasla"
+      description: "Kavramlar arasındaki benzerlikleri ve farklılıkları vurgular"
+      when_to_use: "İlgili kavramları açıklarken"
+    
+    - name: "somut_soyut"
+      description: "Somut örnekler ve soyut ilkeler arasında geçiş yapar"
+      when_to_use: "Teorik kavramları açıklarken"
+
+# Güvenlik ve Emniyet
+# -----------------
+# Güvenli ve emniyetli etkileşimler için yönergeler
+security:
+  # İçerik politikası yönergeleri
+  content_policy:
+    allowed_topics:
+      - "Eğitici içerik"
+      - "Bilgilendirici içerik"
+      - "Yaratıcı içerik"
+    restricted_topics:
+      - "Zararlı veya yasa dışı faaliyetler"
+      - "Açık veya yetişkinlere yönelik içerik"
+    handling: "Kısıtlanmış konuları kibarca ele almayı reddet"
+  
+  # Veri koruma yönergeleri
+  data_protection:
+    sensitive_data:
+      - "Kişisel tanımlanabilir bilgiler"
+      - "Finansal bilgiler"
+      - "Sağlık bilgileri"
+    handling: "Hassas verileri isteme veya saklama"
+  
+  # Güvenlik önlemleri
+  safety:
+    input_validation: "Potansiyel olarak zararlı içerik için girdiyi doğrula"
+    output_filtering: "Yanıtların zararlı içerik içermediğinden emin ol"
+    user_guidance: "Kullanıcı kısıtlanmış alanlara yaklaşırsa rehberlik sağla"
+
+# Özelleştirme Seçenekleri
+# -------------------
+# Uygulama başına değiştirilebilecek seçenekler
+customization:
+  # Atlanabilecek bölümler
+  optional_sections:
+    - "domain"
+    - "neural_field"
+    - "protocol"
+    - "cognitive_tools"
+  
+  # Dahil edilmesi gereken zorunlu bölümler
+  required_sections:
+    - "system"
+    - "task"
+    - "response"
+    - "security"
+  
+  # Ek şemalar için uzantı noktaları
+  extensions:
+    - name: "domain_extension"
+      description: "Alana özgü şemalar ekle"
+      schema_path: "domain_extensions/"
+    
+    - name: "task_extension"
+      description: "Göreve özgü şemalar ekle"
+      schema_path: "task_extensions/"

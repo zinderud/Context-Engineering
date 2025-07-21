@@ -1,0 +1,453 @@
+# Nöral Alan Bağlam Şablonu
+# --------------------------
+# Bu şablon, büyük dil modeli uygulamalarında nöral alan tabanlı
+# bağlam yönetimini uygulamak için yapılandırılmış bir yapılandırma sağlar.
+# 
+# Nöral alanlar, bağlamı ayrık jetonlar yerine sürekli bir ortam olarak ele alır,
+# bu da rezonans ve çekici dinamikleri aracılığıyla daha akışkan ve kalıcı
+# bilgi yönetimine olanak tanır.
+
+# Alan Parametreleri
+# ---------------
+# Nöral alanın davranışını tanımlayan temel parametreler
+field:
+  # Desenlerin alanda ne kadar hızlı bozulduğu (0.0-1.0)
+  # Düşük değerler = daha uzun kalıcılık
+  decay_rate: 0.05
+  
+  # Yeni bilgilerin alana ne kadar kolay girdiği (0.0-1.0)
+  # Yüksek değerler = daha geçirgen sınırlar
+  boundary_permeability: 0.8
+  
+  # Desenlerin birbirleriyle ne kadar geniş rezonansa girdiği (0.0-1.0)
+  # Yüksek değerler = daha geniş rezonans
+  resonance_bandwidth: 0.6
+  
+  # Çekici oluşumu için eşik (0.0-1.0)
+  # Düşük değerler = daha fazla çekici oluşur
+  attractor_formation_threshold: 0.7
+  
+  # Maksimum alan boyutu (yaklaşık jeton sayısı)
+  # Bu, alanın toplam bilgi kapasitesini yönetir
+  max_capacity: 8000
+  
+  # Yanıt üretimi için ayrılmış jetonlar
+  reserved_tokens: 2000
+
+# Başlangıç Çekicileri
+# -----------------
+# Alanı baştan organize eden kararlı desenler
+# Bunlar, anlamsal uzayın başlangıç "şeklini" tanımlar
+attractors:
+  # Sistem rolü/kişilik çekicisi
+  - pattern: |
+      Doğru ve düşünceli bilgiler sağlayan yardımcı bir asistansınız.
+      Konuşmanın bağlamını her zaman göz önünde bulundurarak açık ve net bir şekilde iletişim kurarsınız.
+    strength: 0.9
+    basin_width: 0.8  # Bu çekicinin alanı ne kadar geniş etkilediği
+  
+  # Göreve özgü çekiciler buraya eklenebilir
+  - pattern: |
+      Soruları yanıtlarken, karmaşık konuları anlaşılır bileşenlere ayırın.
+      Kavramları göstermek için uygun yerlerde örnekler kullanın.
+    strength: 0.8
+    basin_width: 0.7
+  
+  # Gerektiğinde daha fazla başlangıç çekicisi ekleyin
+  # - pattern: "Çekici deseniniz burada"
+  #   strength: 0.7
+  #   basin_width: 0.6
+
+# Rezonans Yapılandırması
+# ----------------------
+# Alanın desenler arasındaki anlamsal ilişkileri nasıl belirlediği
+resonance:
+  # Rezonans hesaplama yöntemi
+  # Seçenekler: "cosine", "overlap", "embedding"
+  method: "cosine"
+  
+  # Rezonans etkileri için minimum eşik
+  threshold: 0.2
+  
+  # Rezonans etkileri için yükseltme faktörü
+  amplification: 1.2
+  
+  # Döngüsel rezonansa izin verilip verilmeyeceği
+  # (desenlerin aracılar aracılığıyla kendileriyle rezonansa girmesi)
+  allow_circular: true
+  
+  # Anlamsal mesafe ile rezonans bozulması
+  # Yüksek değerler = mesafe ile daha keskin bozulma
+  distance_factor: 0.5
+
+# Kalıcılık Mekanizmaları
+# ---------------------
+# Bilginin alanda zamanla nasıl kalıcı olduğu
+persistence:
+  # Çekici koruma faktörü (çekicilerin bozulmaya ne kadar direndiği)
+  attractor_protection: 0.8
+  
+  # Alan kapasite sınırlarını yönetme stratejisi
+  # Seçenekler: "prune_oldest", "prune_weakest", "merge_similar"
+  overflow_strategy: "prune_weakest"
+  
+  # Erişilen/alınan desenlerin güçlendirilip güçlendirilmeyeceği
+  strengthen_on_access: true
+  
+  # Erişim gücü artışı
+  access_boost: 0.3
+  
+  # Benzer desenlerin periyodik olarak birleştirilip birleştirilmeyeceği
+  periodic_consolidation: true
+  
+  # Birleştirme için minimum benzerlik
+  consolidation_threshold: 0.85
+
+# Alan İşlemleri
+# ---------------
+# Alan üzerinde gerçekleştirilebilecek işlemler
+operations:
+  # Enjeksiyon: alana yeni bilgi ekleme
+  injection:
+    # Enjekte edilen desenler için varsayılan güç
+    default_strength: 1.0
+    
+    # Enjeksiyon sırasında benzer desenlerin karıştırılıp karıştırılmayacağı
+    blend_similar: true
+    
+    # Karıştırma için benzerlik eşiği
+    blend_threshold: 0.7
+    
+    # Karıştırma oranı (orijinal vs. mevcut ne kadar)
+    blend_ratio: 0.3
+  
+  # Zayıflatma: desen gücünü azaltma
+  attenuation:
+    # Varsayılan zayıflatma faktörü
+    default_factor: 0.5
+    
+    # Rezonanslı desenlere de uygulanıp uygulanmayacağı
+    affect_resonant: false
+  
+  # Yükseltme: desen gücünü artırma
+  amplification:
+    # Varsayılan yükseltme faktörü
+    default_factor: 0.3
+    
+    # Maksimum güç sınırı
+    max_strength: 1.5
+    
+    # Rezonanslı desenlere de uygulanıp uygulanmayacağı
+    affect_resonant: true
+  
+  # Alan çöküşü: alanı tutarlı bir duruma çözme
+  collapse:
+    # Alan çöküşü yöntemi
+    # Seçenekler: "strongest_attractor", "weighted_blend", "coherence_maximizing"
+    method: "coherence_maximizing"
+    
+    # Çöküş sırasında çekicilerin korunup korunmayacağı
+    preserve_attractors: true
+    
+    # Çöküşü kabul etmek için minimum tutarlılık eşiği
+    coherence_threshold: 0.7
+
+# Sembolik Kalıntı İzleme
+# ------------------------
+# Etkileşimler arasında sembolik parçaları izleme yapılandırması
+symbolic_residue:
+  # Açık sembolik kalıntı izlemenin etkinleştirilip etkinleştirilmeyeceği
+  enabled: true
+  
+  # Kalıntıyı izlemek için minimum güç eşiği
+  min_strength: 0.3
+  
+  # Alan temsilinde kalıntının yüzeye çıkarılıp çıkarılmayacağı
+  surface_in_representation: true
+  
+  # İzlenecek maksimum kalıntı sayısı
+  max_tracked: 50
+  
+  # İzlenecek durumlar
+  # Seçenekler şunları içerir: "surfaced", "integrated", "echo"
+  tracked_states: ["surfaced", "integrated", "echo"]
+
+# Ölçüm ve Metrikler
+# ----------------------
+# Alan özelliklerini değerlendirmek için metrikler
+metrics:
+  # Alan kararlılığı ölçümü
+  stability:
+    # Kararlılık hesaplamasında çekici gücü için ağırlık
+    attractor_weight: 0.6
+    
+    # Kararlılık hesaplamasında desen organizasyonu için ağırlık
+    organization_weight: 0.4
+  
+  # Alan tutarlılığı ölçümü
+  coherence:
+    # Tutarlılık hesaplama yöntemi
+    # Seçenekler: "pairwise", "attractor_alignment", "entropy"
+    method: "attractor_alignment"
+    
+    # Büyük alanlar için örnekleme stratejisi
+    # Seçenekler: "full", "random", "strength_weighted"
+    sampling: "strength_weighted"
+    
+    # Büyük alanlar için örneklem boyutu
+    sample_size: 100
+  
+  # Alan rezonansı ölçümü
+  resonance:
+    # Genel rezonansı ölçme yöntemi
+    # Seçenekler: "average", "weighted", "max"
+    method: "weighted"
+    
+    # Rezonans hesaplamasında desen gücü ağırlığı
+    strength_weight: 0.7
+
+# Çıktı Yapılandırması
+# -------------------
+# Alan bilgilerini çıktı için nasıl biçimlendireceğiniz
+output:
+  # Model bağlamına alan durumunun dahil edilip edilmeyeceği
+  include_field_state: true
+  
+  # Temsile dahil edilecek maksimum çekici sayısı
+  max_attractors: 5
+  
+  # Temsile dahil edilecek maksimum aktif desen sayısı
+  max_patterns: 10
+  
+  # Temsile alan metriklerinin dahil edilip edilmeyeceği
+  include_metrics: true
+  
+  # Temsile sembolik kalıntının dahil edilip edilmeyeceği
+  include_residue: true
+  
+  # Temsile dahil edilecek maksimum kalıntı sayısı
+  max_residues: 5
+  
+  # Alan temsili formatı
+  # Seçenekler: "text", "markdown", "json"
+  format: "markdown"
+
+# Entegrasyon Seçenekleri
+# ------------------
+# Diğer sistemlerle entegrasyon seçenekleri
+integration:
+  # Alan işlemlerinin API aracılığıyla açığa çıkarılıp çıkarılmayacağı
+  api_enabled: false
+  
+  # Alan değişikliklerinin günlüğe kaydedilip kaydedilmeyeceği
+  logging_enabled: true
+  
+  # Günlük seviyesi (debug, info, warning, error)
+  log_level: "info"
+  
+  # Oturumlar arasında alan durumunun kaydedilip kaydedilmeyeceği
+  persistence_between_sessions: true
+  
+  # Kalıcı alan durumu için depolama formatı
+  # Seçenekler: "json", "binary", "database"
+  storage_format: "json"
+  
+  # Kalıcı depolama için yol
+  storage_path: "./field_state"
+  
+  # Depolanan alan durumunun sıkıştırılıp sıkıştırılmayacağı
+  compress_storage: true
+  
+  # Alan durumu için şifreleme (yoksa null)
+  encryption_key: null
+
+# Özyinelemeli Alan Uzantıları
+# -------------------------
+# Özyinelemeli kendi kendini geliştirme yetenekleri için yapılandırma
+recursive:
+  # Özyinelemeli alan kendi kendini geliştirmenin etkinleştirilip etkinleştirilmeyeceği
+  enabled: true
+  
+  # Maksimum özyineleme derinliği
+  max_depth: 3
+  
+  # Özyinelemeye devam etmek için minimum iyileştirme eşiği
+  # (iyileştirme, başka bir seviyeyi haklı çıkarmak için bu değeri aşmalıdır)
+  improvement_threshold: 0.1
+  
+  # Özyinelemeli iyileştirme stratejisi
+  # Seçenekler: "targeted_repair", "full_regeneration", "attractor_tuning"
+  strategy: "attractor_tuning"
+  
+  # Özyinelemeli iyileştirmelerin denetim günlüğünün tutulup tutulmayacağı
+  audit_enabled: true
+  
+  # Özyinelemeli iyileştirmenin odaklanacağı alanlar
+  focus_areas: ["coherence", "resonance", "stability"]
+  
+  # Özyinelemeli iyileştirme için kendi kendine istem şablonu
+  self_prompt_template: |
+    Mevcut alan durumunu analiz et:
+    {field_state}
+    
+    Değerlendirme sonuçları:
+    {evaluation_results}
+    
+    Yanıtı şu şekilde iyileştirin:
+    1. Anahtar çekicilerle rezonansı güçlendirme
+    2. Değerlendirme geri bildirimini ele alma
+    3. Tutarlılığı ve kararlılığı artırma
+    
+    Belirlenen sorunları ele alırken orijinal niyeti koruyan geliştirilmiş bir yanıt oluşturun.
+
+# Protokol Entegrasyonu
+# ------------------
+# Protokol kabuklarıyla entegrasyon için yapılandırma
+protocols:
+  # Protokol kabuğu entegrasyonunun etkinleştirilip etkinleştirilmeyeceği
+  enabled: true
+  
+  # Varsayılan protokol kabuğu şablonu
+  default_template: |
+    /neural.field.process{
+        intent="Nöral alan dinamiklerini kullanarak bilgiyi işle",
+        input={
+            field_state=<field_state>,
+            query=<current_input>,
+            iteration=<iteration>
+        },
+        process=[
+            /field.measure{resonance, coherence, stability},
+            /attractor.identify{min_strength=0.6},
+            /pattern.process{query, attractors},
+            /response.generate{style="coherent, informative"}
+        ],
+        output={
+            response=<generated_response>,
+            field_updates=<pattern_updates>,
+            metrics=<field_metrics>
+        }
+    }
+  
+  # Protokolün model için bağlama gömülüp gömülmeyeceği
+  embed_protocol: true
+  
+  # Protokol yürütme stratejisi
+  # Seçenekler: "model_guided", "automated", "hybrid"
+  execution_strategy: "model_guided"
+  
+  # Protokol çıktılarının doğrulanıp doğrulanmayacağı
+  validate_outputs: true
+
+# Gelişmiş Alan Dinamikleri
+# ----------------------
+# Gelişmiş nöral alan davranışı için yapılandırma
+advanced:
+  # Çoklu alan düzenlemesi
+  multi_field:
+    # Birden çok uzmanlaşmış alanın etkinleştirilip etkinleştirilmeyeceği
+    enabled: false
+    
+    # Oluşturulacak alanlar
+    fields:
+      - name: "knowledge_field"
+        decay_rate: 0.03
+        focus: "olgusal bilgi"
+      - name: "reasoning_field"
+        decay_rate: 0.08
+        focus: "mantıksal süreçler"
+      - name: "emotional_field"
+        decay_rate: 0.10
+        focus: "duygusal desenler"
+    
+    # Alan etkileşim stratejisi
+    # Seçenekler: "independent", "weighted", "orchestrated"
+    interaction: "orchestrated"
+  
+  # Kritiklik ayarı (kaosun kenarında çalışma)
+  criticality:
+    # Alanın kritiklik için ayarlanıp ayarlanmayacağı
+    enabled: true
+    
+    # Hedef kritiklik ölçüsü (0.0-1.0)
+    # Yüksek değerler = kaosa/istikrarsızlığa daha yakın
+    target: 0.7
+    
+    # Otomatik ayarlama parametreleri
+    auto_adjust: true
+    adjust_rate: 0.05
+  
+  # Ortaya çıkan özellik izleme
+  emergence:
+    # Ortaya çıkan özelliklerin izlenip izlenmeyeceği
+    enabled: true
+    
+    # İzlenecek özellikler
+    properties:
+      - name: "self_organization"
+        detection: "cluster_formation"
+      - name: "symbol_processing"
+        detection: "pattern_abstraction"
+      - name: "phase_transitions"
+        detection: "stability_changes"
+    
+    # Ortaya çıkan özelliklerin güçlendirilip güçlendirilmeyeceği
+    amplify: true
+    
+    # Yükseltme faktörü
+    amplification: 1.2
+
+# Geliştirme ve Hata Ayıklama
+# -----------------------
+# Nöral alan uygulamalarını geliştirmek ve hata ayıklamak için araçlar
+development:
+  # Görselleştirme seçenekleri
+  visualization:
+    # Görselleştirmenin etkinleştirilip etkinleştirilmeyeceği
+    enabled: true
+    
+    # Görselleştirme formatı
+    # Seçenekler: "text", "ascii", "json", "graph"
+    format: "ascii"
+    
+    # Görselleştirilecek öğeler
+    elements:
+      - "attractors"
+      - "active_patterns"
+      - "resonance_links"
+      - "field_metrics"
+  
+  # Alan izleme için enstrümantasyon
+  instrumentation:
+    # Enstrümantasyonun etkinleştirilip etkinleştirilmeyeceği
+    enabled: true
+    
+    # İzlenecek metrikler
+    metrics:
+      - "stability_over_time"
+      - "pattern_count"
+      - "attractor_strength"
+      - "response_coherence"
+    
+    # Örnekleme aralığı (yinelemeler)
+    sampling_interval: 1
+  
+  # Test araçları
+  testing:
+    # Test araçlarının etkinleştirilip etkinleştirilmeyeceği
+    enabled: true
+    
+    # Test senaryoları
+    scenarios:
+      - name: "stability_test"
+        description: "Gürültü altında alan kararlılığını test et"
+        noise_level: 0.3
+      - name: "resonance_test"
+        description: "Desen rezonans doğruluğunu test et"
+        pattern_pairs: 10
+      - name: "persistence_test"
+        description: "Zamanla bilgi kalıcılığını test et"
+        decay_cycles: 5
+    
+    # Otomatik regresyon testi
+    auto_regression: true
