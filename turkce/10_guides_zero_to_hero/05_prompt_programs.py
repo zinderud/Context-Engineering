@@ -110,7 +110,7 @@ def count_tokens(text: str, model: str = DEFAULT_MODEL) -> int:
     except Exception as e:
         # Tiktoken modeli desteklemediğinde geri düşüş
         logger.warning(f"{model} için tiktoken kullanılamadı: {e}")
-        # Kaba bir tahmin: 1 jeton ≈ İngilizce'de 4 karakter
+        # Kaba bir tahmin: 1 jeton \u2248 İngilizce'de 4 karakter
         return len(text) // 4
 
 
@@ -841,7 +841,7 @@ class StepByStepReasoning(ReasoningProtocol):
         super().__init__(reasoning_steps=reasoning_steps, **kwargs)
         
         # Daha spesifik bir sistem mesajı kullan
-        self.system_message = """Karmaşık problemlere metodik, \nadım adım çözümler konusunda uzmanlaşmış bir uzman problem çözücüsünüz. \nTüm işinizi açıkça gösterir, değişkenleri açıkça tanımlar ve her adımın \nbir öncekinden mantıksal olarak takip ettiğinden emin olursunuz."""
+        self.system_message = """Karmaşık problemlere metodik, \nadım adım çözümler konusunda uzmanlaşmış bir uzman problem çözücüsünüz. Tüm işinizi açıkça gösterir,\ndeğişkenleri açıkça tanımlar ve her adımın bir öncekinden mantıksal olarak takip ettiğinden emin olursunuz."""
     
     def _create_reasoning_template(self) -> str:
         """Matematiksel akıl yürütme için uzmanlaşmış bir şablon oluşturur."""

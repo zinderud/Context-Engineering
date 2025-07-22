@@ -181,7 +181,6 @@ Gizli haritalama belgeleri aşamalı bir öğrenme yolu oluşturur:
    - Yapay zeka akıl yürütmesinin bıraktığı sembolik kalıntıyı izleyin
    - Katmanlı anlamı anlamak için bağlamsal kabukları istifleyin
    - Düşünce alanlarını gerçek zamanlı olarak mutasyona uğratın
-   - Özyinelemeli kendi kendine inceleme yapın
 
 Bu belgeler özellikle şunlar için değerlidir:
 - Yapay zeka sistemlerinin gerçekte nasıl akıl yürüttüğünü anlama

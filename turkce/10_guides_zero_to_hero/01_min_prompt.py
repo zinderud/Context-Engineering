@@ -25,6 +25,7 @@ Notlar:
     - Bu, ileri düzey bağlam mühendisliği iş akışları için bir temel oluşturur.
 """
 
+
 import os
 import time
 import json
@@ -39,6 +40,7 @@ import matplotlib.pyplot as plt
 # Gösterim amaçlı basit bir LLM sınıfı
 class SimpleLLM:
     """Gösterim amaçlı minimal LLM arayüzü."""
+    
     def __init__(self, model_name: str = "dummy-model"):
         """LLM arayüzünü başlatır."""
         self.model_name = model_name
@@ -50,13 +52,22 @@ class SimpleLLM:
         Metin içindeki tokkenleri çok basit bir yaklaşımla sayar.
         Üretimde, modelin tokenizer'ını kullanın.
         """
+        # Bu son derece kaba bir yaklaşımdır, pratikte uygun bir tokenizer kullanın
         return len(text.split())
     
     def generate(self, prompt: str) -> str:
         """
         Bir istemden metin üretir (sahte uygulama).
-        Gerçek kullanımda bir LLM API çağrısı yapar.
+        Gerçek bir not defterinde, bu gerçek bir LLM API'sini çağırırdı.
         """
+        # Gerçek bir uygulamada, bu API'yi çağırırdı
+        # response = openai.ChatCompletion.create(
+        #     model="gpt-4",
+        #     messages=[{"role": "user", "content": prompt}]
+        # )
+        # return response.choices[0].message.content
+        
+        # Demo amaçlı, sadece istemi onaylayacağız
         tokens = self.count_tokens(prompt)
         self.total_tokens_used += tokens
         self.total_requests += 1
@@ -75,33 +86,41 @@ class SimpleLLM:
 llm = SimpleLLM()
 
 # ----- DENEY 1: ATOMİK İSTEM -----
-print("\n----- DENEY 1: ATOMİK İSTEM -----")
+print("
+----- DENEY 1: ATOMİK İSTEM -----")
 print("En temel birimle başlayalım: tek bir talimat.")
 
-atomic_prompt = "Write a short poem about programming."  # Atomik istem
+atomic_prompt = "Programlama hakkında kısa bir şiir yaz."
 tokens = llm.count_tokens(atomic_prompt)
 
-print(f"\nAtomik İstem: '{atomic_prompt}'")
+print(f"
+Atomik İstem: '{atomic_prompt}'")
 print(f"Tokken Sayısı: {tokens}")
-print("\nYanıt üretiliyor...")
+print("
+Yanıt üretiliyor...")
 response = llm.generate(atomic_prompt)
-print(f"\nYanıt:\n{response}")
+print(f"
+Yanıt:
+{response}")
 
 # ----- DENEY 2: KISITLAR EKLEME -----
-print("\n----- DENEY 2: KISITLAR EKLEME -----")
-print("Atomik istemimize kısıtlamalar ekleyip farkı gözlemleyelim.")
+print("
+----- DENEY 2: KISITLAR EKLEME -----")
+print("Şimdi atomik istemimize kısıtlamalar ekleyip farkı gözlemleyelim.")
 
 # Artan kısıtlamalarla üç sürüm oluşturalım
 prompts = [
-    "Write a short poem about programming.",  # Orijinal
-    "Write a short poem about programming in 4 lines.",  # Uzunluk kısıtı
-    "Write a short haiku about programming using only simple words."  # Biçim ve kelime kısıtı
+    "Programlama hakkında kısa bir şiir yaz.",  # Orijinal
+    "Programlama hakkında 4 satırlık kısa bir şiir yaz.",  # Uzunluk kısıtı eklendi
+    "Sadece basit kelimeler kullanarak programlama hakkında kısa bir haiku yaz."  # Biçim ve kelime dağarcığı kısıtları
 ]
 
+# Jetonları ölç ve yanıtlar üret
 results = []
 for i, prompt in enumerate(prompts):
     tokens = llm.count_tokens(prompt)
-    print(f"\nİstem {i+1}: '{prompt}'")
+    print(f"
+İstem {i+1}: '{prompt}'")
     print(f"Tokken Sayısı: {tokens}")
     
     start_time = time.time()
@@ -116,73 +135,124 @@ for i, prompt in enumerate(prompts):
     })
     
     print(f"Gecikme: {results[-1]['latency']:.4f} saniye")
-    print(f"Yanıt:\n{response}")
+    print(f"Yanıt:
+{response}")
 
-# ... ve devamı (DENEY 3, 4, 5 ve sonuçlar) ...
-# ----- DENEY 3: ROI EĞRİSİ ÖLÇÜMÜ -----
-print("\n----- DENEY 3: ROI EĞRİSİ ÖLÇÜMÜ -----")
+# ----- DENEY 3: ROI EĞRİSİNİ ÖLÇME -----
+print("
+----- DENEY 3: ROI EĞRİSİNİ ÖLÇME -----")
 print("İstem karmaşıklığı ile çıktı kalitesi arasındaki ilişkiyi inceleyelim.")
-quality_scores = [3, 6, 8]  # Örnek kalite puanları (1-10 arası)
+
+# Gerçek bir not defterinde, her yanıt için öznel kalite puanları tanımlardınız
+# Bu demo için yer tutucu değerler kullanacağız
+quality_scores = [3, 6, 8]  # 1-10 ölçeğinde yer tutucu öznel puanlar
+
+# Jetonları kaliteye karşı çiz
 plt.figure(figsize=(10, 6))
 tokens_list = [r["tokens"] for r in results]
-plt.plot(tokens_list, quality_scores, marker='o', linestyle='-', color='green')
-plt.xlabel('İstemdeki Tokken Sayısı')
+plt.plot(tokens_list, quality_scores, marker='o', linestyle='-', color='blue')
+plt.xlabel('İstemdeki Jetonlar')
 plt.ylabel('Çıktı Kalitesi (1-10)')
-plt.title('Tokken-Kalite ROI Eğrisi')
+plt.title('Jeton-Kalite ROI Eğrisi')
 plt.grid(True)
+
+# Ek açıklamalar ekle
 for i, (x, y) in enumerate(zip(tokens_list, quality_scores)):
-    plt.annotate(f"İstem {i+1}", (x, y), textcoords="offset points",
+    plt.annotate(f"İstem {i+1}", (x, y), textcoords="offset points", 
                  xytext=(0, 10), ha='center')
-print("[Bu ortamda bir grafik görüntülenirdi]")
+
+# Grafiği göster (Jupyter'de bu satır içi görüntülenirdi)
+# plt.show()
+print("[Bir Jupyter ortamında burada bir grafik görüntülenirdi]")
 
 # ----- DENEY 4: MİNİMAL BAĞLAM İYİLEŞTİRMESİ -----
-print("\n----- DENEY 4: MİNİMAL BAĞLAM İYİLEŞTİRMESİ -----")
-print("Düşük tokken sayısı ile çıktı kalitesini artırmak için minimal bağlam ekleyelim.")
-enhanced_prompt = """Task: Write a haiku about programming.
+print("
+----- DENEY 4: MİNİMAL BAĞLAM İYİLEŞTİRMESİ -----")
+print("Şimdi jeton sayısını düşük tutarken çıktı kalitesini artırmak için minimal bağlam ekleyeceğiz.")
 
-A haiku is a three-line poem with 5, 7, and 5 syllables per line.
-Focus on the feeling of solving a difficult bug."""
+# Az miktarda stratejik bağlam içeren bir istem oluşturalım
+enhanced_prompt = """Görev: Programlama hakkında bir haiku yaz.
+
+Haiku, her satırda 5, 7 ve 5 hece bulunan üç satırlık bir şiirdir.
+Zor bir hatayı çözme hissine odaklanın."""
+
 tokens = llm.count_tokens(enhanced_prompt)
-print(f"\nGeliştirilmiş İstem:\n'{enhanced_prompt}'")
+print(f"
+Geliştirilmiş İstem:
+'{enhanced_prompt}'")
 print(f"Tokken Sayısı: {tokens}")
-response = llm.generate(enhanced_prompt)
-print(f"\nYanıt:\n{response}")
 
-# ----- DENEY 5: TUTARLILIK ÖLÇÜMÜ -----
-print("\n----- DENEY 5: TUTARLILIK ÖLÇÜMÜ -----")
-print("Minimal ve geliştirilmiş istemlerin tutarlılığını ölçelim.")
+response = llm.generate(enhanced_prompt)
+print(f"
+Yanıt:
+{response}")
+
+# ----- DENEY 5: TUTARLILIĞI ÖLÇME -----
+print("
+----- DENEY 5: TUTARLILIĞI ÖLÇME -----")
+print("Minimal ve geliştirilmiş istemlerle çıktıların ne kadar tutarlı olduğunu test edelim.")
+
+# Birden çok yanıt üretmek ve tutarlılığı ölçmek için fonksiyon
 def measure_consistency(prompt: str, n_samples: int = 3) -> Dict[str, Any]:
+    """Birden çok yanıt üretir ve tutarlılık metriklerini ölçer."""
     responses = []
     total_tokens = 0
+    
     for _ in range(n_samples):
         response = llm.generate(prompt)
         responses.append(response)
         total_tokens += llm.count_tokens(prompt)
-    consistency_score = 0.5  # Örnek tutarlılık skoru
+    
+    # Gerçek bir not defterinde, yanıtlar arasında anlamsal benzerlik gibi
+    # uygun tutarlılık metriklerini uygulardınız
+    consistency_score = 0.5  # Yer tutucu değer
+    
     return {
         "prompt": prompt,
         "responses": responses,
         "total_tokens": total_tokens,
         "consistency_score": consistency_score
     }
+
+# Temel ve geliştirilmiş istemi karşılaştır
 basic_results = measure_consistency(prompts[0])
 enhanced_results = measure_consistency(enhanced_prompt)
-print(f"\nTemel İstem Tutarlılık Skoru: {basic_results['consistency_score']}")
-print(f"Geliştirilmiş İstem Tutarlılık Skoru: {enhanced_results['consistency_score']}")
+
+print(f"
+Temel İstem Tutarlılık Puanı: {basic_results['consistency_score']}")
+print(f"Geliştirilmiş İstem Tutarlılık Puanı: {enhanced_results['consistency_score']}")
 
 # ----- SONUÇ -----
-print("\n----- SONUÇ -----")
-print("Deneylerden çıkan temel bulgular:")
-print("1. Küçük eklemeler bile çıktı kalitesini önemli ölçüde etkileyebilir")
-print("2. Tokken sayısı ile kalite arasında optimal bir denge bulunur (ROI eğrisi)")
+print("
+----- SONUÇ -----")
+print("Deneylerimizden elde edilen temel bilgiler:")
+print("1. İstemlere yapılan küçük eklemeler bile çıktı kalitesini önemli ölçüde etkileyebilir")
+print("2. Jeton sayısı ve kalitenin optimal bir denge bulduğu bir ROI eğrisi vardır")
 print("3. Minimal ama stratejik bağlam eklemek tutarlılığı artırır")
-print("4. En iyi istemler net, öz ve yeterli bağlam sağlar")
+print("4. En iyi istemler açık, öz ve sadece yeterli bağlam sağlayanlardır")
 
-print("\nBu betikte kullanılan toplam tokken sayısı:", llm.get_stats()["total_tokens"])
+print("
+Bu not defterinde kullanılan toplam jeton:", llm.get_stats()["total_tokens"])
 
 # ----- SONRAKİ ADIMLAR -----
-print("\n----- SONRAKİ ADIMLAR -----")
-print("1. Gerçek bir LLM API'si ile bu deneyleri tekrarlayın")
-print("2. Tutarlılık ve kalite metriklerini gerçek verilerle uygulayın")
-print("3. 'Moleküller' kavramını keşfedin - çoklu talimat kombinasyonları")
-print("4. Az örnekli öğrenme (few-shot) ile bağlam genişlemesini deneyin")
+print("
+----- SONRAKİ ADIMLAR -----")
+print("1. Bu deneyleri gerçek bir LLM API'si ile deneyin")
+print("2. Uygun tutarlılık ve kalite metriklerini uygulayın")
+print("3. 'Moleküller' kavramını keşfedin - birden çok talimatı birleştirme")
+print("4. Bağlam penceresinde az sayıda örnekle denemeler yapın")
+
+"""
+OKUYUCU İÇİN ALIŞTIRMA:
+
+1. Bu not defterini gerçek bir LLM API'sine (OpenAI, Anthropic, vb.) bağlayın
+2. Aynı istemleri farklı model boyutlarıyla test edin
+3. Önemsediğiniz bir görev için kendi jeton-kalite eğrinizi oluşturun
+4. Kendi özel kullanım durumunuz için "minimum uygulanabilir bağlamı" bulun
+
+Daha gelişmiş bağlam mühendisliği teknikleri için 02_expand_context.ipynb'ye bakın!
+"""
+
+# Bu bir Jupyter not defteri olsaydı, sonuçları burada bir dosyaya kaydederdik
+# with open('experiment_results.json', 'w') as f:
+#     json.dump(results, f, indent=2)

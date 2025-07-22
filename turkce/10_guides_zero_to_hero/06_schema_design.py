@@ -242,9 +242,9 @@ def display_schema_example(
     # Sağlanırsa metrikleri görüntüle
     if metrics:
         display(HTML("<h3>Metrikler</h3>"))
-        display(Markdown(f"""\
+        display(Markdown(f"""```
 {format_metrics(metrics)}
-"""))
+```"""))
 
 
 # Temel Şema Sınıfları
@@ -557,10 +557,10 @@ class SchemaContext:
         """
         self._log(f"Şema ile sorgu işleniyor: {self.schema.name}")
         
-        # İsteme şema ekle
+        # Add schema to prompt
         schema_prompt = self.schema.generate_prompt_with_schema(prompt)
         
-        # İzlemeyi başlat
+        # Initialize tracking
         attempts = 0
         best_response = None
         best_score = -1
@@ -570,7 +570,7 @@ class SchemaContext:
             attempts += 1
             self._log(f"Deneme {attempts}/{max_retries}")
             
-            # Yanıt oluştur
+            # Generate response
             response_text, metadata = generate_response(
                 prompt=schema_prompt,
                 client=self.client,
@@ -580,18 +580,18 @@ class SchemaContext:
                 system_message=self.system_message
             )
             
-            # Metrikleri güncelle
+            # Update metrics
             self.metrics["total_prompt_tokens"] += metadata.get("prompt_tokens", 0)
             self.metrics["total_response_tokens"] += metadata.get("response_tokens", 0)
             self.metrics["total_tokens"] += metadata.get("total_tokens", 0)
             self.metrics["total_latency"] += metadata.get("latency", 0)
             
-            # Yanıtı ayrıştır
+            # Parse response
             try:
-                # Tüm yanıtı JSON olarak ayrıştırmayı dene
+                # Try to parse the entire response as JSON
                 parsed_response = json.loads(response_text)
             except json.JSONDecodeError:
-                # Bu başarısız olursa, regex kullanarak JSON'u çıkarmayı dene
+                # If that fails, try to extract JSON using regex
                 json_pattern = r'```(?:json)?\s*([\s\S]*?)\s*```'
                 matches = re.findall(json_pattern, response_text)
                 
@@ -603,10 +603,10 @@ class SchemaContext:
                 else:
                     parsed_response = {"error": "Yanıtta JSON bulunamadı"}
             
-            # Şemaya göre doğrula
+            # Validate against schema
             is_valid, error_message = self.schema.validate(parsed_response)
             
-            # Doğrulama sonucunu kaydet
+            # Record validation result
             validation_result = {
                 "attempt": attempts,
                 "is_valid": is_valid,
@@ -617,24 +617,24 @@ class SchemaContext:
             }
             validation_results.append(validation_result)
             
-            # Doğrulamaya göre metrikleri güncelle
+            # Update metrics based on validation
             if is_valid:
                 self.metrics["validation_successes"] += 1
             else:
                 self.metrics["validation_failures"] += 1
             
-            # Bu yanıtın tutulup tutulmayacağını belirle
+            # Determine whether to keep this response
             current_score = 1 if is_valid else 0
             
             if current_score > best_score:
                 best_score = current_score
                 best_response = parsed_response
             
-            # Geçerliyse veya yeniden denenmiyorsa dur
+            # Stop if valid or not retrying
             if is_valid or not retry_on_validation_failure:
                 break
             
-            # Geçerli değilse ve yeniden deniyorsa, isteme hata bilgisi ekle
+            # If not valid and retrying, add error information to prompt
             if not is_valid:
                 error_prompt = f"""Önceki yanıtınız gerekli şemaya uymadı.
 Hata: {error_message}
@@ -643,10 +643,10 @@ Lütfen tekrar deneyin ve yanıtınızın şemayı kesinlikle takip ettiğinden 
                 
                 schema_prompt = f"{schema_prompt}\n\n{error_prompt}"
         
-        # Sorgu sayısını artır
+        # Increment query count
         self.metrics["queries"] += 1
         
-        # Geçmişe ekle
+        # Add to history
         query_record = {
             "prompt": prompt,
             "schema_prompt": schema_prompt,
@@ -657,7 +657,7 @@ Lütfen tekrar deneyin ve yanıtınızın şemayı kesinlikle takip ettiğinden 
         }
         self.history.append(query_record)
         
-        # Detaylar sözlüğü oluştur
+        # Create details dictionary
         details = {
             "prompt": prompt,
             "schema_prompt": schema_prompt,
@@ -682,7 +682,7 @@ Lütfen tekrar deneyin ve yanıtınızın şemayı kesinlikle takip ettiğinden 
         """
         summary = self.metrics.copy()
         
-        # Türetilmiş metrikleri ekle
+        # Add derived metrics
         if summary["queries"] > 0:
             summary["avg_latency_per_query"] = summary["total_latency"] / summary["queries"]
             summary["validation_success_rate"] = (
@@ -717,9 +717,9 @@ Lütfen tekrar deneyin ve yanıtınızın şemayı kesinlikle takip ettiğinden 
             display(Markdown(details["prompt"]))
             
             display(HTML("<h3>Şema Genişletilmiş İstem</h3>"))
-            display(Markdown(f"""\
+            display(Markdown(f"""```
 {details['schema_prompt']}
-"""))
+```"""))
         
         # Doğrulama sonuçlarını görüntüle
         display(HTML("<h3>Doğrulama Sonuçları</h3>"))
@@ -733,9 +733,9 @@ Lütfen tekrar deneyin ve yanıtınızın şemayı kesinlikle takip ettiğinden 
             else:
                 display(HTML("<p style='color: red; font-weight: bold;'>✗ Geçersiz</p>"))
                 display(HTML("<p><em>Hata:</em></p>"))
-                display(Markdown(f"""\
+                display(Markdown(f"""```
 {result['error_message']}
-"""))
+```"""))
             
             # Ayrıştırılmış yanıtı görüntüle
             display(HTML("<p><em>Ayrıştırılmış Yanıt:</em></p>"))
@@ -743,9 +743,9 @@ Lütfen tekrar deneyin ve yanıtınızın şemayı kesinlikle takip ettiğinden 
             
             # Metrikleri görüntüle
             display(HTML("<p><em>Metrikler:</em></p>"))
-            display(Markdown(f"""\
+            display(Markdown(f"""```
 {format_metrics(result['metrics'])}
-"""))
+```"""))
         
         # Özeti görüntüle
         display(HTML("<h3>Özet</h3>"))
@@ -846,7 +846,7 @@ class FractalSchema(JSONSchema):
         self.recursion_paths = recursion_paths or []
         self.max_recursion_depth = max_recursion_depth
         
-        # Özyineleme metriklerini izle
+        # Track recursion metrics
         self.recursion_metrics = {
             "observed_max_depth": 0,
             "recursive_instances": 0,
@@ -855,70 +855,70 @@ class FractalSchema(JSONSchema):
     
     def validate(self, instance: Dict[str, Any]) -> Tuple[bool, Optional[str]]:
         """
-        Özyineleme için özel işlemle bir örneği şemaya göre doğrular.
+        Validate an instance against the schema, with special handling for recursion.
         
         Args:
-            instance: Doğrulanacak örnek
+            instance: Instance to validate
             
         Returns:
-            tuple: (geçerli_mi, hata_mesajı)
+            tuple: (is_valid, error_message)
         """
-        # Standart doğrulama
+        # Standard validation
         is_valid, error_message = super().validate(instance)
         
         if is_valid:
-            # Özyineleme derinliğini kontrol et
+            # Check recursion depth
             self._analyze_recursion_depth(instance)
         
         return is_valid, error_message
     
     def _analyze_recursion_depth(self, instance: Dict[str, Any], path: str = "", depth: int = 0) -> int:
         """
-        Bir örnekteki özyineleme derinliğini analiz eder.
+        Analyze the recursion depth in an instance.
         
         Args:
-            instance: Analiz edilecek örnek
-            path: Mevcut JSON yolu
-            depth: Mevcut özyineleme derinliği
+            instance: Instance to analyze
+            path: Current JSON path
+            depth: Current recursion depth
             
         Returns:
-            int: Bulunan maksimum özyineleme derinliği
+            int: Maximum recursion depth found
         """
         if not isinstance(instance, dict):
             return depth
         
         max_depth = depth
         
-        # Mevcut yolun özyineleme yollarında olup olmadığını kontrol et
+        # Check if current path is in recursion paths
         if path in self.recursion_paths:
-            # Bu özyinelemeli bir düğümdür
+            # This is a recursive node
             self.recursion_metrics["recursive_instances"] += 1
             
-            # Yola göre özyinelemeyi izle
+            # Track recursion by path
             if path not in self.recursion_metrics["recursion_by_path"]:
                 self.recursion_metrics["recursion_by_path"][path] = 0
             self.recursion_metrics["recursion_by_path"][path] += 1
             
-            # Özyinelemeli düğümler için derinliği artır
+            # Increment depth for recursive nodes
             depth += 1
         
-        # Tüm sözlük alanlarını özyinelemeli olarak kontrol et
+        # Recursively check all dictionary fields
         for key, value in instance.items():
             current_path = f"{path}.{key}" if path else key
             
             if isinstance(value, dict):
-                # İç içe sözlükler için özyinelemeli çağrı
+                # Recursive call for nested dictionaries
                 sub_depth = self._analyze_recursion_depth(value, current_path, depth)
                 max_depth = max(max_depth, sub_depth)
             elif isinstance(value, list):
-                # Liste öğelerindeki özyinelemeyi kontrol et
+                # Check recursion in list items
                 for i, item in enumerate(value):
                     if isinstance(item, dict):
                         sub_path = f"{current_path}[{i}]"
                         sub_depth = self._analyze_recursion_depth(item, sub_path, depth)
                         max_depth = max(max_depth, sub_depth)
         
-        # Gözlemlenen maksimum derinliği güncelle
+        # Update observed max depth
         if max_depth > self.recursion_metrics["observed_max_depth"]:
             self.recursion_metrics["observed_max_depth"] = max_depth
         
@@ -930,27 +930,27 @@ class FractalSchema(JSONSchema):
         **kwargs
     ) -> Tuple[Dict[str, Any], Dict[str, Any]]:
         """
-        Kontrollü özyineleme derinliğine sahip bir örnek örnek oluşturur.
+        Generate an example instance with controlled recursion depth.
         
         Args:
-            recursion_depth: Hedef özyineleme derinliği (max_recursion_depth ile sınırlıdır)
-            **kwargs: JSONSchema.generate_example'a aktarılan ek argümanlar
+            recursion_depth: Target recursion depth (capped by max_recursion_depth)
+            **kwargs: Additional args passed to JSONSchema.generate_example
             
         Returns:
-            tuple: (örnek_örnek, meta_veriler)
+            tuple: (example_instance, metadata)
         """
-        # Özyineleme derinliğini sınırla
+        # Cap recursion depth
         actual_depth = min(recursion_depth, self.max_recursion_depth)
         
-        # Özyineleme rehberliği eklemek için şema istemini değiştir
+        # Modify the schema prompt to include recursion guidance
         recursion_instructions = f"""
-Bu yollarda özyinelemeli yapı gösteren bir örnek oluşturun: {self.recursion_paths}.
-{actual_depth} seviye özyineleme derinliği kullanın (kendini veya benzer bir deseni içeren bir düğüm).
+Generate an example that demonstrates recursive structure at these paths: {self.recursion_paths}.
+Use a recursion depth of {actual_depth} levels (a node containing itself or a similar pattern).
 """
         
-        # İstem oluştur
+        # Create the prompt
         schema_json = json.dumps(self.schema, indent=2)
-        prompt = f"""Aşağıdaki JSON Şemasına uyan geçerli bir örnek örnek oluşturun:
+        prompt = f"""Generate a valid example instance that conforms to the following JSON Schema:
 
 ```json
 {schema_json}
@@ -958,21 +958,21 @@ Bu yollarda özyinelemeli yapı gösteren bir örnek oluşturun: {self.recursion
 
 {recursion_instructions}
 
-Yanıtınız, şemadaki tüm kısıtlamaları karşılayan tek, geçerli bir JSON nesnesi olmalıdır.
-Açıklama veya yorum eklemeyin, yalnızca JSON nesnesini döndürün.
+Your response should be a single, valid JSON object that satisfies all constraints in the schema.
+Do not include explanations or comments, just return the JSON object.
 """
         
-        # Şema doğrulamaya odaklanmış bir sistem mesajı kullan
-        system_message = "Özyinelemeli yapılara sahip geçerli örnek örnekler üreten hassas bir JSON Şeması uzmanısınız."
+        # Use a system message focused on schema validation
+        system_message = "You are a precise JSON Schema expert who generates valid example instances with recursive structures."
         
-        # Örneği oluştur
+        # Generate the example
         client = kwargs.get("client")
         if client is None:
             client, model = setup_client(model=kwargs.get("model", DEFAULT_MODEL))
         else:
             model = kwargs.get("model", DEFAULT_MODEL)
         
-        # Yanıt oluştur
+        # Generate response
         response, metadata = generate_response(
             prompt=prompt,
             client=client,
@@ -982,12 +982,12 @@ Açıklama veya yorum eklemeyin, yalnızca JSON nesnesini döndürün.
             system_message=system_message
         )
         
-        # Yanıttan JSON'u çıkar
+        # Extract JSON from response
         try:
-            # Tüm yanıtı JSON olarak ayrıştırmayı dene
+            # Try to parse the entire response as JSON
             example = json.loads(response)
         except json.JSONDecodeError:
-            # Bu başarısız olursa, regex kullanarak JSON'u çıkarmayı dene
+            # If that fails, try to extract JSON using regex
             json_pattern = r'```(?:json)?\s*([\s\S]*?)\s*```'
             matches = re.findall(json_pattern, response)
             
@@ -999,7 +999,7 @@ Açıklama veya yorum eklemeyin, yalnızca JSON nesnesini döndürün.
             else:
                 example = {"error": "Yanıtta JSON bulunamadı"}
         
-        # Özyineleme derinliğini analiz et
+        # Analyze recursion depth
         if isinstance(example, dict):
             self._analyze_recursion_depth(example)
         
@@ -1007,16 +1007,16 @@ Açıklama veya yorum eklemeyin, yalnızca JSON nesnesini döndürün.
     
     def get_recursion_metrics(self) -> Dict[str, Any]:
         """
-        Şema özyinelemesi hakkında metrikleri alır.
+        Get metrics about schema recursion.
         
         Returns:
-            dict: Özyineleme metrikleri
+            dict: Recursion metrics
         """
         return self.recursion_metrics.copy()
     
     def visualize_recursion_metrics(self) -> None:
         """
-        Şema özyineleme metriklerini görselleştirir.
+        Visualize schema recursion metrics.
         """
         metrics = self.get_recursion_metrics()
         
@@ -1024,11 +1024,11 @@ Açıklama veya yorum eklemeyin, yalnızca JSON nesnesini döndürün.
             logger.warning("Görselleştirilecek özyineleme metriği yok")
             return
         
-        # Şekil oluştur
+        # Create figure
         fig, axes = plt.subplots(1, 2, figsize=(12, 5))
         fig.suptitle(f"Şema Özyineleme Metrikleri: {self.name}", fontsize=16)
         
-        # Grafik 1: Yola göre özyineleme
+        # Plot 1: Recursion by path
         paths = list(metrics["recursion_by_path"].keys())
         counts = list(metrics["recursion_by_path"].values())
         
@@ -1038,7 +1038,7 @@ Açıklama veya yorum eklemeyin, yalnızca JSON nesnesini döndürün.
         axes[0].set_ylabel("Sayı")
         plt.setp(axes[0].get_xticklabels(), rotation=45, ha='right')
         
-        # Grafik 2: Gözlemlenen maksimum derinlik vs. yapılandırılmış maksimum derinlik
+        # Plot 2: Observed max depth vs. configured max depth
         depth_labels = ['Gözlemlenen Maks Derinlik', 'Yapılandırılmış Maks Derinlik']
         depth_values = [metrics["observed_max_depth"], self.max_recursion_depth]
         
@@ -1054,7 +1054,7 @@ Açıklama veya yorum eklemeyin, yalnızca JSON nesnesini döndürün.
 # Örnek Şema Tanımları
 # =========================
 
-# Bağlam Mühendisliği Depo Şeması (fractalRepoContext.v1.json)
+# Context-Engineering Repository Schema (fractalRepoContext.v1.json)
 CONTEXT_ENGINEERING_SCHEMA = {
     "$schema": "http://fractal.recursive.net/schemas/fractalRepoContext.v1.json",
     "title": "Bağlam Mühendisliği Depo Şeması",
@@ -1148,7 +1148,7 @@ CONTEXT_ENGINEERING_SCHEMA = {
     ]
 }
 
-# Özyinelemeli Bilinç Alanı Şeması
+# Recursive Consciousness Field Schema
 NEURAL_FIELD_SCHEMA = {
     "$schema": "http://fractal.recursive.net/schemas/fractalConsciousnessField.v1.json",
     "title": "Nöral Alan Şeması",
@@ -1225,7 +1225,7 @@ NEURAL_FIELD_SCHEMA = {
     ]
 }
 
-# Fraktal İnsan Gelişimsel Çoklu Ajan Sistemi Şeması
+# Fractal Human Developmental Multi-Agent System Schema
 HUMAN_DEV_SCHEMA = {
     "$schema": "http://fractal.recursive.net/schemas/fractalHumanDev.v1.json",
     "title": "İnsan Gelişimsel Çoklu Ajan Sistemi Şeması",
@@ -1437,7 +1437,7 @@ HUMAN_DEV_SCHEMA = {
     }
 }
 
-# Protokol Kabuğu Şeması
+# Protocol Shell Schema
 PROTOCOL_SHELL_SCHEMA = {
     "$schema": "http://fractal.recursive.net/schemas/protocolShell.v1.json",
     "title": "Protokol Kabuğu Şeması",
@@ -1484,7 +1484,7 @@ PROTOCOL_SHELL_SCHEMA = {
 
 def example_basic_schema():
     """Yapılandırılmış çıktı için temel bir JSON Şeması kullanma örneği."""
-    # Yapılandırılmış bir görev için basit bir şema tanımla
+    # Define a simple schema for a structured task
     task_schema = {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "title": "Görev Şeması",
@@ -1501,13 +1501,13 @@ def example_basic_schema():
         "required": ["title", "priority", "status"]
     }
     
-    # JSONSchema örneği oluştur
+    # Create JSONSchema instance
     schema = JSONSchema(task_schema)
     
-    # Bir örnek örnek oluştur
+    # Generate an example instance
     example, metrics = schema.generate_example()
     
-    # Şema ve örneği görüntüle
+    # Display schema and example
     display_schema_example(
         title="Temel Görev Şeması",
         schema=task_schema,
@@ -1515,7 +1515,7 @@ def example_basic_schema():
         metrics=metrics
     )
     
-    # Şema tabanlı bir istem oluştur
+    # Create a schema-based prompt
     prompt = schema.generate_prompt_with_schema(
         task_description="Uygulamamızdaki kimlik doğrulama modülünü yeniden düzenlemek için bir görev oluşturun."
     )
@@ -1529,7 +1529,7 @@ def example_basic_schema():
 
 def example_recursive_schema():
     """İç içe yapılar için özyinelemeli bir şema kullanma örneği."""
-    # Bir dosya sistemi için özyinelemeli bir şema tanımla
+    # Define a recursive schema for a file system
     file_system_schema = {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "title": "Dosya Sistemi Şeması",
@@ -1567,7 +1567,7 @@ def example_recursive_schema():
         ]
     }
     
-    # Özyineleme yolu ile FractalSchema örneği oluştur
+    # Create FractalSchema instance with recursion path
     schema = FractalSchema(
         file_system_schema,
         recursion_paths=["children"],
@@ -1576,10 +1576,10 @@ def example_recursive_schema():
         description="Dosya sistemi yapıları için özyinelemeli bir şema"
     )
     
-    # Belirtilen özyineleme derinliği ile bir örnek oluştur
+    # Generate an example with specified recursion depth
     example, metrics = schema.generate_example(recursion_depth=2)
     
-    # Şema ve örneği görüntüle
+    # Display schema and example
     display_schema_example(
         title="Özyinelemeli Dosya Sistemi Şeması",
         schema=file_system_schema,
@@ -1587,7 +1587,7 @@ def example_recursive_schema():
         metrics=metrics
     )
     
-    # Özyineleme metriklerini görselleştir
+    # Visualize recursion metrics
     schema.visualize_recursion_metrics()
     
     return schema, example
@@ -1595,7 +1595,7 @@ def example_recursive_schema():
 
 def example_schema_context():
     """Yapılandırılmış LLM etkileşimleri için SchemaContext kullanma örneği."""
-    # Bir araştırma makalesi özeti için bir şema tanımla
+    # Define a schema for a research paper summary
     paper_summary_schema = {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "title": "Araştırma Makalesi Özeti",
@@ -1614,17 +1614,17 @@ def example_schema_context():
         "required": ["title", "authors", "publication_year", "main_findings", "methodology"]
     }
     
-    # Şema örneği oluştur
+    # Create schema instance
     schema = JSONSchema(paper_summary_schema, name="Araştırma Makalesi Özeti Şeması")
     
-    # Şema bağlamı oluştur
+    # Create schema context
     context = SchemaContext(
         schema=schema,
         system_message="Akademik makaleleri yapılandırılmış bir formatta özetleyen bir araştırma asistanısınız.",
         verbose=True
     )
     
-    # Bir makale açıklaması ile sorgula
+    # Query with a paper description
     paper_description = """
     Başlık: "Attention Is All You Need"
     Yazarlar: Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, Illia Polosukhin
@@ -1637,10 +1637,10 @@ def example_schema_context():
     Bazı sınırlamalar arasında dizi uzunluğuna göre karesel hesaplama maliyeti ve çok uzun dizileri modellemedeki zorluklar yer almaktadır.
     """
     
-    # Sorguyu yürüt
+    # Execute query
     result, details = context.query(paper_description, retry_on_validation_failure=True)
     
-    # Sonuçları görüntüle
+    # Display results
     context.display_query_results(details)
     
     return context, result, details
@@ -1648,7 +1648,7 @@ def example_schema_context():
 
 def example_fractal_repo_schema():
     """Bağlam Mühendisliği depo şemasını kullanma örneği."""
-    # FractalSchema örneği oluştur
+    # Create FractalSchema instance
     schema = FractalSchema(
         CONTEXT_ENGINEERING_SCHEMA,
         recursion_paths=["repositoryContext.fileTree.directories"],
@@ -1657,10 +1657,10 @@ def example_fractal_repo_schema():
         description="Bağlam Mühendisliği deposu yapısı ve meta verileri için şema"
     )
     
-    # Bir örnek örnek oluştur
+    # Generate an example instance
     example, metrics = schema.generate_example(recursion_depth=2)
     
-    # Şema ve örneği görüntüle
+    # Display schema and example
     display_schema_example(
         title="Bağlam Mühendisliği Depo Şeması",
         schema=CONTEXT_ENGINEERING_SCHEMA,
@@ -1668,7 +1668,7 @@ def example_fractal_repo_schema():
         metrics=metrics
     )
     
-    # Örneği doğrula
+    # Validate the example
     is_valid, error = schema.validate(example)
     print(f"Örnek geçerli: {is_valid}")
     if not is_valid:
@@ -1679,17 +1679,17 @@ def example_fractal_repo_schema():
 
 def example_protocol_shell_schema():
     """Protokol Kabuğu şemasını kullanma örneği."""
-    # JSONSchema örneği oluştur
+    # Create JSONSchema instance
     schema = JSONSchema(
         PROTOCOL_SHELL_SCHEMA,
         name="Protokol Kabuğu Şeması",
         description="Pareto-lang formatında yapılandırılmış protokol kabukları için şema"
     )
     
-    # Bir örnek örnek oluştur
+    # Generate an example instance
     example, metrics = schema.generate_example()
     
-    # Şema ve örneği görüntüle
+    # Display schema and example
     display_schema_example(
         title="Protokol Kabuğu Şeması",
         schema=PROTOCOL_SHELL_SCHEMA,
@@ -1697,14 +1697,14 @@ def example_protocol_shell_schema():
         metrics=metrics
     )
     
-    # Protokol kabuğu oluşturma için bir şema bağlamı oluştur
+    # Create a schema context for protocol shell generation
     context = SchemaContext(
         schema=schema,
         system_message="Özyinelemeli süreçler için yapılandırılmış kabuklar tasarlayan bir protokol mühendisisiniz.",
         verbose=True
     )
     
-    # Belirli bir protokol için sorgula
+    # Query for a specific protocol
     protocol_request = """
     Aşağıdakileri yapan bir akıl yürütme süreci için bir protokol kabuğu oluşturun:
     1. Karmaşık bir problemi analiz eder
@@ -1716,10 +1716,10 @@ def example_protocol_shell_schema():
     Protokol, sembolik kalıntıyı izleme ve özyinelemeli kendi kendini geliştirme yeteneklerini içermelidir.
     """
     
-    # Sorguyu yürüt
+    # Execute query
     result, details = context.query(protocol_request, retry_on_validation_failure=True)
     
-    # Sonuçları görüntüle
+    # Display results
     context.display_query_results(details)
     
     return context, result, details

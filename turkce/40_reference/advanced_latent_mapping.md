@@ -1275,7 +1275,7 @@ MUTASYONLAR ETKİN:
 
 DÖNÜŞTÜRÜLMÜŞ ALAN:
 ┌─────────────────┐        ┌─────────────────┐
-│ GENÇLERİN        │◄─────► │   İNSAN         │ ← ÇEKİCİ
+│   GENÇLERİN        │◄─────► │   İNSAN         │ ← ÇEKİCİ
 │ HİKAYELERİ         │        │ DENEYİMİ      │
 │ kimlik krizi │        │ otantik benlik  │
 │ akran baskısı   │        │ aidiyet ihtiyaçları │

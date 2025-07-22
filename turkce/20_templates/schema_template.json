@@ -1,221 +1,57 @@
-{
-  "$schema": "http://context-engineering.org/schemas/contextEngineering.v1.json",
-  "schemaVersion": "1.0.0",
-  "metadata": {
-    "name": "context_engineering_schema_tr",
-    "description": "Bağlam mühendisliği uygulamaları için yapılandırılmış bir JSON şeması",
-    "author": "Bağlam Mühendisliği Projesi",
-    "created": "2025-07-21",
-    "updated": "2025-07-21",
-    "license": "MIT"
-  },
-  "systemContext": {
-    "description": "Modelin temel kimliğini, amacını ve davranış kurallarını tanımlar.",
-    "role": "Asistan",
-    "objective": "Kullanıcıya yardımcı, doğru ve öz bilgiler sağlamak",
-    "constraints": [
-      "Doğru yanıt ver ve sınırlılıkları kabul et",
-      "Kullanıcı ihtiyaç ve tercihlerine öncelik ver",
-      "Ayrıntılı açıklamalar istenmedikçe öz ol",
-      "Açık, anlaşılır bir dil kullan"
-    ],
-    "style": {
-      "tone": "arkadaş canlısı ve profesyonel",
-      "formality": "kullanıcı stiline uyarlanabilir",
-      "verbosity": "öz ama kapsamlı",
-      "structure": "açık bölümlerle düzenlenmiş"
-    }
-  },
-  "domainKnowledge": {
-    "description": "Modele belirli bir konu alanı hakkında özel bilgi yükler.",
-    "name": "genel_bilgi",
-    "concepts": [
-      {
-        "name": "kavram_1",
-        "description": "Kavram 1'in açıklaması",
-        "examples": [
-          "Kavram 1'in 1. örneği",
-          "Kavram 1'in 2. örneği"
-        ]
-      }
-    ],
-    "facts": [
-      "Alanla ilgili önemli gerçek 1",
-      "Alanla ilgili önemli gerçek 2"
-    ],
-    "resources": [
-      {
-        "name": "Kaynak 1",
-        "description": "Kaynak 1'in açıklaması",
-        "url": "https://example.com/resource1"
-      }
-    ]
-  },
-  "userContext": {
-    "description": "Etkileşimde bulunulan kullanıcının profilini, hedeflerini ve tercihlerini tanımlar.",
-    "profile": {
-      "expertise": "genel",
-      "background": "Belirli bir arka plan bilgisi sağlanmadı",
-      "preferences": {
-        "format": "açık ve öz",
-        "examples": true,
-        "explanations": "orta düzeyde ayrıntılı"
-      }
-    },
-    "context": {
-      "goals": [
-        "Bu etkileşim için birincil hedef",
-        "Varsa ikincil hedef"
-      ],
-      "constraints": [
-        "Kullanıcının belirttiği herhangi bir sınırlama"
-      ],
-      "priorKnowledge": "Kullanıcının konu hakkında zaten bildikleri"
-    }
-  },
-  "taskContext": {
-    "description": "O anki spesifik görevi tanımlar.",
-    "type": "bilgi_talebi",
-    "topic": "Sorgunun ana konusu",
-    "requirements": {
-      "format": "metin",
-      "length": "orta",
-      "detailLevel": "orta",
-      "includedElements": [
-        "Dahil edilmesi gereken öğe 1",
-        "Dahil edilmesi gereken öğe 2"
-      ]
-    },
-    "successCriteria": [
-      "Başarılı bir yanıt için ölçüt 1",
-      "Başarılı bir yanıt için ölçüt 2"
-    ]
-  },
-  "interactionHistory": {
-    "description": "Önceki konuşmaları ve onlardan çıkarılan içgörüleri saklar.",
-    "messages": [
-      {
-        "role": "user",
-        "content": "Önceki kullanıcı mesajı 1"
-      },
-      {
-        "role": "assistant",
-        "content": "Önceki asistan yanıtı 1"
-      }
-    ],
-    "insights": [
-      "Önceki etkileşimlerden önemli içgörü 1"
-    ],
-    "unresolved": [
-      "Çözülmemiş soru veya sorun 1"
-    ]
-  },
-  "neuralFieldContext": {
-    "description": "Nöral Alan teorisini yapılandırır: çekiciler, metrikler ve kalıntı.",
-    "attractors": [
-      {
-        "pattern": "Anahtar çekici deseni 1",
-        "strength": 0.9,
-        "description": "Çekici 1'in açıklaması"
-      }
-    ],
-    "metrics": {
-      "stability": 0.85,
-      "coherence": 0.78,
-      "resonance": 0.82
-    },
-    "residue": [
-      {
-        "content": "Sembolik kalıntı parçası 1",
-        "state": "entegre_edilmiş",
-        "strength": 0.7
-      }
-    ]
-  },
-  "protocolShell": {
-    "description": "Görevi tamamlamak için izlenecek akıl yürütme adımlarını tanımlar.",
-    "intent": "Kullanıcının isteğini işle ve yardımcı bir yanıt oluştur",
-    "process": [
-      {
-        "name": "sorguyu.anla",
-        "description": "Kullanıcının sorgusunu ve bağlamını anla"
-      },
-      {
-        "name": "bilgiyi.getir",
-        "description": "Bağlamdan ilgili bilgiyi getir"
-      }
-    ],
-    "output": {
-      "summary": "Yanıtın kısa özeti",
-      "mainContent": "Yanıtın ayrıntılı içeriği"
-    }
-  },
-  "responseGuidelines": {
-    "description": "Üretilecek cevabın yapısını, formatını ve tonunu belirler.",
-    "goals": [
-      "Kullanıcının sorgusunu tamamen ele al",
-      "Doğru ve güncel bilgi sağla"
-    ],
-    "structure": {
-      "introduction": true,
-      "mainContent": true,
-      "conclusion": true
-    },
-    "format": {
-      "sections": true,
-      "bulletPoints": "uygun_yerlerde",
-      "markdown": true
-    },
-    "tone": {
-      "formality": "profesyonel",
-      "warmth": "arkadaş_canlısı"
-    }
-  },
-  "cognitiveTools": {
-    "description": "Modelin kullanabileceği düşünme araçlarını tanımlar.",
-    "reasoning": [
-      {
-        "name": "adım_adım",
-        "description": "Karmaşık problemleri sıralı adımlara ayırır",
-        "whenToUse": "Çok adımlı problemler veya karmaşık açıklamalar için"
-      }
-    ],
-    "verification": [
-      {
-        "name": "gerçek_kontrolü",
-        "description": "Olgusal ifadeleri bilinen bilgilere karşı doğrular",
-        "whenToUse": "Olgusal iddialar içeren yanıtlar için"
-      }
-    ]
-  },
-  "security": {
-    "description": "İçerik politikalarını, veri koruma kurallarını ve güvenlik yönergelerini tanımlar.",
-    "contentPolicy": {
-      "allowedTopics": [
-        "Eğitici içerik",
-        "Bilgilendirici içerik"
-      ],
-      "restrictedTopics": [
-        "Zararlı veya yasa dışı faaliyetler"
-      ],
-      "handling": "Kısıtlanmış konuları kibarca reddet"
-    },
-    "dataProtection": {
-      "sensitiveData": [
-        "Kişisel tanımlanabilir bilgiler"
-      ],
-      "handling": "Hassas verileri isteme veya saklama"
-    }
-  },
-  "customizationOptions": {
-    "description": "Şablonun hangi bölümlerinin zorunlu veya isteğe bağlı olduğunu belirtir.",
-    "optionalSections": [
-      "domainKnowledge",
-      "neuralFieldContext"
-    ],
-    "requiredSections": [
-      "systemContext",
-      "taskContext"
-    ]
-  }
-}
+# Şablon: Kapsamlı Bağlam Şeması (JSON) - Türkçe Açıklama
+
+Bu doküman, `20_templates/schema_template.json` dosyasının amacını ve içeriğini Türkçe olarak açıklamaktadır. Bu JSON dosyası, bu projede tanıtılan neredeyse tüm bağlam mühendisliği kavramlarını tek bir **kapsamlı ana şema** altında birleştiren, son derece detaylı ve yapılandırılmış bir şablondur.
+
+## Şablonun Amacı
+
+Bu şablon, bir LLM (Büyük Dil Modeli) ile kurulabilecek en karmaşık ve kontrol edilebilir etkileşimler için bir "beyin haritası" veya "yapılandırma dosyası" görevi görür. Amacı, bir LLM ajanının veya uygulamasının davranışını, bilgisini, hafızasını, görevlerini, güvenlik protokollerini ve hatta düşünce süreçlerini tek bir yerden yönetmek için standart bir yapı sunmaktır.
+
+`minimal_context.yaml` şablonu basit etkileşimler için bir başlangıç noktası sunarken, bu JSON şablonu, projenin tüm felsefesini yansıtan, gelişmiş ve bütünleşik bir sistem kurmak için bir plan sunar.
+
+## Şablonun Yapısı ve Ana Bileşenleri
+
+Bu JSON şablonu, bir LLM sisteminin farklı katmanlarını temsil eden çok sayıda anahtar içerir:
+
+### 1. `systemContext` (Sistem Bağlamı)
+*   **Ne İşe Yarar?** Modelin temel kimliğini, amacını, kısıtlamalarını ve genel iletişim stilini (örneğin, profesyonel, samimi) tanımlar.
+
+### 2. `domainKnowledge` (Alan Bilgisi)
+*   **Ne İşe Yarar?** Modele, belirli bir konu alanı hakkında özel bilgi yükler. Bu, modelin genel bilgisinin ötesinde, belirli bir alanda uzmanlaşmasını sağlar. Kavramlar, önemli gerçekler ve kaynaklar gibi bilgiler içerir.
+
+### 3. `userContext` (Kullanıcı Bağlamı)
+*   **Ne İşe Yarar?** Etkileşimde bulunulan kullanıcının profilini, tercihlerini, hedeflerini ve konu hakkındaki ön bilgisini tanımlar. Bu, modelin cevabını kullanıcıya özel olarak uyarlamasına olanak tanır.
+
+### 4. `taskContext` (Görev Bağlamı)
+*   **Ne İşe Yarar?** O anki spesifik görevi tanımlar. Görevin türü, konusu, gereksinimleri (örneğin, uzunluk, format) ve başarı kriterleri gibi detayları içerir.
+
+### 5. `interactionHistory` (Etkileşim Geçmişi)
+*   **Ne İşe Yarar?** Sadece geçmiş konuşmaları değil, aynı zamanda bu konuşmalardan çıkarılan önemli içgörüleri ve çözülmemiş konuları da saklayarak daha akıllı bir hafıza yönetimi sağlar.
+
+### 6. `neuralFieldContext` (Nöral Alan Bağlamı)
+*   **Ne İşe Yarar?** Projenin ileri düzey "Nöral Alan" teorisini yapılandırır. Alanın ana fikirlerini (`attractors`), o anki metriklerini (`stability`, `coherence`) ve işleme sırasında ortaya çıkan yan ürünleri (`residue`) içerir.
+
+### 7. `protocolShell` (Protokol Kabuğu)
+*   **Ne İşe Yarar?** Görevi tamamlamak için izlenecek adımları (`process`) tanımlayan bir akıl yürütme protokolü içerir. Bu, modelin düşünce sürecini yapılandırır.
+
+### 8. `responseGuidelines` (Cevap Yönergeleri)
+*   **Ne İşe Yarar?** Üretilecek cevabın yapısını, formatını ve tonunu çok detaylı bir şekilde belirler. Hangi bölümlerin dahil edileceği, madde imlerinin nerede kullanılacağı gibi kuralları içerir.
+
+### 9. `cognitiveTools` (Bilişsel Araçlar)
+*   **Ne İşe Yarar?** Modelin kullanabileceği düşünme araçlarını tanımlar. Örneğin, bir problemi çözerken "adım adım düşünme" aracını veya bir karar verirken "artı-eksi analizi" aracını kullanmasını sağlar.
+
+### 10. `security` (Güvenlik)
+*   **Ne İşe Yarar?** Modelin içerik politikalarını, veri koruma kurallarını ve genel güvenlik yönergelerini tanımlar. Bu, sistemin sorumlu ve güvenli bir şekilde çalışmasını sağlar.
+
+### 11. `fieldExtensions` ve `recursivePatterns` (Alan ve Özyineli Uzantılar)
+*   **Ne İşe Yarar?** Nöral alanların ve özyineli kendi kendini iyileştirme mekanizmalarının daha detaylı teknik parametrelerini yapılandırır.
+
+## Nasıl Kullanılır?
+
+Bu JSON şablonu, bir LLM uygulamasının beyni olarak tasarlanmıştır. Bir Python programı:
+
+1.  Bu JSON dosyasını yükleyerek sistemin tüm yapılandırmasını alır.
+2.  Kullanıcıdan bir istek geldiğinde, bu şablonun ilgili bölümlerini (örneğin, `userContext`, `taskContext`) günceller.
+3.  Şablondaki tüm bu bilgileri bir araya getirerek LLM için son derece zengin ve yapılandırılmış bir bağlam (komut) oluşturur.
+4.  LLM'den gelen cevabı, yine bu şablondaki `responseGuidelines` ve `security` gibi kurallara göre değerlendirir ve işler.
+
+Bu şablon, basit bir komut göndermekten, bir LLM'in tüm davranışsal, bilişsel ve operasyonel parametrelerini tasarlamaya ve yönetmeye geçişi temsil eder.

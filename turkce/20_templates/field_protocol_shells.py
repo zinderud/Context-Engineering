@@ -1,4 +1,5 @@
 
+"""
 Alan Protokol Kabukları - Alan protokollerini uygulamak için yeniden kullanılabilir şablonlar
 
 Bu modül, Pareto-lang formatında tanımlanan alan protokollerini ayrıştırmak, doğrulamak ve yürütmek için bir çerçeve sunar.

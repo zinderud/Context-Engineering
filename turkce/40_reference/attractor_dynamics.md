@@ -502,10 +502,11 @@ Nokta çekicilerin aksine, **limit döngü çekicileri**, sabit durumlar yerine 
 - Alanlar arasında kavramsal uyum
 
 **Tespit İmzaları**:
-- Farklı öğeler arasında senkronizasyon
-- Desenlerin karşılıklı güçlendirilmesi
-- Frekans sürüklenmesi
-- Harmonik yapı oluşumu
+- Farklı öğeler arasında senkronizasyon desenleri
+- Belirli frekansların veya desenlerin güçlendirilmesi
+- Alanlar arası tutarlılık (farklı alanlarda benzer desenler)
+- Faz kilitleme davranışı (sistemlerin kilitli adımda hareket etmesi)
+- Doğrusal olmayan güçlendirme etkileri
 
 ## Bölüm 3: Çekici Haritalama Teknikleri
 

@@ -71,7 +71,7 @@ class OyuncakBaglamSohbetRobotu:
     
     Bu sohbet robotu şu aşamalardan geçer:
     - Atomlar: Temel komutlar ve yanıtlar
-    - Moleküller: Bağlam kombinasyonları ve örnekler
+    - Moleküler: Bağlam kombinasyonları ve örnekler
     - Hücreler: Hafıza ve durum yönetimi
     - Organlar: Koordineli sistem davranışları
     - Alanlar: Sürekli anlamsal operasyonlar
@@ -556,65 +556,5 @@ if __name__ == "__main__":
     print(f"İyileştirme sayısı: {improvement_info['improvement_count']}")
     print(f"Son strateji: {improvement_info['last_strategy']}")
     print(f"Ortaya çıkış tespit edildi: {improvement_info['emergence_detected']}")
-```
 
-## Alan Operasyonlarının Görsel Temsili
-
-Sohbet robotumuzdaki alan operasyonları, çekiciler, rezonans ve kalıcılık ile sürekli bir anlamsal alan kavramına dayanmaktadır. Aşağıda bu kavramların birlikte nasıl çalıştığının bir görselleştirmesi bulunmaktadır:
-
-```
-┌─────────────────────────────────────────────────────────┐
-│              ALAN OPERASYONLARI GÖRSELLEŞTİRMESİ          │
-├─────────────────────────────────────────────────────────┤
-│                                                         │
-│                    ╱╲                                   │
-│   Çekici A        /  \     Konuşma konuları çekiciler   │
-│   "Bağlam         /    \    oluşturur - anlamsal alanda  │
-│  Mühendisliği"  /      \    kararlı desenler             │
-│               /        \                                │
-│              /          \                               │
-│    ─────────            ───────────                     │
-│                                         ╱╲              │
-│                                        /  \             │
-│                                       /    \            │
-│                   Rezonans           /      \           │
-│                  ↕        ↕         /        \          │
-│                 ↕          ↕       /          \         │
-│                ↕            ↕     /            \        │
-│    ─────────── ───────────────────              ────────│
-│    Çekici B                       Çekici C              │
-│     "Kullanıcı                      "Sohbet Robotu       │
-│   Soruları"                       Yetenekleri"          │
-│                                                         │
-│   → İlgili çekiciler arasındaki rezonans alan           │
-│     tutarlılığı yaratır ve ortaya çıkan özellikleri     │
-│     etkinleştirir                                       │
-│                                                         │
-│   → Kalıcı çekiciler, sohbetler arasında kararlı        │
-│     kalarak sohbet robotunun "hafızasını" oluşturur     │
-│                                                         │
-└─────────────────────────────────────────────────────────┘
-```
-
-## Uygulamanın Test Edilmesi
-
-Bu uygulamayı, yukarıdaki kodla bir `oyuncak_sohbet_robotu_cekirdegi.py` dosyası oluşturarak ve doğrudan çalıştırarak test edebilirsiniz. Örnek konuşma şunları gösterir:
-
-1. Temel atomik yanıtlar
-2. Bağlam tabanlı yanıtlar (moleküler katman)
-3. Hafıza kullanımı (hücresel katman)
-4. Koordineli alt sistemler (organ katmanı)
-5. Simüle edilmiş alan operasyonları
-6. Meta-özyineli kendi kendini geliştirme
-
-Sonraki modüllerde, protokol kabuklarını kullanarak tam alan operasyonlarını uygulayacak ve tam bağlam alanı altyapısını geliştireceğiz.
-
-## Sonraki Adımlar
-
-1. `protocol_shells.py` dosyasını uygun protokol kabuğu uygulamalarıyla uygulayın
-2. Tam alan operasyonları için `context_field.py` geliştirin
-3. `conversation_examples.py` içinde örnek konuşmalar oluşturun
-4. `meta_recursive_demo.py` içinde meta-özyineli gösterimi oluşturun
-
-```
 ```

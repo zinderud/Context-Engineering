@@ -229,17 +229,17 @@ def display_response(
     """
     if show_prompt:
         display(HTML("<h4>İstem:</h4>"))
-        display(Markdown(f"""
+        display(Markdown(f"```
 {prompt}
-"""))
+```"))
     
     display(HTML("<h4>Yanıt:</h4>"))
     display(Markdown(response))
     
     display(HTML("<h4>Metrikler:</h4>"))
-    display(Markdown(f"""
+    display(Markdown(f"```
 {format_metrics(metrics)}
-"""))
+```"))
 
 
 # Kontrol Döngüsü Temel Sınıfları
@@ -507,9 +507,9 @@ class SequentialChain(ControlLoop):
                 
                 # İstem görüntüle
                 display(HTML("<h4>İstem:</h4>"))
-                display(Markdown(f"""
+                display(Markdown(f"```
 {step_output['prompt']}
-"""))
+```"))
                 
                 # Yanıt görüntüle
                 display(HTML("<h4>Yanıt:</h4>"))
@@ -517,9 +517,9 @@ class SequentialChain(ControlLoop):
                 
                 # Metrikleri görüntüle
                 display(HTML("<h4>Metrikler:</h4>"))
-                display(Markdown(f"""
+                display(Markdown(f"```
 {format_metrics(step_output['metrics'])}
-"""))
+```"))
         
         # Özet metrikleri görüntüle
         display(HTML("<h3>Özet Metrikler</h3>"))
@@ -542,7 +542,9 @@ class IterativeRefiner(ControlLoop):
     def __init__(
         self,
         max_iterations: int = 5,
-        refinement_template: str = "Lütfen aşağıdaki metni iyileştirin: {previous_response}\n\nGereken özel iyileştirmeler: {feedback}",
+        refinement_template: str = "Lütfen aşağıdaki metni iyileştirin: {previous_response}
+
+Gereken özel iyileştirmeler: {feedback}",
         feedback_template: str = "Bu yanıtın kalitesini değerlendirin ve özel iyileştirmeler önerin: {response}",
         stopping_condition: Optional[Callable[[str, Dict[str, Any]], bool]] = None,
         **kwargs
@@ -641,7 +643,9 @@ class IterativeRefiner(ControlLoop):
                 self._log(f"Otomatik geri bildirim: {feedback}")
             else:
                 # Manuel geri bildirim modu
-                print(f"\n\nMevcut yanıt (yineleme {iteration}):")
+                print(f"
+
+Mevcut yanıt (yineleme {iteration}):")
                 print("-" * 80)
                 print(current_response)
                 print("-" * 80)
@@ -684,9 +688,9 @@ class IterativeRefiner(ControlLoop):
         
         # Başlangıç istemini ve yanıtını görüntüle
         display(HTML("<h3>Başlangıç İstemi</h3>"))
-        display(Markdown(f"""
+        display(Markdown(f"```
 {refinement_history['initial']['prompt']}
-"""))
+```"))
         
         display(HTML("<h3>Başlangıç Yanıtı</h3>"))
         display(Markdown(refinement_history['initial']['response']))
@@ -708,9 +712,9 @@ class IterativeRefiner(ControlLoop):
             # Metrikleri görüntüle
             display(HTML("<h4>Metrikler:</h4>"))
             metrics = iteration["refinement_metrics"]
-            display(Markdown(f"""
+            display(Markdown(f"```
 {format_metrics(metrics)}
-"""))
+```"))
         
         # Özeti görüntüle
         display(HTML("<h3>İyileştirme Özeti</h3>"))
@@ -732,7 +736,11 @@ class ConditionalBrancher(ControlLoop):
     def __init__(
         self,
         branches: Dict[str, Dict[str, Any]],
-        classifier_template: str = "Aşağıdaki girdiyi analiz edin ve tam olarak şu kategorilerden birine sınıflandırın: {categories}.\n\nGirdi: {input}\n\nKategori:",
+        classifier_template: str = "Aşağıdaki girdiyi analiz edin ve tam olarak şu kategorilerden birine sınıflandırın: {categories}.
+
+Girdi: {input}
+
+Kategori:",
         **kwargs
     ):
         """
@@ -788,7 +796,8 @@ class ConditionalBrancher(ControlLoop):
                 return category, metadata
         
         # Tam eşleşme yoksa, ilk satırı yanıt olarak al ve en yakın eşleşmeyi bul
-        first_line = response.strip().split('\n')[0].lower()
+        first_line = response.strip().split('
+')[0].lower()
         
         best_match = None
         best_score = 0
@@ -895,9 +904,9 @@ class ConditionalBrancher(ControlLoop):
             # Sınıflandırma metriklerini görüntüle
             display(HTML("<h4>Sınıflandırma Metrikleri:</h4>"))
             metrics = run_details["classification"]["metrics"]
-            display(Markdown(f"""
+            display(Markdown(f"```
 {format_metrics(metrics)}
-"""))
+```"))
         
         # Yürütme sonuçlarını görüntüle
         display(HTML("<h3>Yürütme Sonuçları</h3>"))
@@ -909,9 +918,9 @@ class ConditionalBrancher(ControlLoop):
         
         display(HTML("<h4>Yürütme Metrikleri:</h4>"))
         metrics = run_details['execution']['metrics']
-        display(Markdown(f"""
+        display(Markdown(f"```
 {format_metrics(metrics)}
-"""))
+```"))
 
 
 class SelfCritique(ControlLoop):
@@ -922,7 +931,11 @@ class SelfCritique(ControlLoop):
     
     def __init__(
         self,
-        critique_template: str = "Adım 1: Soruya bir yanıt oluşturun.\nAdım 2: Yanıtınızı herhangi bir hata, eksiklik veya iyileştirme için eleştirin.\nAdım 3: Eleştirinize dayanarak son, iyileştirilmiş bir yanıt sağlayın.\n\nSoru: {input}",
+        critique_template: str = "Adım 1: Soruya bir yanıt oluşturun.
+Adım 2: Yanıtınızı herhangi bir hata, eksiklik veya iyileştirme için eleştirin.
+Adım 3: Eleştirinize dayanarak son, iyileştirilmiş bir yanıt sağlayın.
+
+Soru: {input}",
         parse_sections: bool = True,
         **kwargs
     ):
@@ -1023,9 +1036,9 @@ class SelfCritique(ControlLoop):
         # Metrikleri görüntüle
         display(HTML("<h3>Metrikler</h3>"))
         metrics = run_details["metrics"]
-        display(Markdown(f"""
+        display(Markdown(f"```
 {format_metrics(metrics)}
-"""))
+```"))
 
 
 class ExternalValidation(ControlLoop):
@@ -1037,7 +1050,13 @@ class ExternalValidation(ControlLoop):
     def __init__(
         self,
         validator_fn: Callable[[str], Tuple[bool, str]],
-        correction_template: str = "Önceki yanıtınızda bazı sorunlar vardı:\n\n{validation_feedback}\n\nLütfen bu sorunları gidermek için yanıtınızı düzeltin:\n\n{previous_response}",
+        correction_template: str = "Önceki yanıtınızda bazı sorunlar vardı:
+
+{validation_feedback}
+
+Lütfen bu sorunları gidermek için yanıtınızı düzeltin:
+
+{previous_response}",
         max_attempts: int = 3,
         **kwargs
     ):
@@ -1177,9 +1196,9 @@ class ExternalValidation(ControlLoop):
             # Metrikleri görüntüle
             display(HTML("<h4>Metrikler:</h4>"))
             metrics = attempt_data["metrics"]
-            display(Markdown(f"""
+            display(Markdown(f"```
 {format_metrics(metrics)}
-"""))
+```"))
         
         # Özeti görüntüle
         display(HTML("<h3>Özet</h3>"))
@@ -1201,17 +1220,23 @@ def example_sequential_chain():
     steps = [
         {
             "name": "varlıkları_çıkar",
-            "prompt_template": "Bu metinden ana varlıkları (kişiler, yerler, kuruluşlar) çıkarın. Her varlık için kısa bir açıklama yapın.\n\nMetin: {input}",
+            "prompt_template": "Bu metinden ana varlıkları (kişiler, yerler, kuruluşlar) çıkarın. Her varlık için kısa bir açıklama yapın.
+
+Metin: {input}",
             "system_message": "Metinden adlandırılmış varlıkları çıkarmada ve kategorize etmede uzmansınız."
         },
         {
             "name": "ilişkileri_analiz_et",
-            "prompt_template": "Bu varlıklara dayanarak, aralarındaki ilişkileri analiz edin:\n\n{input}",
+            "prompt_template": "Bu varlıklara dayanarak, aralarındaki ilişkileri analiz edin:
+
+{input}",
             "system_message": "Varlıklar arasındaki ilişkileri analiz etmede uzmansınız."
         },
         {
             "name": "rapor_oluştur",
-            "prompt_template": "Bu ilişki analizine dayanarak kısa bir özet rapor oluşturun:\n\n{input}",
+            "prompt_template": "Bu ilişki analizine dayanarak kısa bir özet rapor oluşturun:
+
+{input}",
             "system_message": "Açık, kısa raporlar oluşturmada uzmansınız."
         }
     ]
@@ -1271,15 +1296,21 @@ def example_conditional_brancher():
     """Sorgu yönlendirme için koşullu dallanma örneği."""
     branches = {
         "teknik": {
-            "prompt_template": "Bu konuyu uzman bir kitle için teknik, ayrıntılı bir şekilde açıklayın:\n\n{input}",
+            "prompt_template": "Bu konuyu uzman bir kitle için teknik, ayrıntılı bir şekilde açıklayın:
+
+{input}",
             "system_message": "Ayrıntılı, hassas açıklamalar sağlayan bir teknik uzmansınız."
         },
         "basitleştirilmiş": {
-            "prompt_template": "Bu konuyu 10 yaşındaki bir çocuğun anlayacağı basit terimlerle açıklayın:\n\n{input}",
+            "prompt_template": "Bu konuyu 10 yaşındaki bir çocuğun anlayacağı basit terimlerle açıklayın:
+
+{input}",
             "system_message": "Karmaşık konuları basit, erişilebilir bir dilde açıklayan bir eğitimcisiniz."
         },
         "pratik": {
-            "prompt_template": "Bu konuda pratik, eyleme geçirilebilir tavsiyeler verin:\n\n{input}",
+            "prompt_template": "Bu konuda pratik, eyleme geçirilebilir tavsiyeler verin:
+
+{input}",
             "system_message": "Somut, eyleme geçirilebilir rehberlik sağlayan pratik bir danışmansınız."
         }
     }

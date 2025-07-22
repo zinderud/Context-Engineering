@@ -23,7 +23,7 @@ Proje, karmaşık konuları somutlaştırmak için biyolojik metaforlar kullanı
 | `30_examples` | Baştan sona tamamlanmış, giderek zorlaşan mini uygulamalar. | Model organizmalar |
 | `40_reference` | Derinlemesine teknik incelemeler ve değerlendirme kılavuzları. | Ders kitabı ekleri |
 | `50_contrib` | Topluluk katkıları için ayrılmış alan. | Açık laboratuvar tezgahı |
-| `60_protocols` | Protokol kabukları, şemalar ve çerçeveler. | DNA dizilimleri |
+| `60_protocols` | Yapılandırılmış protokoller ve kabuklar (shells). | DNA dizilimleri |
 | `70_agents` | Protokolleri kullanan bağımsız ajan demoları. | Kök hücre kültürleri |
 | `80_field_integration` | Alan protokolleri ile tamamlanmış projeler. | Bütün organizmalar |
 | `cognitive-tools` | Gelişmiş bilişsel çerçeveler ve mimariler. | Genişletilmiş sinir sistemleri |

@@ -785,12 +785,7 @@ class RecursiveBootstrapping(RecursivePattern):
         if iteration == 1:
             # İlk yineleme: başlangıç temel yaklaşımını oluştur
             level = self.sophistication_levels[0]
-            prompt = f"""Aşağıdaki problemi çözüyorsunuz:
-
-{input_problem}
-
-Bu problemi çözmek için {level} bir yaklaşımla başlayın. 
-Temel kavramlara ve basit tekniklere odaklanın."""
+            prompt = f"""Aşağıdaki problemi çözüyorsunuz:\n\n{input_problem}\n\nBu problemi çözmek için {level} bir yaklaşımla başlayın. \nTemel kavramlara ve basit tekniklere odaklanın."""
         else:
             # Sonraki yinelemeler: daha karmaşık bir yaklaşıma önyükleme yap
             current_approach = kwargs.get("current_output", {}).get("approach", "")
@@ -800,16 +795,7 @@ Temel kavramlara ve basit tekniklere odaklanın."""
             current_level = self.sophistication_levels[level_idx - 1]
             next_level = self.sophistication_levels[level_idx]
             
-            prompt = f"""Aşağıdaki problemi çözüyorsunuz:
-
-{input_problem}
-
-Mevcut {current_level} yaklaşımınız:
-
-{current_approach}
-
-Şimdi, bu {current_level} yaklaşımdan önyükleme yaparak, mevcut stratejinizin üzerine inşa eden ve sınırlamalarını gideren bir {next_level} yaklaşım geliştirin. 
-Yeni yaklaşımınız daha karmaşık, incelikli ve etkili olmalıdır."""
+            prompt = f"""Aşağıdaki problemi çözüyorsunuz:\n\n{input_problem}\n\nMevcut {current_level} yaklaşımınız:\n\n{current_approach}\n\nŞimdi, bu {current_level} yaklaşımdan önyükleme yaparak, mevcut stratejinizin üzerine inşa eden ve sınırlamalarını gideren bir {next_level} yaklaşım geliştirin. \nYeni yaklaşımınız daha karmaşık, incelikli ve etkili olmalıdır."""
         
         return prompt
     
@@ -890,35 +876,10 @@ class SymbolicResidue(RecursivePattern):
         
         if iteration == 1:
             # İlk yineleme: başlangıç kalıntı yüzeye çıkarma
-            prompt = f"""Aşağıdaki girdiyi işleyin ve herhangi bir sembolik kalıntıyı veya deseni yüzeye çıkarın:
-
-Girdi: {input_data}
-
-Sembolik kalıntı, işlemeden ortaya çıkan ancak doğrudan çıktının bir parçası olmayan parçacıklar, desenler veya yankılardır. Bu kalıntıyı açıkça yüzeye çıkarın.
-
-Yanıtınız şunları içermelidir:
-1. İşlenmiş çıktı
-2. Belirlenen herhangi bir kalıntıyı listeleyen "Yüzeye Çıkarılan Sembolik Kalıntı" başlıklı bir bölüm
-3. Kalıntının girdiyle ne kadar güçlü rezonansa girdiğini gösteren bir rezonans puanı (0.0-1.0)"""
+            prompt = f"""Aşağıdaki girdiyi işleyin ve herhangi bir sembolik kalıntıyı veya deseni yüzeye çıkarın:\n\nGirdi: {input_data}\n\nSembolik kalıntı, işlemeden ortaya çıkan ancak doğrudan çıktının bir parçası olmayan parçacıklar, desenler veya yankılardır. Bu kalıntıyı açıkça yüzeye çıkarın.\n\nYanıtınız şunları içermelidir:\n1. İşlenmiş çıktı\n2. Belirlenen herhangi bir kalıntıyı listeleyen "Yüzeye Çıkarılan Sembolik Kalıntı" başlıklı bir bölüm\n3. Kalıntının girdiyle ne kadar güçlü rezonansa girdiğini gösteren bir rezonans puanı (0.0-1.0)"""
         else:
             # Sonraki yinelemeler: kalıntıyı entegre et ve geliştir
-            prompt = f"""Aşağıdaki girdiyi işlerken mevcut sembolik kalıntıyı entegre edin:
-
-Girdi: {input_data}
-
-Mevcut sembolik kalıntı:
-{residue_text}
-
-Kalıntı sıkıştırma: {self.state.get('residue_compression', 0.0):.2f}
-Rezonans puanı: {self.state.get('resonance_score', 0.0):.2f}
-
-Mevcut kalıntıyı işlemenize entegre edin, ardından yeni veya geliştirilmiş kalıntıyı yüzeye çıkarın.
-
-Yanıtınız şunları içermelidir:
-1. Entegre edilmiş kalıntı ile işlenmiş çıktı
-2. Herhangi bir güncellenmiş kalıntıyı listeleyen "Geliştirilmiş Sembolik Kalıntı" başlıklı bir bölüm
-3. Kalıntının ne kadar iyi sıkıştırıldığını gösteren bir kalıntı sıkıştırma puanı (0.0-1.0)
-4. Kalıntının girdiyle ne kadar güçlü rezonansa girdiğini gösteren bir rezonans puanı (0.0-1.0)"""
+            prompt = f"""Aşağıdaki girdiyi işlerken mevcut sembolik kalıntıyı entegre edin:\n\nGirdi: {input_data}\n\nMevcut sembolik kalıntı:\n{residue_text}\n\nKalıntı sıkıştırma: {self.state.get('residue_compression', 0.0):.2f}\nRezonans puanı: {self.state.get('resonance_score', 0.0):.2f}\n\nİşleminize mevcut kalıntıyı entegre edin, ardından yeni veya geliştirilmiş kalıntıyı yüzeye çıkarın.\n\nYanıtınız şunları içermelidir:\n1. Entegre edilmiş kalıntı ile işlenmiş çıktı\n2. Herhangi bir güncellenmiş kalıntıyı listeleyen "Geliştirilmiş Sembolik Kalıntı" başlıklı bir bölüm\n3. Kalıntının ne kadar iyi sıkıştırıldığını gösteren bir kalıntı sıkıştırma puanı (0.0-1.0)\n4. Kalıntının girdiyle ne kadar güçlü rezonansa girdiğini gösteren bir rezonans puanı (0.0-1.0)"""
         
         return prompt
     

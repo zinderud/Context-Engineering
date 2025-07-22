@@ -308,24 +308,24 @@ def display_response(
     """
     if show_prompt:
         display(HTML("<h4>Sorgu:</h4>"))
-        display(Markdown(f"""
+        display(Markdown(f"```
 {prompt}
-"""))
+```"))
     
     if retrieved_context and show_context:
         display(HTML("<h4>Geri Çağrılan Bağlam:</h4>"))
-        display(Markdown(f"""
+        display(Markdown(f"```
 {retrieved_context}
-"""))
+```"))
     
     display(HTML("<h4>Yanıt:</h4>"))
     display(Markdown(response))
     
     if metrics:
         display(HTML("<h4>Metrikler:</h4>"))
-        display(Markdown(f"""
+        display(Markdown(f"```
 {format_metrics(metrics)}
-"""))
+```"))
 
 
 # Belge İşleme Fonksiyonları
@@ -410,7 +410,9 @@ def _approximate_text_to_chunks(
     char_overlap = chunk_overlap * 4
     
     # Önce paragraflara göre böl (mümkünse paragrafların ortasında kesmekten kaçınmak için)
-    paragraphs = text.split('\n\n')
+    paragraphs = text.split('
+
+')
     
     chunks = []
     current_chunk = []
@@ -422,7 +424,9 @@ def _approximate_text_to_chunks(
         # Bu paragrafı eklemek parça boyutunu aşarsa
         if current_size + paragraph_size > char_size and current_chunk:
             # Mevcut metinden bir parça oluştur
-            chunk_text = '\n\n'.join(current_chunk)
+            chunk_text = '
+
+'.join(current_chunk)
             chunks.append(Document(
                 content=chunk_text,
                 metadata={"approx_size": current_size}
@@ -450,7 +454,9 @@ def _approximate_text_to_chunks(
     
     # Kalan bir şey varsa son parçayı ekle
     if current_chunk:
-        chunk_text = '\n\n'.join(current_chunk)
+        chunk_text = '
+
+'.join(current_chunk)
         chunks.append(Document(
             content=chunk_text,
             metadata={"approx_size": current_size}
@@ -781,9 +787,12 @@ class RAGSystem:
                 if source:
                     source_info = f" (Kaynak: {source})"
             
-            context_parts.append(f"[Belge {i+1}{source_info}]\n{doc.content}\n")
+            context_parts.append(f"[Belge {i+1}{source_info}]
+{doc.content}
+")
         
-        return "\n".join(context_parts)
+        return "
+".join(context_parts)
     
     def _create_prompt(
         self,
@@ -929,14 +938,14 @@ Yanıt:"""
                 # Varsa meta verileri görüntüle
                 if doc.metadata:
                     display(HTML("<p><em>Meta Veriler:</em></p>"))
-                    display(Markdown(f"""```json
+                    display(Markdown(f"```json
 {json.dumps(doc.metadata, indent=2)}
-```"""))
+```"))
                 
                 # İçeriği görüntüle
-                display(Markdown(f"""```
+                display(Markdown(f"```
 {doc.content}
-```"""))
+```"))
         
         # Yanıtı görüntüle
         display(HTML("<h3>Yanıt</h3>"))
@@ -1027,10 +1036,7 @@ class SimpleRAG(RAGSystem):
     Gömme benzerlik araması kullanan basit bir RAG sistemi.
     """
     
-    def __init__(
-        self,
-        **kwargs
-    ):
+    def __init__(self, **kwargs):
         """Basit RAG sistemini başlatır."""
         super().__init__(**kwargs)
         
@@ -1291,7 +1297,7 @@ class HybridRAG(ChunkedRAG):
         
         Args:
             query: Sorgu dizesi
-            top_k: Döndürülelecek sonuç sayısı
+            top_k: Döndürülecek sonuç sayısı
             
         Returns:
             list: (belge, benzerlik_puanı) demetleri listesi
