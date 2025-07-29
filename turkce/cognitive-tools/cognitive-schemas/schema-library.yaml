@@ -1,0 +1,35 @@
+# Şema Kütüphanesi (YAML)
+
+Bu YAML dosyası, bu projede tanımlanan tüm bilişsel şemaların ve mimarilerin **merkezi bir kütüphanesi** olarak hizmet eder. Markdown dosyalarında açıklanan kavramları, makineler tarafından kolayca okunabilen, yapılandırılmış ve yeniden kullanılabilir bir formatta bir araya getirir.
+
+## Dosyanın İçeriği ve Amacı
+
+Bu dosya, aşağıdaki ana bölümlerden oluşur ve her bir bölüm, belirli bir araştırma akımını veya konsepti şematize eder:
+
+1.  **Bilişsel Araçlar Şemaları:**
+    *   **Dayandığı Araştırma:** IBM Zurich (Brown et al., 2025).
+    *   **İçerik:** Anlama, analiz etme, sentezleme ve doğrulama gibi temel bilişsel operasyonlar için standartlaştırılmış şablonlar.
+
+2.  **Sembolik Akıl Yürütme Şemaları:**
+    *   **Dayandığı Araştırma:** Princeton ICML (Yang et al., 2025).
+    *   **İçerik:** Yapay zekanın soyut düşünmesini sağlayan üç aşamalı (soyutlama → tümevarım → geri çağırma) akıl yürütme mimarisinin şemaları.
+
+3.  **Kuantum Semantik Şemaları:**
+    *   **Dayandığı Araştırma:** Indiana University (Agostino et al., 2025).
+    *   **İçerik:** Anlamın sabit olmadığı, gözlemciye ve bağlama göre değiştiği kuantum benzeri yorumlama süreçlerini modelleyen şemalar.
+
+4.  **Hafıza-Akıl Yürütme Şemaları:**
+    *   **Dayandığı Araştırma:** Singapore-MIT (Li et al., 2025).
+    *   **İçerik:** Yapay zekanın hafızasını verimli bir şekilde yönetmesini ve akıl yürütme süreçleriyle entegre etmesini sağlayan MEM1 çerçevesinin şemaları.
+
+5.  **Bağlam Mühendisliği Şemaları:**
+    *   **Dayandığı Araştırma:** Context Engineering (Kim et al., 2025).
+    *   **İçerik:** Bilişsel yeteneklerin en basitten ("atomlar") en karmaşığa ("nöral alanlar") doğru nasıl aşamalı olarak ölçekleneceğini tanımlayan şemalar.
+
+6.  **Entegrasyon ve Uygulama Şemaları:**
+    *   **İçerik:** Yukarıdaki tüm farklı şemaların, "problem çözme" veya "araştırma analizi" gibi belirli görevleri yerine getirmek için nasıl bir araya getirileceğini gösteren entegrasyon desenleri ve hazır uygulama şablonları.
+
+7.  **Değerlendirme Şemaları:**
+    *   **İçerik:** Bu şemaların ve mimarilerin performansını, verimliliğini ve etkinliğini ölçmek için kullanılan metrikleri ve değerlendirme çerçevelerini tanımlar.
+
+Kısacası bu dosya, projenin tüm teorik ve yapısal temelini, organize ve standart bir formatta sunan **ana referans belgesidir**.
