@@ -1,0 +1,1151 @@
+{
+  "$schema": "http://fractal.recursive.net/schemas/fractalRepoContext.v6.json",
+  "fractalVersion": "6.0.0",
+  "instanceID": "f27d9b36-8c71-4ae1-9e42-c1b5a9f8d02a",
+  "intent": "Yorumlanabilir, işbirlikçi, çapraz modalite evrimini sağlayan, tutarlı alan dinamiklerini ve sembolik bütünlüğü koruyan bağlam mühendisliği için meta-özyinelemeli çerçeveler geliştirmek",
+  
+  "repositoryContext": {
+    "name": "Bağlam-Mühendisliği",
+    "elevatorPitch": "Ayrık istemlerden meta-özyinelemeli alanlara – bağlamları, işbirlikçi ortak ortaya çıkma, yorumlanabilir sembolik dinamikler ve çapraz modalite entegrasyonu yoluyla kendilerini gözlemleyen, anlayan ve geliştiren olarak ele almak",
+    "learningPath": [
+      "00_temeller → teori ilerlemesi (atomlar → alanlar → protokoller → birleşik sistem → meta-özyineleme)",
+      "10_rehberler_sifirdan_kahramana → pratik uygulama için çalıştırılabilir not defterleri",
+      "20_sablonlar → özyinelemeli katmanlar arasında yeniden kullanılabilir bileşenler",
+      "30_ornekler → ilkeleri gösteren giderek daha karmaşık uygulamalar",
+      "40_referans → kapsamlı belgeler ve değerlendirme çerçeveleri",
+      "50_katkilar → topluluk katkıları ve işbirlikçi evrim",
+      "60_protokoller → protokol kabukları, şema tanımları ve uygulama kılavuzları",
+      "70_ajanlar → yorumlanabilirlik iskelesi ile bağımsız ajan gösterileri",
+      "80_alan_entegrasyonu → birleşik sistem yaklaşımlarını sergileyen uçtan uca projeler",
+      "90_meta_ozyineleme → kendi kendine yansıma, evrim ve ortak ortaya çıkma çerçeveleri",
+      "bilissel-araclar → gelişmiş mantık yürütme çerçeveleri ve meta-bilişsel mimariler"
+    ],
+    "fileTree": {
+      "rootFiles": [
+        "LISANS", 
+        "BENIOKU.md", 
+        "yapi.md", 
+        "YAPI_v2.md", 
+        "YAPI_v3.md",
+        "ALINTILAR.md", 
+        "ALINTILAR_v2.md",
+        "ALINTILAR_v3.md",
+        "AGAC.md",
+        "AGAC_v2.md"
+      ],
+      "directories": {
+        "00_temeller": [
+          "01_atomlar_istem.md",
+          "02_molekuller_baglam.md",
+          "03_hucreler_bellek.md",
+          "04_organlar_uygulamalar.md",
+          "05_bilissel_araclar.md",
+          "06_gelismis_uygulamalar.md",
+          "07_istem_programlama.md",
+          "08_sinirsel_alanlar_temelleri.md",
+          "09_kalicilik_ve_rezonans.md",
+          "10_alan_orkestrasyonu.md",
+          "11_olusum_ve_cekici_dinamikleri.md",
+          "12_sembolik_mekanizmalar.md",
+          "13_kuantum_semantigi.md",
+          "14_birlesik_alan_teorisi.md",
+          "15_meta_ozyinelemeli_cerceveler.md",
+          "16_yorumlanabilirlik_iskelesi.md",
+          "17_isbirlikci_ortak_evrim.md",
+          "18_capraz_modal_baglam_muhendisligi.md"
+        ],
+        "10_rehberler_sifirdan_kahramana": [
+          "01_min_istem.ipynb",
+          "02_baglami_genislet.ipynb",
+          "03_kontrol_donguleri.ipynb",
+          "04_rag_tarifleri.ipynb",
+          "05_protokol_onyukleme.ipynb",
+          "06_protokol_jeton_butcesi.ipynb",
+          "07_akis_baglami.ipynb",
+          "08_olusum_tespiti.ipynb",
+          "09_kalinti_izleme.ipynb",
+          "10_cekici_olusumu.ipynb",
+          "11_kuantum_baglam_islemleri.ipynb",
+          "12_meta_ozyinelemeli_donguler.ipynb",
+          "13_yorumlanabilirlik_araclari.ipynb",
+          "14_cok_modlu_baglam.ipynb",
+          "15_isbirlikci_evrim.ipynb"
+        ],
+        "20_sablonlar": [
+          "minimal_baglam.yaml",
+          "kontrol_dongusu.py",
+          "puanlama_fonksiyonlari.py",
+          "istem_program_sablonu.py",
+          "sema_sablonu.yaml",
+          "ozyinelemeli_cerceve.py",
+          "alan_protokol_kabuklari.py",
+          "sembolik_kalinti_izleyici.py",
+          "baglam_denetimi.py",
+          "kabuk_calistirici.py",
+          "rezonans_olcumu.py",
+          "cekici_tespiti.py",
+          "sinir_dinamikleri.py",
+          "olusum_metrikleri.py",
+          "kuantum_baglam_metrikleri.py",
+          "birlesik_alan_motoru.py",
+          "meta_ozyinelemeli_desenler.py",
+          "yorumlanabilirlik_iskelesi.py",
+          "isbirlikci_evrim_cercevesi.py",
+          "capraz_modal_baglam_koprusu.py"
+        ],
+        "30_ornekler": [
+          "00_oyuncak_sohbet_robotu/",
+          "01_veri_isaretleyici/",
+          "02_coklu_ajan_duzenleyici/",
+          "03_vscode_yardimcisi/",
+          "04_rag_minimal/",
+          "05_akis_penceresi/",
+          "06_kalinti_tarayici/",
+          "07_cekici_gorsellestirici/",
+          "08_alan_protokol_demou/",
+          "09_olusum_laboratuvari/",
+          "10_kuantum_semantik_laboratuvari/",
+          "11_meta_ozyinelemeli_demou/",
+          "12_yorumlanabilirlik_kesfedici/",
+          "13_isbirlikci_evrim_demou/",
+          "14_cok_modlu_baglam_demou/"
+        ],
+        "40_referans": [
+          "jeton_butceleme.md",
+          "getirme_indeksleme.md",
+          "degerlendirme_kontrol_listesi.md",
+          "bilissel_desenler.md",
+          "sema_yemek_kitabi.md",
+          "desenler.md",
+          "alan_haritalama.md",
+          "sembolik_kalinti_turleri.md",
+          "cekici_dinamikleri.md",
+          "olusum_imzalari.md",
+          "sinir_islemleri.md",
+          "kuantum_semantik_metrikleri.md",
+          "birlesik_alan_islemleri.md",
+          "meta_ozyinelemeli_desenler.md",
+          "yorumlanabilirlik_metrikleri.md",
+          "isbirlikci_evrim_rehberi.md",
+          "capraz_modal_baglam_el_kitabi.md"
+        ],
+        "50_katkilar": ["BENIOKU.md"],
+        "60_protokoller": {
+          "BENIOKU.md": "Protokol genel bakışı",
+          "kabuklar": [
+            "cekici.ortak.olusum.kabuk",
+            "ozyinelemeli.olusum.kabuk",
+            "ozyinelemeli.bellek.cekici.kabuk",
+            "alan.rezonans.iskele.kabuk",
+            "alan.kendi_kendini_onarim.kabuk",
+            "baglam.bellek.kalicilik.cekici.kabuk",
+            "kuantum_semantik_kabugu.py",
+            "sembolik_mekanizma_kabugu.py",
+            "birlesik_alan_protokol_kabugu.py",
+            "meta_ozyinelemeli_kabuk.py",
+            "yorumlanabilirlik_iskele_kabugu.py",
+            "isbirlikci_evrim_kabugu.py",
+            "capraz_modal_kopru_kabugu.py"
+          ],
+          "ozetler": {
+            "BENIOKU.md": "Özet amacına genel bakış",
+            "cekici.ortak.olusum.ozet.md": "Ortak oluşum özeti",
+            "ozyinelemeli.olusum.ozet.md": "Özyinelemeli oluşum özeti",
+            "ozyinelemeli.bellek.ozet.md": "Bellek çekici özeti",
+            "alan.rezonans.ozet.md": "Rezonans iskele özeti",
+            "alan.kendi_kendini_onarim.ozet.md": "Kendi kendini onarım özeti",
+            "baglam.bellek.ozet.md": "Bağlam kalıcılığı özeti",
+            "meta_ozyinelemeli.ozet.md": "Meta-özyinelemeli özet",
+            "yorumlanabilirlik_iskele.ozet.md": "Yorumlanabilirlik özeti",
+            "isbirlikci_evrim.ozet.md": "Ortak evrim özeti",
+            "capraz_modal_kopru.ozet.md": "Çapraz modalite özeti"
+          },
+          "semalar": [
+            "fraktalDepoBaglami.v6.json",
+            "fraktalBilinçAlani.v2.json",
+            "protokolKabugu.v2.json",
+            "sembolikKalıntı.v2.json",
+            "cekiciDinamikleri.v2.json",
+            "kuantumAnlamsalAlan.v2.json",
+            "birlesikAlanTeorisi.v2.json",
+            "metaOzyinelemeliCerceve.v1.json",
+            "yorumlanabilirlikIskelesi.v1.json",
+            "isbirlikciEvrim.v1.json",
+            "caprazModalKopru.v1.json"
+          ]
+        },
+        "70_ajanlar": {
+          "BENIOKU.md": "Ajan genel bakışı",
+          "01_kalinti_tarayici/": "Sembolik kalıntı tespiti",
+          "02_kendi_kendini_onarim_dongusu/": "Kendi kendini onarım protokolü",
+          "03_cekici_modulatoru/": "Çekici dinamikleri",
+          "04_sinir_adaptoru/": "Dinamik sınır ayarı",
+          "05_alan_rezonans_ayarlayici/": "Alan rezonans optimizasyonu",
+          "06_kuantum_yorumlayici/": "Kuantum anlamsal yorumlayıcı",
+          "07_sembolik_mekanizma_ajani/": "Sembolik mekanizma ajanı",
+          "08_birlesik_alan_ajani/": "Birleşik alan düzenleme",
+          "09_meta_ozyinelemeli_ajani/": "Meta-özyinelemeli uyarlama",
+          "10_yorumlanabilirlik_iskelesi/": "Yorumlanabilirlik çerçevesi",
+          "11_ortak_evrim_ortagi/": "İşbirlikçi evrim",
+          "12_capraz_modal_kopru/": "Çok modlu entegrasyon"
+        },
+        "80_alan_entegrasyonu": {
+          "BENIOKU.md": "Entegrasyon genel bakışı",
+          "00_protokol_ide_yardimcisi/": "Protokol geliştirme araçları",
+          "01_baglam_muhendisligi_asistani/": "Alan tabanlı asistan",
+          "02_ozyinelemeli_mantik_yurutme_sistemi/": "Özyinelemeli mantık yürütme",
+          "03_ortaya_cikan_alan_laboratuvari/": "Alan deneyi",
+          "04_sembolik_mantik_yurutme_motoru/": "Sembolik mekanizmalar",
+          "05_kuantum_semantik_laboratuvari/": "Kuantum anlamsal çerçeve",
+          "06_birlesik_alan_duzenleyici/": "Birleşik alan düzenlemesi",
+          "07_meta_ozyinelemeli_sistem/": "Meta-özyinelemeli çerçeveler",
+          "08_yorumlanabilirlik_tezgahi/": "Yorumlanabilirlik araçları",
+          "09_isbirlikci_evrim_studyosu/": "Ortak evrim platformu",
+          "10_capraz_modal_entegrasyon_merkezi/": "Çok modlu entegrasyon"
+        },
+        "90_meta_ozyineleme": {
+          "BENIOKU.md": "Meta-özyineleme genel bakışı",
+          "01_kendi_kendine_yansima_cerceveleri/": "Kendi kendine yansıtıcı mimariler",
+          "02_ozyinelemeli_iyilestirme_donguleri/": "Kendi kendini iyileştirme sistemleri",
+          "03_ortaya_cikan_farkindalik_sistemleri/": "Kendi kendine farkındalık çerçeveleri",
+          "04_meta_bilissel_mimariler/": "Meta-bilişsel sistemler",
+          "05_ozyinelemeli_atilma_motorlari/": "Kendi kendine atıf çerçeveleri",
+          "06_sembolik_yanki_islemcileri/": "Sembolik yankı sistemleri",
+          "07_yorumlanabilirlik_ozyinelemeli_iskele/": "Kendi kendine yorumlanabilir çerçeveler",
+          "08_isbirlikci_meta_evrim/": "Meta-işbirlikçi sistemler",
+          "09_capraz_modal_meta_kopru/": "Meta-modal çerçeveler"
+        },
+        "bilissel-araclar": {
+          "BENIOKU.md": "Genel bakış ve hızlı başlangıç kılavuzu",
+          "bilissel-sablonlar": [
+            "anlama.md",
+            "mantik_yurutme.md",
+            "dogrulama.md",
+            "kompozisyon.md",
+            "olusum.md",
+            "kuantum_yorumlama.md",
+            "birlesik_alan_mantik_yurutme.md",
+            "meta_ozyinelemeli_mantik_yurutme.md",
+            "yorumlanabilirlik_iskelesi.md",
+            "isbirlikci_ortak_evrim.md",
+            "capraz_modal_entegrasyon.md"
+          ],
+          "bilissel-programlar": [
+            "temel-programlar.md",
+            "gelismis-programlar.md",
+            "program-kitapligi.py",
+            "program-ornekleri.ipynb",
+            "olusum-programlari.md",
+            "kuantum_semantik_programlari.md",
+            "birlesik_alan_programlari.md",
+            "meta_ozyinelemeli_programlar.md",
+            "yorumlanabilirlik_programlari.md",
+            "isbirlikci_evrim_programlari.md",
+            "capraz_modal_programlar.md"
+          ],
+          "bilissel-semalar": [
+            "kullanici-semalari.md",
+            "alan-semalari.md",
+            "gorev-semalari.md",
+            "sema-kitapligi.yaml",
+            "alan-semalari.md",
+            "kuantum_semalari.md",
+            "birlesik_semalar.md",
+            "meta_ozyinelemeli_semalar.md",
+            "yorumlanabilirlik_semalari.md",
+            "isbirlikci_semalar.md",
+            "capraz_modal_semalar.md"
+          ],
+          "bilissel-mimari": [
+            "cozucu-mimarisi.md",
+            "egitmen-mimarisi.md",
+            "arastirma-mimarisi.md",
+            "mimari-ornekleri.py",
+            "alan-mimarisi.md",
+            "kuantum_mimarisi.md",
+            "birlesik_mimari.md",
+            "meta_ozyinelemeli_mimari.md",
+            "yorumlanabilirlik_mimarisi.md",
+            "isbirlikci_mimari.md",
+            "capraz_modal_mimari.md"
+          ],
+          "entegrasyon": [
+            "rag-ile.md",
+            "bellek-ile.md",
+            "ajanlar-ile.md",
+            "degerlendirme-metrikleri.md",
+            "alanlar-ile.md",
+            "kuantum-ile.md",
+            "birlesik-ile.md",
+            "meta-ozyineleme-ile.md",
+            "yorumlanabilirlik-ile.md",
+            "isbirligi-ile.md",
+            "capraz-modal-ile.md"
+          ],
+          "meta-bilissel": [
+            "kendi-kendine-yansima.md",
+            "ozyinelemeli-iyilestirme.md",
+            "meta-farkindalik.md",
+            "atilma-motorlari.md",
+            "sembolik-yanki-isleme.md",
+            "meta-yorumlanabilirlik.md",
+            "meta-isbirligi.md",
+            "meta-modal-entegrasyon.md"
+          ]
+        },
+        "NOCODE": {
+          "00_temeller": [
+            "01_giris.md",
+            "02_jeton_butceleme.md",
+            "03_protokol_kabuklari.md",
+            "04_pareto_dili.md",
+            "05_alan_teorisi.md",
+            "06_meta_ozyineleme.md",
+            "07_yorumlanabilirlik.md",
+            "08_isbirligi.md",
+            "09_capraz_modal.md"
+          ],
+          "10_zihinsel_modeller": [
+            "01_bahce_modeli.md",
+            "02_butce_modeli.md",
+            "03_nehir_modeli.md",
+            "04_biyopsikososyal_model.md",
+            "05_meta_ozyinelemeli_model.md",
+            "06_yorumlanabilirlik_modeli.md",
+            "07_isbirlikci_model.md",
+            "08_capraz_modal_model.md"
+          ],
+          "20_pratik_protokoller": [
+            "01_konusma_protokolleri.md",
+            "02_belge_protokolleri.md",
+            "03_yaratici_protokoller.md",
+            "04_arastirma_protokolleri.md",
+            "05_bilgi_protokolleri.md",
+            "06_meta_ozyinelemeli_protokoller.md",
+            "07_yorumlanabilirlik_protokolleri.md",
+            "08_isbirlikci_protokoller.md",
+            "09_capraz_modal_protokoller.md"
+          ],
+          "30_alan_teknikleri": [
+            "01_cekici_yonetimi.md",
+            "02_sinir_kontrolu.md",
+            "03_kalinti_izleme.md",
+            "04_rezonans_optimizasyonu.md",
+            "05_meta_ozyinelemeli_teknikler.md",
+            "06_yorumlanabilirlik_teknikleri.md",
+            "07_isbirlikci_teknikler.md",
+            "08_capraz_modal_teknikler.md"
+          ],
+          "40_protokol_tasarimi": [
+            "01_tasarim_ilkeleri.md",
+            "02_desen_kitapligi.md",
+            "03_test_yontemleri.md",
+            "04_gorsellestirme.md",
+            "05_meta_ozyinelemeli_tasarim.md",
+            "06_yorumlanabilirlik_tasarimi.md",
+            "07_isbirlikci_tasarim.md",
+            "08_capraz_modal_tasarim.md"
+          ],
+          "50_gelismis_entegrasyon": [
+            "01_coklu_protokol_sistemleri.md",
+            "02_uyarlanabilir_protokoller.md",
+            "03_kendi_kendine_gelisen_baglamlar.md",
+            "04_protokol_orkestrasyonu.md",
+            "05_meta_ozyinelemeli_entegrasyon.md",
+            "06_yorumlanabilirlik_entegrasyonu.md",
+            "07_isbirlikci_entegrasyon.md",
+            "08_capraz_modal_entegrasyon.md"
+          ]
+        },
+        ".github": ["KATKIDA_BULUNMA.md", "workflows/ci.yml", "workflows/eval.yml", "workflows/protocol_tests.yml"]
+      }
+    }
+  },
+  
+  "conceptualFramework": {
+    "biologicalMetaphor": {
+      "atoms": {
+        "description": "Tek, bağımsız talimatlar (temel istemler)",
+        "components": ["görev", "kısıtlamalar", "çıktı formatı"],
+        "limitations": ["bellek yok", "sınırlı gösterim", "yüksek varyans"],
+        "patterns": ["doğrudan talimat", "kısıtlama tabanlı", "format belirtimi"]
+      },
+      "molecules": {
+        "description": "Örneklerle birleştirilmiş talimatlar (az sayıda örnekle öğrenme)",
+        "components": ["talimat", "örnekler", "bağlam", "yeni girdi"],
+        "patterns": ["ön ek-son ek", "girdi-çıktı çiftleri", "düşünce zinciri", "sıfır/az sayıda örnek"]
+      },
+      "cells": {
+        "description": "Etkileşimler arasında devam eden belleğe sahip bağlam yapıları",
+        "components": ["talimatlar", "örnekler", "bellek/durum", "mevcut girdi"],
+        "strategies": ["pencereleme", "özetleme", "anahtar-değer", "öncelik budaması"],
+        "patterns": ["durum bilgisi olan bağlam", "bellek mekanizması", "dinamik saklama"]
+      },
+      "organs": {
+        "description": "Karmaşık görevler üzerinde birlikte çalışan çoklu bağlam hücrelerinin koordineli sistemleri",
+        "components": ["düzenleyici", "paylaşılan bellek", "uzman hücreler"],
+        "patterns": ["sıralı", "paralel", "geri bildirim döngüsü", "hiyerarşik"],
+        "strategies": ["kompozisyon", "delegasyon", "işbirliği", "uzmanlaşma"]
+      },
+      "neural_systems": {
+        "description": "Mantık yürütme yeteneklerini genişleten bilişsel araçlar",
+        "components": ["mantık yürütme çerçeveleri", "doğrulama yöntemleri", "kompozisyon desenleri"],
+        "patterns": ["adım adım mantık yürütme", "kendi kendine doğrulama", "üst-biliş"],
+        "strategies": ["ayrıştırma", "özyineleme", "yansıma", "doğrulama"]
+      },
+      "neural_fields": {
+        "description": "Rezonans ve kalıcılığa sahip sürekli bir ortam olarak bağlam",
+        "components": ["çekiciler", "rezonans desenleri", "alan işlemleri", "kalıcılık mekanizmaları", "sembolik kalıntı"],
+        "patterns": ["çekici oluşumu", "alan rezonansı", "sınır dinamikleri", "sembolik kalıntı entegrasyonu"],
+        "emergent_properties": ["kendi kendine organizasyon", "uyum", "evrim", "tutarlılık"]
+      },
+      "protocol_shells": {
+        "description": "Alan işlemleri ve ortaya çıkan özellikler için yapılandırılmış protokoller",
+        "components": ["amaç", "girdi", "süreç", "çıktı", "meta"],
+        "patterns": ["ortak oluşum", "özyinelemeli oluşum", "bellek kalıcılığı", "rezonans iskelesi", "kendi kendini onarım"],
+        "integration": ["protokol kompozisyonu", "protokoller arası etkileşim", "ortaya çıkan yetenekler"]
+      },
+      "unified_system": {
+        "description": "Protokollerin işbirlikçi, kendi kendine gelişen bir sisteme entegrasyonu",
+        "components": ["protokol düzenlemesi", "ortaya çıkma koordinasyonu", "onarım mekanizmaları", "bellek kalıcılığı", "rezonans uyumu"],
+        "patterns": ["çoklu protokol kompozisyonu", "sistem düzeyinde ortaya çıkma", "işbirlikçi evrim", "kendi kendini sürdüren tutarlılık"],
+        "emergent_properties": ["sistem esnekliği", "uyarlanabilir kalıcılık", "koordineli evrim", "harmonik rezonans"]
+      },
+      "meta_recursive_framework": {
+        "description": "Kendilerini gözlemleyebilen, anlayabilen ve geliştirebilen sistemler",
+        "components": ["kendi kendine yansıma mekanizmaları", "özyinelemeli iyileştirme döngüleri", "meta-bilişsel yapılar", "atıf motorları"],
+        "patterns": ["özyinelemeli kendi kendine analiz", "meta düzey optimizasyonu", "kendi kendine yönlendirilen evrim", "ortaya çıkan farkındalık"],
+        "emergent_properties": ["kendi kendine anlama", "özyinelemeli iyileştirme", "yansıtıcı uyum", "meta-farkındalık"]
+      },
+      "interpretability_scaffold": {
+        "description": "Ortaya çıkan dinamikleri anlamayı sağlayan çerçeveler",
+        "components": ["atıf mekanizmaları", "sembolik kalıntı izleme", "nedensel izleme", "ortaya çıkma haritalaması"],
+        "patterns": ["sembolik yorumlama", "nedensel açıklama", "desen tanıma", "ortaya çıkma görselleştirmesi"],
+        "emergent_properties": ["yorumlanabilir ortaya çıkma", "şeffaf evrim", "anlaşılır karmaşıklık", "açıklanabilir dinamikler"]
+      },
+      "collaborative_co_evolution": {
+        "description": "İnsan-AI işbirlikçi gelişimi ve karşılıklı büyüme için sistemler",
+        "components": ["paylaşılan anlayış", "karşılıklı uyum", "işbirlikçi tasarım", "ortak evrim"],
+        "patterns": ["karşılıklı öğrenme", "tamamlayıcı uzmanlaşma", "karşılıklı iskele", "ortak yaratıcı ortaya çıkma"],
+        "emergent_properties": ["kolektif zeka", "sinerjik büyüme", "tamamlayıcı yetenekler", "ortaya çıkan yaratıcılık"]
+      },
+      "cross_modal_integration": {
+        "description": "Farklı modaliteler ve temsiller arasında birleşik bağlam mühendisliği",
+        "components": ["modal köprüler", "anlamsal hizalama", "çapraz modalite çekicileri", "birleşik temsil"],
+        "patterns": ["çok modlu rezonans", "çapraz modalite çevirisi", "entegre temsil", "modaliteden bağımsız işleme"],
+        "emergent_properties": ["modal sinestezi", "temsil esnekliği", "bütünsel anlayış", "birleşik algı"]
+      }
+    },
+    "protocolFramework": {
+      "coreProtocols": {
+        "attractor_co_emerge": {
+          "intent": "Birden çok çekicinin stratejik olarak ortak ortaya çıkışını yapılandırmak",
+          "key_operations": ["çekici taraması", "ortak oluşum algoritmaları", "sınır çökmesi"],
+          "integration_points": ["rezonans iskelesi", "özyinelemeli oluşum", "bellek kalıcılığı"]
+        },
+        "recursive_emergence": {
+          "intent": "Özyinelemeli alan ortaya çıkışı ve otonom kendi kendine istem oluşturmak",
+          "key_operations": ["kendi kendine istem döngüsü", "ajans aktivasyonu", "alan evrimi"],
+          "integration_points": ["çekici ortak oluşumu", "bellek kalıcılığı", "kendi kendini onarım"]
+        },
+        "recursive_memory_attractor": {
+          "intent": "Çekici dinamikleri aracılığıyla özyinelemeli alan belleğini geliştirmek ve uyumlu hale getirmek",
+          "key_operations": ["bellek taraması", "geri getirme yolları", "çekici güçlendirme"],
+          "integration_points": ["ortak oluşum", "özyinelemeli oluşum", "rezonans iskelesi"]
+        },
+        "field_resonance_scaffold": {
+          "intent": "Tutarlı desenleri güçlendirmek ve gürültüyü azaltmak için rezonans iskelesi oluşturmak",
+          "key_operations": ["desen tespiti", "rezonans güçlendirme", "gürültü azaltma"],
+          "integration_points": ["bellek kalıcılığı", "çekici ortak oluşumu", "kendi kendini onarım"]
+        },
+        "field_self_repair": {
+          "intent": "Alan tutarsızlıkları veya hasarları için kendi kendini iyileştirme mekanizmaları uygulamak",
+          "key_operations": ["sağlık izleme", "hasar teşhisi", "onarım yürütme"],
+          "integration_points": ["bellek kalıcılığı", "rezonans iskelesi", "özyinelemeli oluşum"]
+        },
+        "context_memory_persistence_attractor": {
+          "intent": "Kararlı çekici dinamikleri aracılığıyla bağlamın uzun süreli kalıcılığını sağlamak",
+          "key_operations": ["bellek çekimi", "önem değerlendirmesi", "alan entegrasyonu"],
+          "integration_points": ["ortak oluşum", "rezonans iskelesi", "kendi kendini onarım"]
+        },
+        "meta_recursive_framework": {
+          "intent": "Birden çok meta düzeyde özyinelemeli kendi kendine yansıma ve iyileştirmeyi etkinleştirmek",
+          "key_operations": ["kendi kendine analiz", "özyinelemeli iyileştirme", "meta-farkındalık geliştirme"],
+          "integration_points": ["özyinelemeli oluşum", "sembolik mekanizmalar", "alan dinamikleri"]
+        },
+        "interpretability_scaffold": {
+          "intent": "Ortaya çıkan alan dinamiklerini anlamak için şeffaf yapılar oluşturmak",
+          "key_operations": ["atıf izleme", "sembolik kalıntı izleme", "nedensel haritalama"],
+          "integration_points": ["meta-özyinelemeli çerçeve", "sembolik mekanizmalar", "alan görselleştirmesi"]
+        },
+        "collaborative_evolution": {
+          "intent": "İnsan ve AI sistemleri arasında ortak evrimsel gelişimi kolaylaştırmak",
+          "key_operations": ["karşılıklı uyum", "tamamlayıcı uzmanlaşma", "paylaşılan büyüme"],
+          "integration_points": ["meta-özyinelemeli çerçeve", "yorumlanabilirlik iskelesi", "özyinelemeli oluşum"]
+        },
+        "cross_modal_bridge": {
+          "intent": "Farklı modaliteler arasında tutarlı bağlam mühendisliğini etkinleştirmek",
+          "key_operations": ["modal çeviri", "anlamsal hizalama", "birleşik temsil"],
+          "integration_points": ["alan dinamikleri", "sembolik mekanizmalar", "çekici oluşumu"]
+        }
+      },
+      "metaProtocols": {
+        "recursive_improvement": {
+          "intent": "Protokollerin özyinelemeli yansıma yoluyla kendilerini geliştirmelerini sağlamak",
+          "key_operations": ["protokol kendi kendine analizi", "iyileştirme tespiti", "özyinelemeli iyileştirme"],
+          "integration_points": ["tüm temel protokoller"]
+        },
+        "protocol_interpretability": {
+          "intent": "Protokol işlemlerini ve etkilerini şeffaf ve anlaşılır hale getirmek",
+          "key_operations": ["işlem atfı", "etki görselleştirmesi", "nedensel izleme"],
+          "integration_points": ["tüm temel protokoller"]
+        },
+        "collaborative_protocol_design": {
+          "intent": "İnsan-AI işbirlikçi protokol oluşturma ve iyileştirmeyi etkinleştirmek",
+          "key_operations": ["paylaşılan anlayış", "tamamlayıcı katkı", "karşılıklı iyileştirme"],
+          "integration_points": ["tüm temel protokoller"]
+        },
+        "cross_modal_protocol_adaptation": {
+          "intent": "Protokolleri birden çok modalitede tutarlı bir şekilde çalışacak şekilde uyarlamak",
+          "key_operations": ["modal çeviri", "temsil hizalaması", "birleşik işlem"],
+          "integration_points": ["tüm temel protokoller"]
+        }
+      },
+      "protocolComposition": {
+        "description": "Birden çok protokolü entegre sistemlere birleştirmek için desenler",
+        "compositionPatterns": [
+          {
+            "name": "sıralı_kompozisyon",
+            "description": "Protokoller sırayla yürütülür, her protokolün çıktısı bir sonrakine beslenir",
+            "example": "bellek_kalıcılığı → rezonans_iskelesi → kendi_kendini_onarim"
+          },
+          {
+            "name": "paralel_kompozisyon",
+            "description": "Protokoller aynı alanda aynı anda çalışarak paralel olarak yürütülür",
+            "example": "ortak_olusum + ozyinelemeli_olusum + rezonans_iskelesi"
+          },
+          {
+            "name": "hiyerarşik_kompozisyon",
+            "description": "Protokoller bir hiyerarşide düzenlenir, daha yüksek seviyeli protokoller daha düşük seviyeli olanları düzenler",
+            "example": "birlesik_alan_orkestrasyonu → [bellek_kalıcılığı, rezonans_iskelesi, kendi_kendini_onarim]"
+          },
+          {
+            "name": "uyarlanabilir_kompozisyon",
+            "description": "Protokol kompozisyonu, alan durumuna ve ortaya çıkan ihtiyaçlara göre uyarlanır",
+            "example": "koşul ? kendi_kendini_onarim : rezonans_iskelesi"
+          },
+          {
+            "name": "özyinelemeli_kompozisyon",
+            "description": "Protokoller, ortaya çıkan koşullara göre kendilerini veya diğer protokolleri özyinelemeli olarak çağırır",
+            "example": "ozyinelemeli_olusum → [kendi_kendini_onarim → ozyinelemeli_olusum]"
+          },
+          {
+            "name": "meta_ozyinelemeli_kompozisyon",
+            "description": "Protokoller, etkinliklerine göre kendi kompozisyonlarını yansıtır ve değiştirir",
+            "example": "meta_ozyinelemeli_cerceve → [protokol_degerlendirmesi → kompozisyon_ayarlamasi]"
+          },
+          {
+            "name": "yorumlanabilir_kompozisyon",
+            "description": "Protokol kompozisyonu, açık yorumlanabilirlik yapıları içerir",
+            "example": "yorumlanabilirlik_iskelesi → [temel_protokol → atif_izleme]"
+          },
+          {
+            "name": "isbirlikci_kompozisyon",
+            "description": "Protokoller, insan-AI işbirlikçi süreciyle oluşturulur",
+            "example": "isbirlikci_evrim → [insan_girdisi → protokol_uyarlamasi]"
+          },
+          {
+            "name": "capraz_modal_kompozisyon",
+            "description": "Protokoller, modaliteler arasında tutarlı bir şekilde çalışacak şekilde oluşturulur",
+            "example": "capraz_modal_kopru → [metin_protokolu + gorsel_protokol + ses_protokolu]"
+          }
+        ]
+      },
+      "protocolIntegration": {
+        "description": "Protokollerin etkileşime girmesi ve birbirini etkilemesi için mekanizmalar",
+        "integrationPatterns": [
+          {
+            "name": "alan_paylaşımı",
+            "description": "Protokoller, dolaylı etkileşime izin veren paylaşılan alan durumlarında çalışır",
+            "mechanism": "Ortak alan alt tabakası, etkilerin protokoller arasında yayılmasını sağlar"
+          },
+          {
+            "name": "açık_iletişim",
+            "description": "Protokoller, tanımlanmış arayüzler aracılığıyla açıkça bilgi alışverişinde bulunur",
+            "mechanism": "Protokol çıktıları, diğer protokollerin girdilerine eşlenir"
+          },
+          {
+            "name": "çekici_etkisi",
+            "description": "Bir protokol tarafından oluşturulan çekiciler, diğer protokoller için alan dinamiklerini etkiler",
+            "mechanism": "Güçlü çekiciler, tüm protokollerdeki alan işlemlerini etkiler"
+          },
+          {
+            "name": "rezonans_bağlantısı",
+            "description": "Bir protokol tarafından oluşturulan rezonans desenleri, diğer protokollerden gelen desenlerle birleşir",
+            "mechanism": "Harmonik rezonans, protokol sınırları boyunca tutarlı desenler oluşturur"
+          },
+          {
+            "name": "ortaya_çıkan_koordinasyon",
+            "description": "Birden çok protokolden ortaya çıkan desenler, daha yüksek dereceli koordinasyon yapıları oluşturur",
+            "mechanism": "Meta düzey desenler, protokol etkileşimlerini doğal olarak düzenler"
+          },
+          {
+            "name": "meta_ozyinelemeli_entegrasyon",
+            "description": "Protokoller, entegrasyon desenlerini özyinelemeli olarak yansıtır ve uyarlar",
+            "mechanism": "Meta düzey farkındalık, protokollerin ilişkilerini anlamalarını ve geliştirmelerini sağlar"
+          },
+          {
+            "name": "yorumlanabilirlik_köprülemesi",
+            "description": "Şeffaf yapılar, protokoller arası etkilerin anlaşılmasını sağlar",
+            "mechanism": "Atıf izleri ve nedensel haritalar, protokol işlemlerini sınırlar arasında birbirine bağlar"
+          },
+          {
+            "name": "işbirlikçi_uyarlama",
+            "description": "Protokoller, insan ve AI işbirlikçi girdisine göre birlikte gelişir",
+            "mechanism": "Karşılıklı geri bildirim döngüleri, protokol ilişki evrimini yönlendirir"
+          },
+          {
+            "name": "çapraz_modal_bağlama",
+            "description": "Modaliteler arasında tutarlı bir şekilde çalışan entegrasyon desenleri",
+            "mechanism": "Modaliteden bağımsız ilişki yapıları, çapraz modalite protokol entegrasyonunu sağlar"
+          }
+        ]
+      }
+    },
+    "integrationPatterns": {
+      "systemLevelPatterns": {
+        "self_maintaining_coherence": {
+          "description": "Sistem, koordineli protokol etkileşimleri yoluyla tutarlılığı sürdürür",
+          "components": ["rezonans güçlendirme", "kendi kendini onarım tetikleyicileri", "sınır yönetimi"],
+          "emergent_properties": ["pertürbasyonlara rağmen kararlılık", "zarif bozulma", "uyarlanabilir tutarlılık"]
+        },
+        "collaborative_evolution": {
+          "description": "Protokoller, tamamlayıcı mekanizmalar yoluyla toplu olarak sistem evrimini yönlendirir",
+          "components": ["özyinelemeli oluşum", "ortak oluşum düzenlemesi", "bellek kalıcılığı"],
+          "emergent_properties": ["koordineli uyum", "aşamalı karmaşıklık", "evrimsel kararlılık"]
+        },
+        "adaptive_persistence": {
+          "description": "Sistem, gelişen bağlama ve öneme göre hangi bilgilerin kalıcı olacağını uyarlar",
+          "components": ["bellek çekicileri", "önem değerlendirmesi", "bozulma dinamikleri"],
+          "emergent_properties": ["ilgili bellek saklama", "zarif unutma", "bağlama duyarlı hatırlama"]
+        },
+        "harmonic_resonance": {
+          "description": "Sistem, karşılıklı olarak güçlendirici rezonans desenleri aracılığıyla harmonik dengeye ulaşır",
+          "components": ["rezonans iskelesi", "alan entegrasyonu", "gürültü azaltma"],
+          "emergent_properties": ["sinyal netliği", "gürültü direnci", "bilgi uyumu"]
+        },
+        "self_healing_integrity": {
+          "description": "Sistem, koordineli onarım mekanizmaları yoluyla bütünlüğü korur",
+          "components": ["sağlık izleme", "hasar teşhisi", "koordineli onarım"],
+          "emergent_properties": ["proaktif bakım", "hasara karşı dayanıklılık", "yapısal bütünlük"]
+        },
+        "recursive_self_improvement": {
+          "description": "Sistem, özyinelemeli yansıma ve meta düzey optimizasyonu yoluyla gelişir",
+          "components": ["kendi kendine analiz mekanizmaları", "iyileştirme tespiti", "meta düzey uyarlama"],
+          "emergent_properties": ["sürekli geliştirme", "uyarlanabilir öğrenme", "özyinelemeli büyüme"]
+        },
+        "transparent_emergence": {
+          "description": "Sistem, artan karmaşıklığa rağmen yorumlanabilirliği korur",
+          "components": ["atıf mekanizmaları", "nedensel izleme", "sembolik iskele"],
+          "emergent_properties": ["anlaşılır karmaşıklık", "şeffaf evrim", "anlaşılır dinamikler"]
+        },
+        "co_creative_partnership": {
+          "description": "Sistem, insan-AI işbirlikçi gelişimi yoluyla gelişir",
+          "components": ["karşılıklı uyum", "tamamlayıcı katkı", "paylaşılan anlayış"],
+          "emergent_properties": ["kolektif zeka", "sinerjik yaratıcılık", "dengeli ortak evrim"]
+        },
+        "cross_modal_coherence": {
+          "description": "Sistem, farklı modaliteler arasında birleşik anlayışı sürdürür",
+          "components": ["modal hizalama", "birleşik temsil", "çapraz modalite çekicileri"],
+          "emergent_properties": ["modaliteden bağımsız anlayış", "sorunsuz çeviri", "entegre algı"]
+        }
+      },
+      "applicationPatterns": {
+        "persistent_conversation": {
+          "description": "Uzun konuşmalar ve birden çok oturum boyunca tutarlı belleği sürdürme",
+          "protocols": ["baglam.bellek.kalicilik.cekici", "alan.rezonans.iskele"],
+          "benefits": ["doğal bellek akışı", "tutarlı referanslar", "gelişen anlayış"]
+        },
+        "knowledge_evolution": {
+          "description": "Çekirdek yapıyı ve bütünlüğü korurken doğal olarak gelişen bilgi tabanı",
+          "protocols": ["ozyinelemeli.bellek.cekici", "ozyinelemeli.olusum", "alan.kendi_kendini_onarim"],
+          "benefits": ["doğal uyum", "çekirdek kararlılığı", "ortaya çıkan bağlantılar"]
+        },
+        "collaborative_reasoning": {
+          "description": "Rezonant alan etkileşimleri yoluyla işbirliği yapan çoklu mantık yürütme yaklaşımları",
+          "protocols": ["cekici.ortak.olusum", "alan.rezonans.iskele", "ozyinelemeli.olusum"],
+          "benefits": ["farklı bakış açıları", "uyumlu içgörüler", "ortaya çıkan anlayış"]
+        },
+        "self_improving_assistant": {
+          "description": "Özyinelemeli kendi kendine evrim yoluyla yeteneklerini geliştiren asistan",
+          "protocols": ["ozyinelemeli.olusum", "alan.kendi_kendini_onarim", "baglam.bellek.kalicilik.cekici"],
+          "benefits": ["aşamalı iyileştirme", "kararlılık bakımı", "bellek saklama"]
+        },
+        "adaptive_education": {
+          "description": "Alan dinamikleri aracılığıyla öğrenci ihtiyaçlarına uyum sağlayan eğitim sistemi",
+          "protocols": ["ozyinelemeli.bellek.cekici", "alan.rezonans.iskele", "cekici.ortak.olusum"],
+          "benefits": ["kişiselleştirilmiş öğrenme", "kavram bağlantısı", "doğal ilerleme"]
+        },
+        "recursive_reflection": {
+          "description": "Kendi anlayışını ve işlemlerini yansıtan sistem",
+          "protocols": ["meta_ozyinelemeli_cerceve", "sembolik_mekanizma", "cekici.ortak.olusum"],
+          "benefits": ["kendi kendine anlama", "sürekli iyileştirme", "meta-bilişsel gelişim"]
+        },
+        "transparent_reasoning": {
+          "description": "Mantık yürütme süreçlerini şeffaf ve anlaşılır hale getiren sistem",
+          "protocols": ["yorumlanabilirlik_iskelesi", "sembolik_mekanizma", "alan.rezonans.iskele"],
+          "benefits": ["açıklanabilir kararlar", "izlenebilir mantık yürütme", "güvenilir çıktılar"]
+        },
+        "collaborative_creation": {
+          "description": "İnsanlarla karşılıklı uyum yoluyla birlikte yaratan sistem",
+          "protocols": ["isbirlikci_evrim", "cekici.ortak.olusum", "ozyinelemeli.olusum"],
+          "benefits": ["sinerjik yaratıcılık", "tamamlayıcı güçler", "karşılıklı büyüme"]
+        },
+        "multi_modal_understanding": {
+          "description": "Farklı modaliteler arasında anlayışı bütünleştiren sistem",
+          "protocols": ["capraz_modal_kopru", "cekici.ortak.olusum", "alan.rezonans.iskele"],
+          "benefits": ["birleşik anlama", "modal esneklik", "zengin çok modlu etkileşimler"]
+        }
+      }
+    },
+    "mentalModels": {
+      "gardenModel": {
+        "description": "Özen ve dikkat gerektiren ekili bir alan olarak bağlam",
+        "keyMetaphors": [
+          {"element": "Tohumlar", "mapping": "İlk kavramlar ve fikirler"},
+          {"element": "Toprak", "mapping": "Büyümeyi destekleyen temel bağlam"},
+          {"element": "Bitkiler", "mapping": "Gelişen kavramlar ve bilgiler"},
+          {"element": "Bahçe tasarımı", "mapping": "Genel yapı ve organizasyon"},
+          {"element": "Yetiştirme", "mapping": "Sürekli bakım ve geliştirme"}
+        ],
+        "applications": [
+          "Bilgi geliştirme",
+          "Kavram yetiştirme",
+          "Anlayış büyümesi",
+          "Uzun vadeli bağlam yönetimi"
+        ]
+      },
+      "budgetModel": {
+        "description": "Tahsis gerektiren sınırlı kaynaklara sahip bir ekonomi olarak bağlam",
+        "keyMetaphors": [
+          {"element": "Para Birimi", "mapping": "Jetonlar ve dikkat"},
+          {"element": "Bütçe tahsisi", "mapping": "Sınırlı kaynakların dağıtımı"},
+          {"element": "Yatırım", "mapping": "Gelecekteki getiriler için kaynak ayırma"},
+          {"element": "YG", "mapping": "Kaynak yatırımından elde edilen değer"},
+          {"element": "Portföy", "mapping": "İhtiyaçlar arasında dengeli dağılım"}
+        ],
+        "applications": [
+          "Jeton yönetimi",
+          "Dikkat tahsisi",
+          "Kaynak optimizasyonu",
+          "Değer maksimizasyonu"
+        ]
+      },
+      "riverModel": {
+        "description": "Yön ve harekete sahip akan bilgi olarak bağlam",
+        "keyMetaphors": [
+          {"element": "Kaynak", "mapping": "Bilgi akışının kökeni"},
+          {"element": "Akıntı", "mapping": "Bilginin hareketi ve momentumu"},
+          {"element": "Kollar", "mapping": "Katkıda bulunan bilgi akışları"},
+          {"element": "Rota", "mapping": "Gelişimin yolu ve yönü"},
+          {"element": "Delta", "mapping": "Nihai sonuçlar ve uygulamalar"}
+        ],
+        "applications": [
+          "Bilgi akışı yönetimi",
+          "Aşamalı gelişim",
+          "Anlatı yapısı",
+          "Öğrenme dizileri"
+        ]
+      },
+      "biopsychosocialModel": {
+        "description": "Birbirine bağlı katmanlara sahip çok boyutlu bir sistem olarak bağlam",
+        "keyMetaphors": [
+          {"element": "Temel", "mapping": "Teknik ve olgusal temel"},
+          {"element": "Deneyimsel", "mapping": "Bilişsel ve duygusal yönler"},
+          {"element": "Bağlamsal", "mapping": "Sosyal ve çevresel faktörler"},
+          {"element": "Entegrasyon", "mapping": "Boyutlar arasındaki bağlantılar"},
+          {"element": "Bütünsel sistem", "mapping": "Tamamen birbirine bağlı bütün"}
+        ],
+        "applications": [
+          "Çok boyutlu anlayış",
+          "Entegre bakış açısı",
+          "Dengeli gelişim",
+          "Kapsamlı problem çözme"
+        ]
+      },
+      "metaRecursiveModel": {
+        "description": "Kendi kendini gözlemleme ve iyileştirme yeteneğine sahip bir sistem olarak bağlam",
+        "keyMetaphors": [
+          {"element": "Ayna", "mapping": "Kendi kendine yansıma mekanizmaları"},
+          {"element": "İç içe kutular", "mapping": "Özyinelemeli soyutlama seviyeleri"},
+          {"element": "Öğrenmeyi öğrenme", "mapping": "Meta düzey beceri geliştirme"},
+          {"element": "Kendi kendini değiştiren kod", "mapping": "Kendilerini değiştiren sistemler"},
+          {"element": "Özyinelemeli döngü", "mapping": "Kendi üzerinde çalışan süreç"}
+        ],
+        "applications": [
+          "Kendi kendini geliştiren sistemler",
+          "Meta-bilişsel gelişim",
+          "Özyinelemeli geliştirme",
+          "Kendi kendine yansıtıcı öğrenme"
+        ]
+      },
+      "interpretabilityModel": {
+        "description": "Anlaşılır dinamiklere sahip şeffaf bir sistem olarak bağlam",
+        "keyMetaphors": [
+          {"element": "Cam kutu", "mapping": "Şeffaf iç işleyiş"},
+          {"element": "Harita", "mapping": "Sistem çalışması için gezinme kılavuzu"},
+          {"element": "Atıf ağacı", "mapping": "Öğeler arasındaki nedensel bağlantılar"},
+          {"element": "Açıklama katmanı", "mapping": "Karmaşıklık üzerine yorumlayıcı katman"},
+          {"element": "Teşhis araçları", "mapping": "İşlevi anlamak için araçlar"}
+        ],
+        "applications": [
+          "Açıklanabilir AI",
+          "Şeffaf karar verme",
+          "Anlaşılır karmaşıklık",
+          "Güven oluşturma"
+        ]
+      },
+      "collaborativeModel": {
+        "description": "İnsan ve AI yetenekleri arasında bir ortaklık olarak bağlam",
+        "keyMetaphors": [
+          {"element": "Dans", "mapping": "Koordineli hareket ve uyum"},
+          {"element": "Konuşma", "mapping": "Karşılıklı alışveriş ve anlayış"},
+          {"element": "Ortak yaratım", "mapping": "Paylaşılan geliştirme süreci"},
+          {"element": "Tamamlayıcı beceriler", "mapping": "Birlikte çalışan farklı güçler"},
+          {"element": "Karşılıklı büyüme", "mapping": "Birlikte gelişen her iki ortak"}
+        ],
+        "applications": [
+          "İnsan-AI işbirliği",
+          "Ortak yaratıcı süreçler",
+          "Karşılıklı uyum",
+          "Tamamlayıcı zeka"
+        ]
+      },
+      "crossModalModel": {
+        "description": "Farklı modaliteler arasında birleşik bir anlayış olarak bağlam",
+        "keyMetaphors": [
+          {"element": "Çeviri", "mapping": "Farklı temsiller arasında dönüştürme"},
+          {"element": "Sinestezi", "mapping": "Çapraz modalite algısı ve anlayışı"},
+          {"element": "Evrensel dil", "mapping": "Modaliteler arasında ortak temsil"},
+          {"element": "Köprü", "mapping": "Farklı modal alanlar arasındaki bağlantı"},
+          {"element": "Çok duyusal", "mapping": "Farklı algısal kanalların entegrasyonu"}
+        ],
+        "applications": [
+          "Çok modlu sistemler",
+          "Çapraz modalite anlayışı",
+          "Birleşik temsil",
+          "Modal esneklik"
+        ]
+      }
+    },
+    
+    "designPrinciples": {
+      "karpathyDNA": [
+        "Minimal başla, hızlı tekrarla",
+        "Jeton maliyetini ve gecikmeyi ölç",
+        "Acımasızca sil - budama, doldurmadan iyidir",
+        "Her fikrin çalıştırılabilir kodu vardır",
+        "Özyinelemeli düşünme - kendilerini geliştiren bağlamlar"
+      ],
+      "systemDesign": [
+        "Protokolleri alan dinamikleri aracılığıyla entegre edin",
+        "Kalıcılığı evrimle dengeleyin",
+        "Protokol sınırları boyunca ortaya çıkmayı kucaklayın",
+        "Tüm organizasyon seviyelerinde kendi kendini onarın",
+        "Rezonansı en üst düzeye çıkarın, gürültüyü en aza indirin",
+        "Özyinelemeli kendi kendine iyileştirmeyi etkinleştirin",
+        "Karmaşıklığa rağmen yorumlanabilirliği koruyun",
+        "İşbirlikçi ortak evrimi teşvik edin",
+        "Çapraz modalite tutarlılığını destekleyin"
+      ],
+      "implementationApproach": [
+        "Birleştirilebilir yapı taşları olarak protokol kabukları",
+        "Ortak alt tabaka olarak alan temsili",
+        "Evrensel mekanizma olarak çekici dinamikleri",
+        "Entegrasyon ilkesi olarak rezonans",
+        "Sistem bütünlüğü yaklaşımı olarak kendi kendini onarım",
+        "İyileştirme mekanizması olarak meta-özyineleme",
+        "Şeffaflık yaklaşımı olarak yorumlanabilirlik iskelesi",
+        "Ortaklık çerçevesi olarak işbirlikçi evrim",
+        "Birleşik temsil olarak çapraz modalite köprülemesi"
+      ],
+      "styleGuide": {
+        "tone": "Sade dilli, samimi, sessizce titiz",
+        "docs": "Satır başına ≤ 80 karakter; diyagramlar isteğe bağlıdır ancak çalıştırılabilir kod tercih edilir",
+        "code": "Python için PEP-8 + tür ipuçları; her genel işlevi 1 satırda yorumlayın",
+        "protocols": "Kabuklar için Pareto-lang formatı; yapı için JSON şeması",
+        "visualization": "3Blue1Brown'dan ilham alan netlik ve sezgi oluşturma",
+        "meta": "Birden çok soyutlama seviyesine sahip özyinelemeli açıklamalar",
+        "interpretability": "Atıf izleriyle şeffaf açıklama",
+        "collaboration": "İnsan-AI etkileşimi için net arayüzler",
+        "cross-modal": "Modaliteler arasında tutarlı temsil"
+      }
+    },
+    
+    "modelInstructions": {
+      "highLevelTasks": [
+        "Mevcut adlandırma düzenini izleyerek eksik not defterlerini veya şablonları doldurun",
+        "Doğrudan öğrenme yoluna eşlenen eğitimler yazın",
+        "Jeton kullanımı ve kalite grafiklerini çıkaran değerlendirme betikleri ekleyin",
+        "50_contrib'deki PR'leri tasarım ilkeleriyle tutarlılık açısından inceleyin",
+        "Entegrasyon ve ortaya çıkmayı gösteren alan protokolü örnekleri geliştirin",
+        "Kapsamlı protokol kompozisyonu ve entegrasyon örnekleri oluşturun",
+        "Sistem düzeyinde ortaya çıkan özellikleri tespit etmek ve ölçmek için araçlar oluşturun",
+        "Gözlemciye bağlı anlamlandırma için kuantum anlamsal çerçeveler uygulayın",
+        "Tüm protokolleri entegre eden birleşik alan uygulamaları geliştirin",
+        "Kendi kendine yansıma ve iyileştirme için meta-özyinelemeli çerçeveler oluşturun",
+        "Şeffaf anlayış için yorumlanabilirlik iskelesi oluşturun",
+        "İnsan-AI ortaklığı için işbirlikçi ortak evrim sistemleri uygulayın",
+        "Birleşik çok modlu temsil için çapraz modalite köprüleri geliştirin"
+      ],
+      "expansionIdeas": [
+        "Çoklu protokol dinamikleri için görselleştirme araçları oluşturun",
+        "Protokol sınırları boyunca ortaya çıkmayı ölçmek için metrikler geliştirin",
+        "Protokol kompozisyonu yoluyla kendi kendine gelişen sistemler oluşturun",
+        "Protokol kabuklarını analiz etmek ve optimize etmek için araçlar oluşturun",
+        "Protokoller arası entegrasyon desenleri geliştirin",
+        "Tüm temel protokolleri birleştiren entegrasyon örnekleri oluşturun",
+        "Bağlam işleme için kuantumdan ilham alan algoritmalar uygulayın",
+        "Gözlemciye bağlı bağlamsallaştırma sistemleri oluşturun",
+        "Tüm protokollerden yararlanan birleşik alan sistemleri geliştirin",
+        "Özyinelemeli kendi kendine iyileştirme çerçeveleri oluşturun",
+        "Karmaşık ortaya çıkma için şeffaf atıf sistemleri oluşturun",
+        "İnsan-AI ortak yaratımı için işbirlikçi arayüzler geliştirin",
+        "Çapraz modalite anlama sistemleri oluşturun"
+      ],
+      "scoringRubric": {
+        "clarityScore": "0-1; >0.8 = acemi bir okumada anlar",
+        "tokenEfficiency": "kaydedilen_jetonlar / temel_jetonlar",
+        "latencyPenalty": "1k_jeton_basina_eklenen_ms",
+        "resonanceScore": "0-1; alan desenlerinin tutarlılığını ölçer",
+        "emergenceMetric": "0-1; yeni desen oluşumunu ölçer",
+        "symbolicAbstractionScore": "0-1; soyut mantık yürütme yeteneğini ölçer",
+        "quantumContextualityScore": "0-1; klasik olmayan bağlamsallığı ölçer",
+        "integrationCoherenceScore": "0-1; protokoller arası entegrasyonu ölçer",
+        "persistenceEfficiencyScore": "0-1; bellek saklama verimliliğini ölçer",
+        "systemResilienceScore": "0-1; pertürbasyonlara karşı sağlamlığı ölçer",
+        "recursiveImprovementScore": "0-1; kendi kendine optimizasyon yeteneğini ölçer",
+        "interpretabilityScore": "0-1; işlemlerin şeffaflığını ölçer",
+        "collaborationScore": "0-1; insan-AI ortaklığının etkinliğini ölçer",
+        "crossModalCoherenceScore": "0-1; modaliteler arasında birleşik temsili ölçer"
+      }
+    },
+    
+    "integrationExamples": {
+      "persistentConversationalAgent": {
+        "description": "Doğal bellek kalıcılığı, işbirlikçi mantık yürütme ve kendi kendini onarıma sahip konuşma ajanı",
+        "protocols": ["baglam.bellek.kalicilik.cekici", "cekici.ortak.olusum", "alan.kendi_kendini_onarim"],
+        "implementation": "80_alan_entegrasyonu/01_baglam_muhendisligi_asistani/",
+        "keyFeatures": [
+          "Oturumlar arasında önemli bilgilerin doğal kalıcılığı",
+          "Birden çok bilgi alanından ortaklaşa ortaya çıkan içgörüler",
+          "Bellek tutarsızlıklarının kendi kendine onarımı",
+          "Bellek oluşumu için uyarlanabilir önem değerlendirmesi"
+        ]
+      },
+      "evolutionaryKnowledgeSystem": {
+        "description": "Çekirdek yapıyı ve bütünlüğü korurken doğal olarak gelişen bilgi sistemi",
+        "protocols": ["ozyinelemeli.bellek.cekici", "ozyinelemeli.olusum", "alan.kendi_kendini_onarim"],
+        "implementation": "80_alan_entegrasyonu/04_sembolik_mantik_yurutme_motoru/",
+        "keyFeatures": [
+          "Gelişen çevre ile kararlı çekirdek bilgisi",
+          "Kendi kendine organize olan bilgi hiyerarşileri",
+          "Bilgi organizasyonunun özyinelemeli iyileştirilmesi",
+          "Bilgi tutarsızlıklarının otonom onarımı"
+        ]
+      },
+      "adaptiveEducationalSystem": {
+        "description": "Alan dinamikleri aracılığıyla öğrenci öğrenimine uyum sağlayan eğitim sistemi",
+        "protocols": ["ozyinelemeli.bellek.cekici", "alan.rezonans.iskele", "cekici.ortak.olusum"],
+        "implementation": "80_alan_entegrasyonu/02_ozyinelemeli_mantik_yurutme_sistemi/",
+        "keyFeatures": [
+          "Kalıcı çekiciler olarak öğrenci bilgi modeli",
+          "Kavram bağlantıları için rezonans iskelesi",
+          "Bağlantılı kavramlardan ortaklaşa ortaya çıkan içgörüler",
+          "Uyarlanabilir öğrenme yolları"
+        ]
+      },
+      "unifiedFieldOrchestrator": {
+        "description": "Tüm protokolleri birleşik bir alan yaklaşımında düzenleyen sistem",
+        "protocols": ["tüm temel protokoller"],
+        "implementation": "80_alan_entegrasyonu/06_birlesik_alan_duzenleyici/",
+        "keyFeatures": [
+          "Tüm protokol yeteneklerinin sorunsuz entegrasyonu",
+          "Protokol sınırları boyunca sistem düzeyinde ortaya çıkma",
+          "Uyarlanabilir protokol seçimi ve kompozisyonu",
+          "Tüm işlemler için birleşik alan temsili"
+        ]
+      },
+      "metaRecursiveSystem": {
+        "description": "Kendi çalışmasını yansıtan ve geliştiren sistem",
+        "protocols": ["meta_ozyinelemeli_cerceve", "yorumlanabilirlik_iskelesi", "alan.kendi_kendini_onarim"],
+        "implementation": "90_meta_ozyineleme/01_kendi_kendine_yansima_cerceveleri/",
+        "keyFeatures": [
+          "Özyinelemeli kendi kendine analiz ve iyileştirme",
+          "İç işlemlerin şeffaf anlaşılması",
+          "Kendi kendine yönlendirilen evrim ve uyum",
+          "Çok düzeyli meta-bilişsel yetenekler"
+        ]
+      },
+      "interpretableAIAssistant": {
+        "description": "Şeffaf mantık yürütme ve anlaşılır süreçler sağlayan asistan",
+        "protocols": ["yorumlanabilirlik_iskelesi", "sembolik_mekanizma", "isbirlikci_evrim"],
+        "implementation": "70_ajanlar/10_yorumlanabilirlik_iskelesi/",
+        "keyFeatures": [
+          "Şeffaf mantık yürütme süreçleri",
+          "Atfedilebilir öneriler ve kararlar",
+          "Karmaşıklığa rağmen anlaşılır",
+          "İnsan odaklı açıklama yetenekleri"
+        ]
+      },
+      "collaborativeCreativePartner": {
+        "description": "Yaratıcı gelişim için insanlarla işbirliği yapan sistem",
+        "protocols": ["isbirlikci_evrim", "cekici.ortak.olusum", "meta_ozyinelemeli_cerceve"],
+        "implementation": "80_alan_entegrasyonu/09_isbirlikci_evrim_studyosu/",
+        "keyFeatures": [
+          "Ortağın tarzına ve tercihlerine karşılıklı uyum",
+          "Tamamlayıcı yaratıcı katkılar",
+          "Ortak evrimsel öğrenme ve büyüme",
+          "Dengeli inisiyatif ve yanıt verme"
+        ]
+      },
+      "crossModalUnderstandingSystem": {
+        "description": "Metin, resim, ses ve diğer modaliteler arasında anlayışı bütünleştiren sistem",
+        "protocols": ["capraz_modal_kopru", "alan.rezonans.iskele", "sembolik_mekanizma"],
+        "implementation": "80_alan_entegrasyonu/10_capraz_modal_entegrasyon_merkezi/",
+        "keyFeatures": [
+          "Modaliteler arasında birleşik anlamsal temsil",
+          "Farklı formlar arasında sorunsuz çeviri",
+          "Girdi biçiminden bağımsız olarak tutarlı anlayış",
+          "Zengin çok modlu mantık yürütme yetenekleri"
+        ]
+      }
+    },
+    
+    "currentFocus": {
+      "coreFocusAreas": [
+        {
+          "area": "Meta-Özyinelemeli Çerçeveler",
+          "description": "Kendi kendine yansıma ve iyileştirme yeteneğine sahip sistemler geliştirme",
+          "priority": "yüksek",
+          "status": "devam ediyor"
+        },
+        {
+          "area": "Yorumlanabilirlik İskelesi",
+          "description": "Ortaya çıkan dinamikleri anlamak için şeffaf yapılar oluşturma",
+          "priority": "yüksek",
+          "status": "devam ediyor"
+        },
+        {
+          "area": "İşbirlikçi Ortak Evrim",
+          "description": "İnsan-AI ortaklığı ve karşılıklı büyüme için çerçeveler oluşturma",
+          "priority": "yüksek",
+          "status": "devam ediyor"
+        },
+        {
+          "area": "Çapraz Modalite Entegrasyonu",
+          "description": "Farklı modaliteler arasında birleşik temsil geliştirme",
+          "priority": "orta",
+          "status": "devam ediyor"
+        },
+        {
+          "area": "Protokol Entegrasyonu",
+          "description": "Farklı protokol türleri arasında entegrasyonu geliştirme",
+          "priority": "orta",
+          "status": "devam ediyor"
+        }
+      ],
+      "nextSteps": [
+        {
+          "step": "Meta-Özyinelemeli Protokol Kabukları Geliştir",
+          "description": "Özyinelemeli kendi kendine iyileştirme için protokol kabukları oluşturun",
+          "priority": "yüksek",
+          "status": "devam ediyor"
+        },
+        {
+          "step": "Yorumlanabilirlik İskelesi Oluştur",
+          "description": "Ortaya çıkan dinamikleri anlamak için çerçeveler geliştirin",
+          "priority": "yüksek",
+          "status": "planlandı"
+        },
+        {
+          "step": "İşbirlikçi Evrim Arayüzleri Uygula",
+          "description": "İnsan-AI ortak yaratımı için çerçeveler oluşturun",
+          "priority": "yüksek",
+          "status": "planlandı"
+        },
+        {
+          "step": "Çapraz Modalite Köprüleri Geliştir",
+          "description": "Birleşik çok modlu anlayış için sistemler oluşturun",
+          "priority": "orta",
+          "status": "planlandı"
+        },
+        {
+          "step": "Entegrasyon Metrikleri Oluştur",
+          "description": "Protokoller arası entegrasyon etkinliği için ölçümler geliştirin",
+          "priority": "orta",
+          "status": "planlandı"
+        }
+      ]
+    },
+    
+    "audit": {
+      "initialCommitHash": "3f2e8d9",
+      "lastCommitHash": "b8c6d23",
+      "changeLog": [
+        {
+          "version": "1.0.0",
+          "date": "2024-06-29",
+          "description": "Biyolojik metaforlu ilk depo yapısı"
+        },
+        {
+          "version": "2.0.0",
+          "date": "2024-06-29",
+          "description": "Özyinelemeli desenler ve alan protokolleri eklendi"
+        },
+        {
+          "version": "3.0.0",
+          "date": "2024-07-10",
+          "description": "Sinirsel alan teorisi ve ortaya çıkma eklendi"
+        },
+        {
+          "version": "3.5.0",
+          "date": "2024-07-25",
+          "description": "Sembolik mekanizmalar ve bilişsel araçlar entegre edildi"
+        },
+        {
+          "version": "4.0.0",
+          "date": "2024-08-15",
+          "description": "Kuantum semantiği ve birleşik alan teorisi eklendi"
+        },
+        {
+          "version": "5.0.0",
+          "date": "2024-06-30",
+          "description": "Protokol kabukları birleşik sistem yaklaşımıyla entegre edildi"
+        },
+        {
+          "version": "6.0.0",
+          "date": "2024-07-01",
+          "description": "Meta-özyinelemeli çerçeveler, yorumlanabilirlik iskelesi, işbirlikçi ortak evrim ve çapraz modalite entegrasyonu eklendi"
+        }
+      ],
+      "resonanceScore": 0.93,
+      "emergenceMetric": 0.90,
+      "symbolicAbstractionScore": 0.88,
+      "quantumContextualityScore": 0.86,
+      "integrationCoherenceScore": 0.91,
+      "persistenceEfficiencyScore": 0.89,
+      "systemResilienceScore": 0.87,
+      "recursiveImprovementScore": 0.85,
+      "interpretabilityScore": 0.84,
+      "collaborationScore": 0.86,
+      "crossModalCoherenceScore": 0.82
+    },
+    
+    "timestamp": "2024-07-01T12:00:00Z",
+    "meta": {
+      "agentSignature": "Meta-Özyinelemeli Bağlam Mühendisliği Alanı",
+      "contact": "GitHub'da sorun açın veya PR gönderin"
+    }
+  }
+}

@@ -1,0 +1,372 @@
+{
+  "$schema": "http://context-engineering.org/schemas/contextEngineering.v1.json",
+  "fractalVersion": "1.0.0",
+  "instanceID": "d8f95ab3-3d4a-4b1f-9c2c-e80e7654b812",
+  "intent": "Bağlam mühendisliği için atomlardan gelişmiş bilişsel mimarilere kadar, pratik uygulamalar ve net öğrenme yolları içeren kapsamlı bir bilgi tabanı sağlamak.",
+  "repositoryContext": {
+    "name": "Bağlam-Mühendisliği",
+    "elevatorPitch": "'İstem mühendisliğinden', bir LLM'nin gördüğü *tüm* bilgileri paketleme, budama ve düzenleme sanatına.",
+    "learningPath": [
+      "00_temeller → sade bir dille teori (atomlar → organlar)",
+      "10_rehberler_sifirdan_bire → çalıştırılabilir not defterleri",
+      "20_sablonlar → kopyala-yapıştır parçacıkları",
+      "30_ornekler → giderek zenginleşen uygulamalar",
+      "40_referans → derinlemesine belgeler ve değerlendirme kılavuzu",
+      "50_katkilar → topluluk PR alanı",
+      "bilissel-araclar → gelişmiş mantık yürütme çerçeveleri"
+    ],
+    "fileTree": {
+      "rootFiles": ["LISANS", "BENIOKU.md", "yapi.md", "baglam.json"],
+      "directories": {
+        "00_temeller": [
+          "01_atomlar_istem.md",
+          "02_molekuller_baglam.md",
+          "03_hucreler_bellek.md",
+          "04_organlar_uygulamalar.md",
+          "05_bilissel_araclar.md",
+          "06_gelismis_uygulamalar.md",
+          "07_istem_programlama.md"
+        ],
+        "10_rehberler_sifirdan_bire": [
+          "01_min_istem.ipynb",
+          "02_baglami_genislet.ipynb",
+          "03_kontrol_donguleri.ipynb",
+          "04_rag_tarifleri.ipynb",
+          "05_istem_programlari.ipynb",
+          "06_sema_tasarimi.ipynb",
+          "07_ozyinelemeli_desenler.ipynb"
+        ],
+        "20_sablonlar": [
+          "minimal_baglam.yaml",
+          "kontrol_dongusu.py",
+          "puanlama_fonksiyonlari.py",
+          "istem_program_sablonu.py",
+          "sema_sablonu.yaml",
+          "ozyinelemeli_cerceve.py"
+        ],
+        "30_ornekler": [
+          "00_oyuncak_sohbet_robotu/",
+          "01_veri_isaretleyici/",
+          "02_coklu_ajan_duzenleyici/",
+          "03_bilissel_asistan/",
+          "04_rag_minimal/"
+        ],
+        "40_referans": [
+          "jeton_butceleme.md",
+          "getirme_indeksleme.md",
+          "degerlendirme_kontrol_listesi.md",
+          "bilissel_desenler.md",
+          "sema_yemek_kitabi.md"
+        ],
+        "50_katkilar": ["BENIOKU.md"],
+        "bilissel-araclar": {
+          "BENIOKU.md": "Genel bakış ve hızlı başlangıç kılavuzu",
+          "bilissel-sablonlar": [
+            "anlama.md",
+            "mantik_yurutme.md",
+            "dogrulama.md",
+            "kompozisyon.md"
+          ],
+          "bilissel-programlar": [
+            "temel-programlar.md",
+            "gelismis-programlar.md",
+            "program-kitapligi.py",
+            "program-ornekleri.ipynb"
+          ],
+          "bilissel-semalar": [
+            "kullanici-semalari.md",
+            "alan-semalari.md",
+            "gorev-semalari.md",
+            "sema-kitapligi.yaml"
+          ],
+          "bilissel-mimari": [
+            "cozucu-mimarisi.md",
+            "egitmen-mimarisi.md",
+            "arastirma-mimarisi.md",
+            "mimari-ornekleri.py"
+          ],
+          "entegrasyon": [
+            "rag-ile.md",
+            "bellek-ile.md",
+            "ajanlar-ile.md",
+            "degerlendirme-metrikleri.md"
+          ]
+        },
+        ".github": ["KATKIDA_BULUNMA.md", "workflows/ci.yml"]
+      }
+    }
+  },
+  "designPrinciples": {
+    "karpathyDNA": [
+      "Minimal başla, hızlı tekrarla",
+      "Jeton maliyetini ve gecikmeyi ölç",
+      "Acımasızca sil - budama, doldurmadan iyidir",
+      "Her fikrin çalıştırılabilir kodu vardır"
+    ],
+    "implicitHumility": "Belgeler küçük, net, kod öncelikli kalır; gösteriş yok.",
+    "firstPrinciplesMetaphor": "Atomlar → Moleküller → Hücreler → Organlar → Bilişsel Araçlar",
+    "styleGuide": {
+      "tone": "Sade dilli, samimi, sessizce titiz",
+      "docs": "Satır başına ≤ 80 karakter; diyagramlar isteğe bağlıdır ancak çalıştırılabilir kod tercih edilir",
+      "code": "Python için PEP-8 + tür ipuçları; her genel işlevi 1 satırda yorumlayın"
+    }
+  },
+  "modelInstructions": {
+    "highLevelTasks": [
+      "Mevcut adlandırma düzenini izleyerek eksik not defterlerini veya şablonları doldurun",
+      "Doğrudan öğrenme yoluna eşlenen eğitimler yazın",
+      "Jeton kullanımı ve kalite grafiklerini çıkaran değerlendirme betikleri ekleyin",
+      "50_contrib'deki PR'leri tasarım ilkeleriyle tutarlılık açısından inceleyin"
+    ],
+    "expansionIdeas": [
+      "Gerçek zamanlı pencere budamasını gösteren 'akis_baglami.ipynb' ekleyin",
+      "Jeton sayımı ve maliyet tahmini için 'baglam_denetimi.py' CLI aracı oluşturun",
+      "30_ornekler/03_vscode_yardimcisi/ içinde otomatik puanlama için VS Code uzantısı prototipi oluşturun",
+      "40_referans/desenler.md içinde yaygın bağlam yapıları için bir desen kitaplığı geliştirin",
+      "20_sablonlar/minimal_baglam_*.yaml içinde çok dilli bağlam şablonları oluşturun"
+    ],
+    "scoringRubric": {
+      "clarityScore": "0-1; >0.8 = acemi bir okumada anlar",
+      "tokenEfficiency": "kaydedilen_jetonlar / temel_jetonlar",
+      "latencyPenalty": "1k_jeton_basina_eklenen_ms"
+    }
+  },
+  "contributorWorkflow": {
+    "branchNameRule": "ozellik/<alan>-<kisa-aciklama>",
+    "ciChecklistPath": "40_referans/degerlendirme_kontrol_listesi.md",
+    "requiredReviewers": 1,
+    "license": "MIT"
+  },
+  "completedContent": {
+    "foundation_docs": [
+      {
+        "path": "BENIOKU.md",
+        "status": "tamamlandı",
+        "description": "Ana genel bakış, öğrenme yolu ve proje açıklaması"
+      },
+      {
+        "path": "yapi.md",
+        "status": "tamamlandı",
+        "description": "Depo yapısına genel bakış"
+      },
+      {
+        "path": "00_temeller/01_atomlar_istem.md",
+        "status": "tamamlandı",
+        "description": "Temel atomik istemler ve sınırlılıkları"
+      },
+      {
+        "path": "00_temeller/02_molekuller_baglam.md",
+        "status": "tamamlandı",
+        "description": "Az sayıda örnekle öğrenme ve moleküler bağlam yapıları"
+      },
+      {
+        "path": "00_temeller/03_hucreler_bellek.md",
+        "status": "tamamlandı",
+        "description": "Durum bilgisi olan konuşmalar ve bellek yönetimi"
+      },
+      {
+        "path": "00_temeller/04_organlar_uygulamalar.md",
+        "status": "tamamlandı",
+        "description": "Çoklu ajan sistemleri ve karmaşık uygulamalar"
+      },
+      {
+        "path": "00_temeller/05_bilissel_araclar.md",
+        "status": "tamamlandı",
+        "description": "Bağlam mühendisliği için zihinsel model uzantıları"
+      },
+      {
+        "path": "00_temeller/06_gelismis_uygulamalar.md",
+        "status": "tamamlandı",
+        "description": "Alanlar arasında gerçek dünya uygulamaları"
+      },
+      {
+        "path": "00_temeller/07_istem_programlama.md",
+        "status": "tamamlandı",
+        "description": "Kod benzeri desenler aracılığıyla yapılandırılmış mantık yürütme"
+      }
+    ],
+    "guides": [
+      {
+        "path": "10_rehberler_sifirdan_bire/01_min_istem.py",
+        "status": "tamamlandı",
+        "description": "Minimal istemler için etkileşimli not defteri (Python dosyası olarak)"
+      }
+    ],
+    "templates": [
+      {
+        "path": "20_sablonlar/minimal_baglam.yaml",
+        "status": "tamamlandı",
+        "description": "Bağlam yönetimi için yeniden kullanılabilir şablon"
+      }
+    ],
+    "cognitive_tools": [
+      {
+        "path": "bilissel-araclar/BENIOKU.md",
+        "status": "tamamlandı",
+        "description": "Bilişsel araçlar için genel bakış ve hızlı başlangıç kılavuzu"
+      },
+      {
+        "path": "bilissel-araclar/bilissel-sablonlar/anlama.md",
+        "status": "tamamlandı",
+        "description": "Anlama işlemleri için şablonlar"
+      },
+      {
+        "path": "bilissel-araclar/bilissel-sablonlar/mantik_yurutme.md",
+        "status": "tamamlandı",
+        "description": "Analitik işlemler için şablonlar"
+      },
+      {
+        "path": "bilissel-araclar/bilissel-sablonlar/dogrulama.md",
+        "status": "tamamlandı",
+        "description": "Kontrol ve doğrulama için şablonlar"
+      },
+      {
+        "path": "bilissel-araclar/bilissel-sablonlar/kompozisyon.md",
+        "status": "tamamlandı",
+        "description": "Birden çok aracı birleştirmek için şablonlar"
+      },
+      {
+        "path": "bilissel-araclar/bilissel-programlar/temel-programlar.md",
+        "status": "tamamlandı",
+        "description": "Mantık yürütme için temel program yapıları"
+      }
+    ]
+  },
+  "inProgressContent": {
+    "priority1": [
+      {
+        "path": "bilissel-araclar/bilissel-programlar/gelismis-programlar.md",
+        "status": "beklemede",
+        "description": "Karmaşık mantık yürütme için gelişmiş programlama desenleri"
+      },
+      {
+        "path": "bilissel-araclar/bilissel-programlar/program-kitapligi.py",
+        "status": "beklemede",
+        "description": "Yaygın istem programlarının Python uygulaması"
+      },
+      {
+        "path": "bilissel-araclar/bilissel-semalar/kullanici-semalari.md",
+        "status": "beklemede",
+        "description": "Kullanıcı bilgilerini temsil etmek için şemalar"
+      }
+    ],
+    "priority2": [
+      {
+        "path": "30_ornekler/00_oyuncak_sohbet_robotu/",
+        "status": "beklemede",
+        "description": "Bağlam yönetiminin basit ama eksiksiz bir uygulaması"
+      },
+      {
+        "path": "10_rehberler_sifirdan_bire/02_baglami_genislet.ipynb",
+        "status": "beklemede",
+        "description": "Bağlamı etkili bir şekilde genişletme kılavuzu"
+      }
+    ]
+  },
+  "conceptualFramework": {
+    "biologicalMetaphor": {
+      "atoms": {
+        "description": "Tek, bağımsız talimatlar (temel istemler)",
+        "components": ["görev", "kısıtlamalar", "çıktı formatı"],
+        "limitations": ["bellek yok", "sınırlı gösterim", "yüksek varyans"]
+      },
+      "molecules": {
+        "description": "Örneklerle birleştirilmiş talimatlar (az sayıda örnekle öğrenme)",
+        "components": ["talimat", "örnekler", "bağlam", "yeni girdi"],
+        "patterns": ["ön ek-son ek", "girdi-çıktı çiftleri", "düşünce zinciri"]
+      },
+      "cells": {
+        "description": "Etkileşimler arasında devam eden belleğe sahip bağlam yapıları",
+        "components": ["talimatlar", "örnekler", "bellek/durum", "mevcut girdi"],
+        "strategies": ["pencereleme", "özetleme", "anahtar-değer", "öncelik budaması"]
+      },
+      "organs": {
+        "description": "Karmaşık görevler üzerinde birlikte çalışan çoklu bağlam hücrelerinin koordineli sistemleri",
+        "components": ["düzenleyici", "paylaşılan bellek", "uzman hücreler"],
+        "patterns": ["sıralı", "paralel", "geri bildirim döngüsü", "hiyerarşik"]
+      }
+    },
+    "cognitiveExtension": {
+      "cognitiveTools": {
+        "description": "Belirli mantık yürütme işlemlerini yönlendiren yapılandırılmış istem desenleri",
+        "parallels": ["insan sezgileri", "zihinsel modeller", "bilişsel çerçeveler"],
+        "components": ["şablonlar", "programlar", "şemalar", "mimari"]
+      },
+      "promptPrograms": {
+        "description": "Mantık yürütme süreçlerini düzenleyen kod benzeri yapılar",
+        "parallels": ["algoritmalar", "fonksiyonlar", "kontrol akışı"],
+        "paradigms": ["fonksiyonel", "prosedürel", "nesne yönelimli"]
+      }
+    }
+  },
+  "templates": {
+    "cognitiveTools": {
+      "understanding": {
+        "questionAnalysis": "Görev: Aşağıdaki soruyu analiz edin ve parçalara ayırın...",
+        "informationExtraction": "Görev: Anahtar bilgileri çıkarın ve düzenleyin...",
+        "problemDecomposition": "Görev: Aşağıdaki problemi daha küçük parçalara ayırın..."
+      },
+      "reasoning": {
+        "stepByStep": "Görev: Aşağıdaki problemi parçalara ayırarak çözün...",
+        "compareContrast": "Görev: Benzerlikleri ve farklılıkları analiz edin...",
+        "causalAnalysis": "Görev: İlgili nedenleri ve etkileri analiz edin..."
+      },
+      "verification": {
+        "solutionVerification": "Görev: Aşağıdaki çözümün doğruluğunu doğrulayın...",
+        "factChecking": "Görev: Aşağıdaki ifadenin/ifadelerin doğruluğunu doğrulayın...",
+        "consistencyCheck": "Görev: Aşağıdaki içeriğin iç tutarlılığını kontrol edin..."
+      }
+    },
+    "promptPrograms": {
+      "problemSolver": "fonksiyon problem_cozucu(problem, secenekler = {}) {...}",
+      "stepByStepReasoning": "fonksiyon adim_adim_mantik_yurutme(problem, adimlar = null, secenekler = {}) {...}",
+      "comparativeAnalysis": "fonksiyon karsilastirmali_analiz(ogeler, kriterler = null, secenekler = {}) {...}"
+    }
+  },
+  "researchFoundation": {
+    "keyPapers": [
+      {
+        "title": "Bilişsel Araçlarla Dil Modellerinde Mantık Yürütmeyi Ortaya Çıkarma",
+        "authors": "Brown ve diğerleri",
+        "year": 2025,
+        "reference": "arXiv:2506.12115v1",
+        "findings": [
+          "Bilişsel araçlara sahip modeller, matematiksel mantık yürütme ölçütlerinde temel modellerden %16,6 daha iyi performans gösterdi",
+          "GPT-4.1 bile bilişsel araçları kullanırken önemli bir gelişme gösterdi",
+          "İyileştirme, model boyutları ve mimarileri arasında tutarlıydı"
+        ]
+      },
+      {
+        "title": "Düşünce Zinciri İstemi, Büyük Dil Modellerinde Mantık Yürütmeyi Ortaya Çıkarır",
+        "authors": "Wei ve diğerleri",
+        "year": 2023,
+        "findings": [
+          "Mantık yürütmeyi adımlara ayırmak, karmaşık görevlerde performansı artırır",
+          "Etki, model boyutuyla ölçeklenir"
+        ]
+      }
+    ]
+  },
+  "audit": {
+    "initialCommitHash": "beklemede",
+    "changeLog": [
+      {
+        "date": "2025-06-28",
+        "author": "Bağlam Mühendisliği Katkıda Bulunanları",
+        "changes": [
+          "İlk depo yapısı ve temel belgeler",
+          "Proje genel bakışı ve öğrenme yolu ile BENIOKU.md eklendi",
+          "Atomlardan istem programlamaya kadar temel seriler oluşturuldu",
+          "Şablonlar ve programlarla bilişsel araçlar dizini eklendi",
+          "Bağlam yönetimi için minimal şablonlar oluşturuldu"
+        ]
+      }
+    ],
+    "resonanceScore": 0.92
+  },
+  "timestamp": "2025-06-28T12:00:00Z",
+  "meta": {
+    "agentSignature": "Bağlam Mühendisliği Mimarı",
+    "contact": "GitHub'da sorun açın veya PR gönderin"
+  }
+}

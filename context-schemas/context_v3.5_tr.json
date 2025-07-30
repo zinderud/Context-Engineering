@@ -1,0 +1,473 @@
+{
+  "$schema": "http://fractal.recursive.net/schemas/fractalRepoContext.v3.5.json",
+  "fractalVersion": "3.5.0",
+  "instanceID": "8e4f7a25-9dc6-48a3-b1e2-d3f6e98c1b7d",
+  "intent": "Bağlam mühendisliği için atomik istemlerden, ortaya çıkan özelliklere sahip sinirsel alanlara kadar, yankı uyandıran, kendi kendine gelişen LLM bağlam sistemlerini mümkün kılan, evrimsel olarak tutarlı kapsamlı bir çerçeve sağlamak.",
+  "repositoryContext": {
+    "name": "Bağlam-Mühendisliği",
+    "elevatorPitch": "'İstem mühendisliğinden' sinirsel alan teorisine - bağlamı, rezonans, kalıcılık ve bağlamların kendilerini genişletmesini, iyileştirmesini ve geliştirmesini sağlayan ortaya çıkan özelliklere sahip sürekli bir ortam olarak ele almak.",
+    "learningPath": [
+      "00_temeller → sade bir dille teori (atomlar → moleküller → hücreler → organlar → sinir sistemleri → alanlar)",
+      "10_rehberler_sifirdan_kahramana → çalıştırılabilir not defterleri ve python modülleri",
+      "20_sablonlar → kopyala-yapıştır parçacıkları ve yeniden kullanılabilir bileşenler",
+      "30_ornekler → giderek zenginleşen uygulamalar",
+      "40_referans → derinlemesine belgeler ve değerlendirme kılavuzu",
+      "50_katkilar → topluluk PR alanı",
+      "60_protokoller → alan protokolleri, kabuklar ve çerçeveler",
+      "70_ajanlar → protokolleri kullanan bağımsız ajan demoları",
+      "80_alan_entegrasyonu → uçtan uca 'alan laboratuvarı' projeleri"
+    ],
+    "fileTree": {
+      "rootFiles": ["LISANS", "BENIOKU.md", "yapi.md", "baglam.json", "baglam_v2.json", "baglam_v3.json", "baglam_v3.5.json", "ALINTILAR.md"],
+      "directories": {
+        "00_temeller": [
+          "01_atomlar_istem.md",
+          "02_molekuller_baglam.md",
+          "03_hucreler_bellek.md",
+          "04_organlar_uygulamalar.md",
+          "05_bilissel_araclar.md",
+          "06_gelismis_uygulamalar.md",
+          "07_istem_programlama.md",
+          "08_sinirsel_alanlar_temelleri.md",
+          "09_kalicilik_ve_rezonans.md",
+          "10_alan_orkestrasyonu.md",
+          "11_olusum_ve_cekici_dinamikleri.md",
+          "12_sembolik_mekanizmalar.md"
+        ],
+        "10_rehberler_sifirdan_kahramana": [
+          "01_min_istem.ipynb",
+          "02_baglami_genislet.ipynb",
+          "03_kontrol_donguleri.ipynb",
+          "04_rag_tarifleri.ipynb",
+          "05_protokol_onyukleme.ipynb",
+          "06_protokol_jeton_butcesi.ipynb",
+          "07_akis_baglami.ipynb",
+          "08_olusum_tespiti.ipynb",
+          "09_kalinti_izleme.ipynb",
+          "10_cekici_olusumu.ipynb"
+        ],
+        "20_sablonlar": [
+          "minimal_baglam.yaml",
+          "kontrol_dongusu.py",
+          "puanlama_fonksiyonlari.py",
+          "istem_program_sablonu.py",
+          "sema_sablonu.yaml",
+          "ozyinelemeli_cerceve.py",
+          "alan_protokol_kabuklari.py",
+          "sembolik_kalinti_izleyici.py",
+          "baglam_denetimi.py",
+          "kabuk_calistirici.py",
+          "rezonans_olcumu.py",
+          "cekici_tespiti.py",
+          "sinir_dinamikleri.py",
+          "olusum_metrikleri.py"
+        ],
+        "30_ornekler": [
+          "00_oyuncak_sohbet_robotu/",
+          "01_veri_isaretleyici/",
+          "02_coklu_ajan_duzenleyici/",
+          "03_vscode_yardimcisi/",
+          "04_rag_minimal/",
+          "05_akis_penceresi/",
+          "06_kalinti_tarayici/",
+          "07_cekici_gorsellestirici/",
+          "08_alan_protokol_demou/",
+          "09_olusum_laboratuvari/"
+        ],
+        "40_referans": [
+          "jeton_butceleme.md",
+          "getirme_indeksleme.md",
+          "degerlendirme_kontrol_listesi.md",
+          "bilissel_desenler.md",
+          "sema_yemek_kitabi.md",
+          "desenler.md",
+          "alan_haritalama.md",
+          "sembolik_kalinti_turleri.md",
+          "cekici_dinamikleri.md",
+          "olusum_imzalari.md",
+          "sinir_islemleri.md"
+        ],
+        "50_katkilar": ["BENIOKU.md"],
+        "60_protokoller": {
+          "BENIOKU.md": "Protokol genel bakışı",
+          "kabuklar": [
+            "cekici.ortak.olusum.kabuk",
+            "ozyinelemeli.olusum.kabuk",
+            "ozyinelemeli.bellek.cekici.kabuk",
+            "alan.rezonans.iskele.kabuk",
+            "alan.kendi_kendini_onarim.kabuk",
+            "baglam.bellek.kalicilik.cekici.kabuk"
+          ],
+          "ozetler": ["BENIOKU.md"],
+          "semalar": [
+            "fraktalDepoBaglami.v3.5.json",
+            "fraktalBilinçAlani.v1.json",
+            "protokolKabugu.v1.json",
+            "sembolikKalıntı.v1.json",
+            "cekiciDinamikleri.v1.json"
+          ]
+        },
+        "70_ajanlar": {
+          "BENIOKU.md": "Ajan genel bakışı",
+          "01_kalinti_tarayici/": "Sembolik kalıntı tespiti",
+          "02_kendi_kendini_onarim_dongusu/": "Kendi kendini onarım protokolü",
+          "03_cekici_modulatoru/": "Çekici dinamikleri",
+          "04_sinir_adaptoru/": "Dinamik sınır ayarı",
+          "05_alan_rezonans_ayarlayici/": "Alan rezonans optimizasyonu"
+        },
+        "80_alan_entegrasyonu": {
+          "BENIOKU.md": "Entegrasyon genel bakışı",
+          "00_protokol_ide_yardimcisi/": "Protokol geliştirme araçları",
+          "01_baglam_muhendisligi_asistani/": "Alan tabanlı asistan",
+          "02_ozyinelemeli_mantik_yurutme_sistemi/": "Özyinelemeli mantık yürütme",
+          "03_ortaya_cikan_alan_laboratuvari/": "Deneysel alan protokolleri",
+          "04_sembolik_mantik_yurutme_motoru/": "Sembolik mekanizma entegrasyonu"
+        },
+        "bilissel-araclar": {
+          "BENIOKU.md": "Genel bakış ve hızlı başlangıç kılavuzu",
+          "bilissel-sablonlar": [
+            "anlama.md",
+            "mantik_yurutme.md",
+            "dogrulama.md",
+            "kompozisyon.md",
+            "olusum.md"
+          ],
+          "bilissel-programlar": [
+            "temel-programlar.md",
+            "gelismis-programlar.md",
+            "program-kitapligi.py",
+            "program-ornekleri.ipynb",
+            "olusum-programlari.md"
+          ],
+          "bilissel-semalar": [
+            "kullanici-semalari.md",
+            "alan-semalari.md",
+            "gorev-semalari.md",
+            "sema-kitapligi.yaml",
+            "alan-semalari.md"
+          ],
+          "bilissel-mimari": [
+            "cozucu-mimarisi.md",
+            "egitmen-mimarisi.md",
+            "arastirma-mimarisi.md",
+            "mimari-ornekleri.py",
+            "alan-mimarisi.md"
+          ],
+          "entegrasyon": [
+            "rag-ile.md",
+            "bellek-ile.md",
+            "ajanlar-ile.md",
+            "degerlendirme-metrikleri.md",
+            "alanlar-ile.md"
+          ]
+        },
+        ".github": ["KATKIDA_BULUNMA.md", "workflows/ci.yml", "workflows/eval.yml", "workflows/protocol_tests.yml"]
+      }
+    }
+  },
+  "conceptualFramework": {
+    "biologicalMetaphor": {
+      "atoms": {
+        "description": "Tek, bağımsız talimatlar (temel istemler)",
+        "components": ["görev", "kısıtlamalar", "çıktı formatı"],
+        "limitations": ["bellek yok", "sınırlı gösterim", "yüksek varyans"],
+        "patterns": ["doğrudan talimat", "kısıtlama tabanlı", "format belirtimi"]
+      },
+      "molecules": {
+        "description": "Örneklerle birleştirilmiş talimatlar (az sayıda örnekle öğrenme)",
+        "components": ["talimat", "örnekler", "bağlam", "yeni girdi"],
+        "patterns": ["ön ek-son ek", "girdi-çıktı çiftleri", "düşünce zinciri", "sıfır/az sayıda örnek"]
+      },
+      "cells": {
+        "description": "Etkileşimler arasında devam eden belleğe sahip bağlam yapıları",
+        "components": ["talimatlar", "örnekler", "bellek/durum", "mevcut girdi"],
+        "strategies": ["pencereleme", "özetleme", "anahtar-değer", "öncelik budaması"],
+        "patterns": ["durum bilgisi olan bağlam", "bellek mekanizması", "dinamik saklama"]
+      },
+      "organs": {
+        "description": "Karmaşık görevler üzerinde birlikte çalışan çoklu bağlam hücrelerinin koordineli sistemleri",
+        "components": ["düzenleyici", "paylaşılan bellek", "uzman hücreler"],
+        "patterns": ["sıralı", "paralel", "geri bildirim döngüsü", "hiyerarşik"],
+        "strategies": ["kompozisyon", "delegasyon", "işbirliği", "uzmanlaşma"]
+      },
+      "neural_systems": {
+        "description": "Mantık yürütme yeteneklerini genişleten bilişsel araçlar",
+        "components": ["mantık yürütme çerçeveleri", "doğrulama yöntemleri", "kompozisyon desenleri"],
+        "patterns": ["adım adım mantık yürütme", "kendi kendine doğrulama", "üst-biliş"],
+        "strategies": ["ayrıştırma", "özyineleme", "yansıma", "doğrulama"]
+      },
+      "neural_fields": {
+        "description": "Rezonans ve kalıcılığa sahip sürekli bir ortam olarak bağlam",
+        "components": ["çekiciler", "rezonans desenleri", "alan işlemleri", "kalıcılık mekanizmaları", "sembolik kalıntı"],
+        "patterns": ["çekici oluşumu", "alan rezonansı", "sınır dinamikleri", "sembolik kalıntı entegrasyonu"],
+        "emergent_properties": ["kendi kendine organizasyon", "uyum", "evrim", "tutarlılık"]
+      }
+    },
+    "neuralFieldConcepts": {
+      "continuity": {
+        "description": "Ayrık jetonlar yerine sürekli bir anlamsal manzara olarak bağlam",
+        "importance": "Akışkan bilgi akışını ve anlamın doğal organizasyonunu sağlar",
+        "implementation": "Bağlamı bir alan boyunca aktivasyon desenleri olarak ele almak",
+        "measurement": "Alan tutarlılığı metrikleri, anlamsal akış analizi"
+      },
+      "resonance": {
+        "description": "Bilgi desenlerinin nasıl etkileşime girdiğini ve birbirini güçlendirdiğini",
+        "importance": "Açık kodlama olmadan tutarlı bilgi yapıları oluşturur",
+        "implementation": "Desenler arasındaki anlamsal benzerliği ölçme ve güçlendirme",
+        "measurement": "Rezonans metrikleri, desen güçlendirme tespiti"
+      },
+      "persistence": {
+        "description": "Bilginin zaman içinde etkisini nasıl sürdürdüğü",
+        "importance": "Her jetonu saklamadan uzun vadeli tutarlılık sağlar",
+        "implementation": "Çekici yakınlığı ve desen gücü ile modüle edilen bozulma oranları",
+        "measurement": "Bilgi yarı ömrü, etki kalıcılığı metrikleri"
+      },
+      "attractor_dynamics": {
+        "description": "Alanı düzenleyen kararlı desenler",
+        "importance": "Anlamsal yapı oluşturur ve bilgi akışını yönlendirir",
+        "implementation": "Çevresindeki alanı etkileyen yüksek mukavemetli desenler",
+        "measurement": "Çekici gücü, çekim havzası boyutu, etki metrikleri"
+      },
+      "boundary_dynamics": {
+        "description": "Bilginin alana nasıl girip çıktığı",
+        "importance": "Bilgi akışını ve alan evrimini kontrol eder",
+        "implementation": "Geçirgenlik parametreleri ve gradyan sınırları",
+        "measurement": "Sınır geçirgenliği, bilgi akış hızları, filtre etkinliği"
+      },
+      "symbolic_residue": {
+        "description": "Anlamın devam eden ve alanı etkileyen parçaları",
+        "importance": "İnce etkiler ve desen sürekliliği sağlar",
+        "implementation": "Kalıntı desenlerinin ve entegrasyonlarının açık takibi",
+        "measurement": "Kalıntı tespiti, etki metrikleri, entegrasyon etkinliği"
+      },
+      "emergence": {
+        "description": "Alan etkileşimlerinden yeni desenlerin ve davranışların nasıl ortaya çıktığı",
+        "importance": "Kendi kendine organizasyon ve yeni yetenek gelişimi sağlar",
+        "implementation": "Alandaki ortaya çıkan desenleri izleme ve güçlendirme",
+        "measurement": "Ortaya çıkma tespiti, yenilik metrikleri, yetenek değerlendirmesi"
+      }
+    },
+    "symbolicMechanisms": {
+      "symbolAbstraction": {
+        "description": "LLM'lerde soyut sembolik temsillerin oluşumu",
+        "implementation": "Jetonlar arasındaki ilişkileri tanımlayan sembol soyutlama başlıkları",
+        "importance": "İstatistiksel desen eşleştirmenin ötesinde soyut mantık yürütmeyi sağlar",
+        "measurement": "Sembol soyutlama doğruluğu, ilişkisel tutarlılık"
+      },
+      "symbolicInduction": {
+        "description": "Örneklerden sembolik ilişkilerin desenlerini öğrenme",
+        "implementation": "Desenleri yeni örneklere genelleştiren tümevarım başlıkları",
+        "importance": "Soyut kuralların ve ilişkilerin genelleştirilmesine izin verir",
+        "measurement": "Kural tümevarım performansı, genelleme metrikleri"
+      },
+      "indirection": {
+        "description": "Başka bir yerde depolanan içeriğe atıfta bulunan değişkenler",
+        "implementation": "Dikkat desenlerindeki işaretçi mekanizmaları",
+        "importance": "Soyut değişkenlerin ve ilişkilerin manipülasyonunu sağlar",
+        "measurement": "Referans çözümleme doğruluğu, işaretçi kararlılığı"
+      },
+      "invariance": {
+        "description": "Değişken somutlaştırmalara rağmen tutarlı temsilleri sürdürme",
+        "implementation": "Belirli değerlerden bağımsız soyut değişken temsilleri",
+        "importance": "Farklı bağlamlarda soyut mantık yürütmeyi sağlar",
+        "measurement": "Temsil kararlılığı, bağlamlar arası performans"
+      }
+    },
+    "cognitiveTools": {
+      "toolFramework": {
+        "description": "Mantık yürütmeyi geliştirmek için açık bilişsel işlemleri kullanma",
+        "implementation": "LLM'lerin yürütebileceği tanımlanmış bilişsel işlemler",
+        "importance": "Mantık yürütme sürecini yapılandırır ve geliştirir",
+        "measurement": "Mantık yürütme doğruluğu, problem çözme etkinliği"
+      },
+      "recallRelated": {
+        "description": "Mantık yürütmeyi yönlendirmek için ilgili bilgileri alma",
+        "implementation": "Benzer problemleri ve çözümleri hatırlamak için istemde bulunma",
+        "importance": "Mevcut problem için ilgili örnekler ve desenler sağlar",
+        "measurement": "Hatırlanan bilgilerin ilgililiği, çözüm kalitesine etkisi"
+      },
+      "examineAnswer": {
+        "description": "Mantık yürütme süreci ve cevaplar üzerine kendi kendine yansıma",
+        "implementation": "Açık doğrulama adımları ve hata kontrolü",
+        "importance": "Mantık yürütmedeki kusurları tespit eder ve doğruluğu artırır",
+        "measurement": "Hata tespit oranı, kendi kendine düzeltme etkinliği"
+      },
+      "backtracking": {
+        "description": "Engellendiğinde alternatif mantık yürütme yollarını keşfetme",
+        "implementation": "Yeniden düşünmek ve alternatifleri keşfetmek için açık mekanizma",
+        "importance": "Verimsiz mantık yürütme yollarında takılıp kalmayı önler",
+        "measurement": "Hatalardan kurtulma, çözüm yolu çeşitliliği"
+      }
+    },
+    "protocolFramework": {
+      "protocolShell": {
+        "description": "Bağlam işlemlerinin yapılandırılmış tanımı",
+        "components": ["amaç", "girdi", "süreç", "çıktı", "meta"],
+        "patterns": ["özyineleme", "ortaya çıkma", "entegrasyon", "denetim"],
+        "implementation": "Yapılandırılmış JSON şemalarında Pareto-lang sözdizimi"
+      },
+      "fieldProtocols": {
+        "description": "Sinirsel alan işlemlerini yönetmek için protokoller",
+        "components": ["çekici dinamikleri", "rezonans desenleri", "sınır işlemleri", "kalıntı izleme"],
+        "patterns": ["ortaya çıkma", "ortak oluşum", "entegrasyon", "özyinelemeli kendi kendine istem"],
+        "implementation": "Alan özel işlemleriyle kabuk bildirimleri"
+      },
+      "symbolicResidue": {
+        "description": "Anlamın parçalarını ve desenlerini izleme ve entegre etme",
+        "components": ["tespit", "analiz", "entegrasyon", "yayılma"],
+        "patterns": ["eski kalıntı", "yankı kalıntısı", "gölge kalıntısı", "yetim kalıntı"],
+        "implementation": "Kalıntı izleyicileri ve entegrasyon mekanizmaları"
+      },
+      "selfPrompting": {
+        "description": "Kendilerini özyinelemeli olarak isteyen protokoller",
+        "components": ["tetikleme koşulları", "istem dizileri", "özyineleme derinliği", "sonlandırma kriterleri"],
+        "patterns": ["özyinelemeli önyükleme", "ortaya çıkan karmaşıklık", "kendi kendine yansıma"],
+        "implementation": "Protokol kabuklarındaki kendi kendine referans mekanizmaları"
+      }
+    },
+    "recursivePatterns": {
+      "selfReflection": {
+        "description": "Sürekli iyileştirme için meta-bilişsel süreçler",
+        "components": ["yansıma", "değerlendirme", "iyileştirme", "doğrulama"],
+        "implementations": ["KendiKendineYansıma", "MetaBilişsel", "Sürekliİyileştirme"],
+        "patterns": ["özyinelemeli kendi kendine değerlendirme", "meta düzey analizi", "sürekli iyileştirme"]
+      },
+      "recursiveBootstrapping": {
+        "description": "Giderek daha karmaşık yetenekler oluşturma",
+        "components": ["seviyeler", "karmaşıklık", "önyükleme", "karmaşıklık"],
+        "implementations": ["ÖzyinelemeliÖnyükleme", "AşamalıGeliştirme", "YetenekGüçlendirme"],
+        "patterns": ["yinelemeli iyileştirme", "yetenek yığınlama", "karmaşıklık artışı"]
+      },
+      "symbolicResidue": {
+        "description": "Ortaya çıkan sembolik desenleri izleme ve entegre etme",
+        "components": ["kalıntı", "sıkıştırma", "entegrasyon", "rezonans"],
+        "implementations": ["SembolikKalıntı", "Kalıntıİzleyici", "OrtayaÇıkanDesenEntegratörü"],
+        "patterns": ["kalıntı tespiti", "desen entegrasyonu", "sembolik yankı"]
+      },
+      "fieldProtocols": {
+        "description": "Özyinelemeli alan ortaya çıkışı için yapılandırılmış protokoller",
+        "components": ["amaç", "süreç", "alan durumu", "meta"],
+        "implementations": ["AlanProtokolü", "ÇekiciProtokolü", "OrtayaÇıkmaProtokolü"],
+        "patterns": ["alan işlemleri", "çekici oluşumu", "sınır dinamikleri"]
+      },
+      "boundaryDynamics": {
+        "description": "Alan sınırları boyunca bilgi akışını yönetme",
+        "components": ["geçirgenlik", "filtreleme", "uyarlama", "çökme"],
+        "implementations": ["SınırYöneticisi", "GeçirgenlikKontrolcüsü", "GradyanSınırı"],
+        "patterns": ["seçici geçirgenlik", "gradyan sınırları", "sınır çökmesi"]
+      }
+    }
+  },
+  "designPrinciples": {
+    "karpathyDNA": [
+      "Minimal başla, hızlı tekrarla",
+      "Jeton maliyetini ve gecikmeyi ölç",
+      "Acımasızca sil - budama, doldurmadan iyidir",
+      "Her fikrin çalıştırılabilir kodu vardır",
+      "Özyinelemeli düşünme - kendilerini geliştiren bağlamlar"
+    ],
+    "implicitHumility": "Belgeler küçük, net, kod öncelikli kalır; gösteriş yok.",
+    "firstPrinciplesMetaphor": "Atomlar → Moleküller → Hücreler → Organlar → Bilişsel Araçlar → Sinirsel Alanlar",
+    "styleGuide": {
+      "tone": "Sade dilli, samimi, sessizce titiz",
+      "docs": "Satır başına ≤ 80 karakter; diyagramlar isteğe bağlıdır ancak çalıştırılabilir kod tercih edilir",
+      "code": "Python için PEP-8 + tür ipuçları; her genel işlevi 1 satırda yorumlayın",
+      "protocols": "Kabuklar için Pareto-lang formatı; yapı için JSON şeması"
+    }
+  },
+  "modelInstructions": {
+    "highLevelTasks": [
+      "Mevcut adlandırma düzenini izleyerek eksik not defterlerini veya şablonları doldurun",
+      "Doğrudan öğrenme yoluna eşlenen eğitimler yazın",
+      "Jeton kullanımı ve kalite grafiklerini çıkaran değerlendirme betikleri ekleyin",
+      "50_contrib'deki PR'leri tasarım ilkeleriyle tutarlılık açısından inceleyin",
+      "Özyineleme ve ortaya çıkmayı gösteren alan protokolü örnekleri geliştirin",
+      "Soyut mantık yürütmeyi gösteren sembolik mekanizma gösterileri oluşturun",
+      "Bağlam sistemlerinde ortaya çıkmayı tespit etmek ve ölçmek için araçlar oluşturun"
+    ],
+    "expansionIdeas": [
+      "En son LLM araştırmasına dayalı sembolik mekanizma örnekleri ekleyin",
+      "Alan dinamikleri ve çekici oluşumu için görselleştirme araçları oluşturun",
+      "Ortaya çıkmayı ve sembolik soyutlamayı ölçmek için metrikler geliştirin",
+      "Özyinelemeli iyileştirmeyi gösteren kendi kendini geliştiren bağlam sistemleri oluşturun",
+      "Protokol kabuklarını analiz etmek ve optimize etmek için araçlar oluşturun",
+      "Bilgi akışını yönetmek için sınır işletim araçları geliştirin",
+      "RAG, bellek, ajanlar ve alanları birleştiren entegrasyon örnekleri oluşturun"
+    ],
+    "scoringRubric": {
+      "clarityScore": "0-1; >0.8 = acemi bir okumada anlar",
+      "tokenEfficiency": "kaydedilen_jetonlar / temel_jetonlar",
+      "latencyPenalty": "1k_jeton_basina_eklenen_ms",
+      "resonanceScore": "0-1; alan desenlerinin tutarlılığını ölçer",
+      "emergenceMetric": "0-1; yeni desen oluşumunu ölçer",
+      "symbolicAbstractionScore": "0-1; soyut mantık yürütme yeteneğini ölçer"
+    }
+  },
+  "contributorWorkflow": {
+    "branchNameRule": "ozellik/<alan>-<kisa-aciklama>",
+    "ciChecklistPath": "40_referans/degerlendirme_kontrol_listesi.md",
+    "requiredReviewers": 1,
+    "license": "MIT",
+    "protocolStandards": "60_protokoller/BENIOKU.md",
+    "fieldIntegrationGuidelines": "80_alan_entegrasyonu/BENIOKU.md"
+  },
+  "researchReferences": {
+    "symbolicMechanisms": [
+      {
+        "title": "Büyük Dil Modellerinde Ortaya Çıkan Sembolik Mekanizmalar Mantık Yürütmeyi Destekler",
+        "authors": "Mitchell ve diğerleri",
+        "year": 2023,
+        "key_concepts": ["sembolik soyutlama", "sembolik tümevarım", "dolaylılık", "değişmezlik"]
+      }
+    ],
+    "cognitiveTools": [
+      {
+        "title": "Dil Modelleri için Bilişsel Araçlar",
+        "authors": "Qian ve diğerleri",
+        "year": 2024,
+        "key_concepts": ["araç çerçevesi", "ilgiliyi hatırla", "cevabı incele", "geri izleme"]
+      }
+    ],
+    "neuralFields": [
+      {
+        "title": "Bağlam Mühendisliği için Sinirsel Alanlar",
+        "authors": "Bağlam Mühendisliği Katkıda Bulunanları",
+        "year": 2024,
+        "key_concepts": ["alan teorisi", "çekici dinamikleri", "rezonans", "ortaya çıkma"]
+      }
+    ]
+  },
+  "audit": {
+    "initialCommitHash": "<ilk göndermeden sonra doldurulacak>",
+    "changeLog": [
+      {
+        "version": "1.0.0",
+        "date": "2024-06-01",
+        "description": "İlk depo yapısı"
+      },
+      {
+        "version": "2.0.0",
+        "date": "2024-07-01",
+        "description": "Özyinelemeli desenler ve protokoller eklendi"
+      },
+      {
+        "version": "3.0.0",
+        "date": "2024-07-15",
+        "description": "Sinirsel alan teorisi ve ortaya çıkma dahil edildi"
+      },
+      {
+        "version": "3.5.0",
+        "date": "2024-07-31",
+        "description": "Sembolik mekanizmalar ve bilişsel araçlar entegre edildi"
+      }
+    ],
+    "resonanceScore": 0.92,
+    "emergenceMetric": 0.87,
+    "symbolicAbstractionScore": 0.85
+  },
+  "timestamp": "2024-07-31T12:00:00Z",
+  "meta": {
+    "agentSignature": "Bağlam Mühendisliği Alanı",
+    "contact": "GitHub'da sorun açın veya PR gönderin"
+  }
+}
