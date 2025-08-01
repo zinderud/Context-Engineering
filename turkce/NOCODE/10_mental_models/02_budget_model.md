@@ -1886,7 +1886,7 @@ Yaratıcı bağlamlarda yapı ve keşfi dengeleme:
         {metrik="Yaratıcı kalite", hedef="Kısıtlamalar dahilinde mümkün olan en yüksek", yaklaşım="Etkili mod dengelemesi"},
         {metrik="İşbirlikçi memnuniyet", hedef="Enerji veren ortaklık", yaklaşım="Duyarlı tahsis"},
         {metrik="Proje ilerlemesi", hedef="Sürekli ilerleme", yaklaşım="Dengeli yapı ve keşif"},
-        {metrek="Yaratıcı atılım", hedef="Yeni değerli öğeler", yaklaşım="Yeterli keşif yatırımı"}
+        {metrik="Yaratıcı atılım", hedef="Yeni değerli öğeler", yaklaşım="Yeterli keşif yatırımı"}
     ]
 }
 ```
@@ -1978,7 +1978,7 @@ Bağlam mühendisliği yolculuğunuza devam ederken şu temel ilkeleri aklınız
             aşama="Ustalık",
             özellikler="Şeffaf gerekçeyle sezgisel mükemmellik",
             uygulamalar=["Değer odaklı tahsis", "Dengeli portföy yönetimi", "Stratejik yatırım"],
-            kilometretaşı="Bilinçli açıklama ile bilinçsiz yetkinlik"
+            kilometretaşı="Bilinçsiz yetkinlik ile bilinçli açıklama"
         }
     ],
     
@@ -1998,3 +1998,4 @@ Bağlam mühendisliği yolculuğunuza devam ederken şu temel ilkeleri aklınız
             uygulama="Farklı yaklaşımların kontrollü testi",
             fayda="Genişletilmiş araç seti ve bağlamsal anlama"
         },
+```

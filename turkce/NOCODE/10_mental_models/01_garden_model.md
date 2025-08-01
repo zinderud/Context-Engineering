@@ -1,6 +1,6 @@
-# Bahçe Modeli: Bağlamı Geliştirmek
+# Bahçe Modeli: Bağlam Geliştirme
 
-> *“Bir bahçe harika bir öğretmendir. Sabrı ve dikkatli gözlemciliği öğretir; çalışkanlığı ve tutumluluğu öğretir; her şeyden önce tam bir güveni öğretir.”*
+> *“Bir bahçe harika bir öğretmendir. Sabır ve dikkatli gözlemciliği öğretir; çalışkanlığı ve tutumluluğu öğretir; her şeyden önce tam bir güveni öğretir.”*
 >
 >
 > **— Gertrude Jekyll**
